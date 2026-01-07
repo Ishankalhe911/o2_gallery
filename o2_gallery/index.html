@@ -1,186 +1,212 @@
-import { ArrowRight } from 'lucide-react';
-
-export default function App() {
-  return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="border-b-2 border-gray-800 bg-gray-100">
-        <div className="mx-auto max-w-[1440px] px-8 py-6">
-          <div className="flex items-center justify-between">
-            <div className="h-12 w-48 border-2 border-gray-800 bg-gray-300 flex items-center justify-center">
-              <span className="text-sm font-mono text-gray-600">[LOGO]</span>
-            </div>
-            <nav className="flex gap-8">
-              {['Nav Link 1', 'Nav Link 2', 'Nav Link 3', 'Nav Link 4'].map((link, idx) => (
-                <div key={idx} className="h-8 w-24 border border-gray-600 bg-gray-200 flex items-center justify-center">
-                  <span className="text-xs font-mono text-gray-600">{link}</span>
-                </div>
-              ))}
-            </nav>
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="mx-auto max-w-[1440px] px-8">
-        {/* Section 1: Company Introduction */}
-        <section className="py-16 pb-24 border-b border-gray-300">
-          <div className="grid grid-cols-2 gap-12">
-            {/* Left Column */}
-            <div className="space-y-6">
-              <div className="h-16 border-2 border-gray-800 bg-gray-200 flex items-center px-6">
-                <span className="text-sm font-mono text-gray-700">[Heading - Company Introduction]</span>
-              </div>
-              <div className="space-y-3">
-                <div className="h-4 border border-gray-600 bg-gray-100"></div>
-                <div className="h-4 border border-gray-600 bg-gray-100"></div>
-                <div className="h-4 border border-gray-600 bg-gray-100"></div>
-              </div>
-            </div>
-            {/* Right Column - Image Placeholder */}
-            <div className="border-2 border-gray-800 bg-gray-300 aspect-[16/9] flex items-center justify-center">
-              <span className="text-sm font-mono text-gray-600">[IMAGE PLACEHOLDER]</span>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 2: Mission & Vision */}
-        <section className="py-16 border-b border-gray-300">
-          {/* Section Title */}
-          <div className="text-center mb-10">
-           
-              <span className="text-sm font-mono text-gray-800">[Mission & Vision]</span>
-            </div>
-          
-          
-          {/* Cards Container */}
-          <div className="grid grid-cols-2 gap-16">
-            {/* Mission Card */}
-            <div className="border border-gray-400 p-6">
-              <div className="mb-4 pb-2">
-                <span className="text-xs font-mono text-gray-800">[Mission]</span>
-              </div>
-              <div className="h-3 border border-gray-400 bg-white"></div>
-            </div>
-            
-            {/* Vision Card */}
-            <div className="border border-gray-400 p-6">
-              <div className="mb-4 pb-2">
-                <span className="text-xs font-mono text-gray-800">[Vision]</span>
-              </div>
-              <div className="h-3 border border-gray-400 bg-white"></div>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 3: Urban Problem → O₂ Gallery Solution */}
-        <section className="py-20">
-          <div className="flex items-center gap-8">
-            {/* Left Block - Urban Problem */}
-            <div className="flex-1 border border-gray-400 p-6">
-              <div className="mb-4 pb-2">
-                <span className="text-xs font-mono text-gray-800">[Urban Problem]</span>
-              </div>
-              <div className="space-y-3">
-                <div className="h-3 border border-gray-400 bg-white"></div>
-                <div className="h-3 border border-gray-400 bg-white w-3/4"></div>
-                <div className="h-3 border border-gray-400 bg-white w-3/4"></div>
-              </div>
-            </div>
-            
-            {/* Divider/Arrow */}
-            <div className="flex-shrink-0">
-              <ArrowRight size={24} className="text-gray-400" strokeWidth={1} />
-            </div>
-
-            {/* Right Block - O₂ Gallery Solution */}
-            <div className="flex-1 border border-gray-400 p-6">
-              <div className="mb-4 pb-2">
-                <span className="text-xs font-mono text-gray-800">[O₂ Gallery Solution]</span>
-              </div>
-              <div className="space-y-3">
-                <div className="h-3 border border-gray-400 bg-white"></div>
-                <div className="h-3 border border-gray-400 bg-white w-3/4"></div>
-                <div className="h-3 border border-gray-400 bg-white w-3/4"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 4: Our Values */}
-        <section className="py-20">
-          {/* Section Title */}
-          <div className="text-center mb-10">
-            <span className="text-base font-mono text-gray-800 tracking-wide">[Our Values]</span>
-          </div>
-          
-          {/* Cards Container */}
-          <div className="grid grid-cols-4 gap-6">
-            {[1, 2, 3, 4].map((num) => (
-              <div key={num} className="border border-gray-400 p-6">
-                {/* Icon Placeholder - Small */}
-                <div className="w-8 h-8 border border-gray-400 bg-white mb-4 mx-auto flex items-center justify-center">
-                  <span className="text-xs font-mono text-gray-500">[i]</span>
-                </div>
-                {/* Value Title - Dominant */}
-                <div className="mb-3 text-center">
-                  <span className="text-xs font-mono text-gray-800">[Value {num}]</span>
-                </div>
-                {/* Placeholder Text */}
-                <div className="h-3 border border-gray-400 bg-white"></div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Section 5: Who We Serve */}
-        <section className="py-16">
-          {/* Section Title Centered */}
-          <div className="text-center mb-12">
-            <div className="h-14 border-2 border-gray-800 bg-gray-200 flex items-center justify-center mx-auto max-w-md">
-              <span className="text-sm font-mono text-gray-700">[Who We Serve - Section Title]</span>
-            </div>
-          </div>
-          {/* 4 Equal Cards */}
-          <div className="grid grid-cols-4 gap-6">
-            {['Homes', 'Builders', 'CSR', 'Government'].map((category) => (
-              <div key={category} className="border-2 border-gray-800 bg-gray-100 p-8">
-                {/* Icon Placeholder */}
-                <div className="w-20 h-20 border-2 border-gray-700 bg-gray-300 mb-6 mx-auto flex items-center justify-center">
-                  <span className="text-xs font-mono text-gray-600">[ICON]</span>
-                </div>
-                {/* Category Title */}
-                <div className="h-10 border border-gray-700 bg-gray-200 flex items-center justify-center">
-                  <span className="text-xs font-mono text-gray-700">[{category}]</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      </main>
-
-      {/* Footer */}
-      <footer className="border-t-2 border-gray-800 bg-gray-100 mt-16">
-        <div className="mx-auto max-w-[1440px] px-8 py-12">
-          <div className="grid grid-cols-4 gap-8 mb-8">
-            {[1, 2, 3, 4].map((col) => (
-              <div key={col}>
-                <div className="h-8 border border-gray-700 bg-gray-200 flex items-center justify-center mb-4">
-                  <span className="text-xs font-mono text-gray-600">[Footer Col {col}]</span>
-                </div>
-                <div className="space-y-2">
-                  {[1, 2, 3].map((item) => (
-                    <div key={item} className="h-6 border border-gray-600 bg-gray-100"></div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="border-t border-gray-600 pt-6">
-            <div className="h-6 border border-gray-600 bg-gray-100 w-64 mx-auto"></div>
-          </div>
-        </div>
-      </footer>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O₂ Gallery</title>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Courier New', monospace; background: white; color: #1f2937; line-height: 1.6; }
+    .container { max-width: 1440px; margin: 0 auto; padding: 0 2rem; }
+    header { border-bottom: 1px solid #d1d5db; background: white; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 2rem; }
+    .logo { height: 2.5rem; width: 11rem; border: 1px solid #9ca3af; display: flex; align-items: center; justify-content: center; }
+    .logo span { font-size: 0.75rem; }
+    nav { display: flex; gap: 2rem; }
+    nav span { font-size: 0.75rem; border-bottom: 1px solid transparent; cursor: pointer; padding-bottom: 0.25rem; transition: border-color 0.2s; }
+    nav span:hover { border-color: #9ca3af; }
+    .lang-toggle { display: flex; gap: 0.5rem; font-size: 0.75rem; }
+    .lang-btn { padding: 0.25rem 0.5rem; border: 1px solid #d1d5db; background: none; cursor: pointer; transition: border-color 0.2s; }
+    .lang-btn.active { border-color: #1f2937; }
+    main { padding: 5rem 2rem 0; }
+    section { padding: 4rem 0; }
+    .border-b { border-bottom: 1px solid #e5e7eb; }
+    .border-t { border-top: 1px solid #e5e7eb; }
+    h1 { font-size: 1.25rem; margin-bottom: 1.5rem; }
+    p { font-size: 0.875rem; margin-bottom: 1rem; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .placeholder { aspect-ratio: 16/9; border: 1px solid #9ca3af; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; }
+    .center-title { text-align: center; margin-bottom: 3rem; }
+    .center-title span { font-size: 0.875rem; letter-spacing: 0.05em; border-bottom: 1px solid #d1d5db; padding-bottom: 0.25rem; display: inline-block; }
+    .card { border: 1px solid #d1d5db; padding: 1.5rem; }
+    .flex-row { display: flex; align-items: center; gap: 2.5rem; }
+    .flex-col { display: flex; flex-direction: column; }
+    .arrow { stroke-width: 1.25; color: #9ca3af; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .value-card { text-align: center; gap: 1rem; }
+    .icon { width: 2rem; height: 2rem; border: 1px solid #d1d5db; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto; }
+    .serve-card { display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; padding: 2rem; }
+    .serve-icon { width: 4rem; height: 4rem; border: 1px solid #d1d5db; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; }
+    footer { border-top: 1px solid #d1d5db; margin-top: 5rem; padding: 3.5rem 2rem; text-align: center; }
+    .text-xs { font-size: 0.75rem; }
+    .text-sm { font-size: 0.875rem; }
+    .tracking-wide { letter-spacing: 0.025em; }
+    @media (max-width: 1024px) { .grid-2, .grid-4, .flex-row { grid-template-columns: 1fr; display: flex; flex-direction: column; gap: 2rem; } nav { display: none; } }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo">
+        <span>O₂ Gallery</span>
+      </div>
+      <nav>
+        <span onclick="scrollToSection('home')">Home</span>
+        <span onclick="scrollToSection('about')">About</span>
+        <span onclick="scrollToSection('mission')">Mission</span>
+        <span onclick="scrollToSection('projects')">Projects</span>
+        <span onclick="scrollToSection('values')">Values</span>
+        <span onclick="scrollToSection('contact')">Contact</span>
+      </nav>
+      <div class="lang-toggle" id="langToggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="hi">HI</button>
+        <button class="lang-btn" data-lang="mr">MR</button>
+      </div>
     </div>
-  );
-}
+  </header>
+
+  <main class="container">
+    <!-- SECTION 1: COMPANY INTRODUCTION -->
+    <section id="about" class="border-b">
+      <div class="grid-2">
+        <div style="gap: 1.5rem;">
+          <h1 id="intro-title">Intro Title</h1>
+          <p id="intro-p1">Intro paragraph 1.</p>
+          <p id="intro-p2">Intro paragraph 2.</p>
+        </div>
+        <div class="placeholder">Project Image</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: MISSION & VISION -->
+    <section id="mission">
+      <div class="center-title">
+        <span id="mission-vision-title">Mission & Vision</span>
+      </div>
+      <div class="grid-2">
+        <div class="card" style="gap: 1rem;">
+          <span class="text-xs" style="font-weight: bold;">Mission</span>
+          <p id="mission-text">Mission text here.</p>
+        </div>
+        <div class="card" style="gap: 1rem;">
+          <span class="text-xs" style="font-weight: bold;">Vision</span>
+          <p id="vision-text">Vision text here.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: URBAN PROBLEM → SOLUTION -->
+    <section id="projects" class="border-t">
+      <div class="flex-row">
+        <div class="flex-1 card" style="gap: 1rem;">
+          <span class="text-xs" style="font-weight: bold;" id="urban-title">Urban Problem</span>
+          <p id="urban-p1">Problem p1.</p>
+          <p id="urban-p2">Problem p2.</p>
+        </div>
+        <svg class="arrow" width="22" height="22" viewBox="0 0 24 24"><use href="#arrow-right"></use></svg>
+        <div class="flex-1 card" style="gap: 1rem;">
+          <span class="text-xs" style="font-weight: bold;" id="solution-title">Our Solution</span>
+          <p id="solution-p1">Solution p1.</p>
+          <p id="solution-p2">Solution p2.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: OUR VALUES -->
+    <section id="values">
+      <div class="center-title">
+        <span class="text-sm tracking-wide" id="values-title">Our Values</span>
+      </div>
+      <div class="grid-4" id="values-grid">
+        <!-- Values cards populated by JS -->
+      </div>
+    </section>
+
+    <!-- SECTION 5: WHO WE SERVE -->
+    <section id="contact" class="border-t">
+      <div class="center-title">
+        <span class="text-sm tracking-wide" id="serve-title">Who We Serve</span>
+      </div>
+      <div class="grid-4" id="serve-grid">
+        <!-- Serve items populated by JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p class="text-xs" id="footer-tagline">Footer tagline.</p>
+      <span class="text-xs" style="color: #6b7280;">© O₂ Gallery Greenery Projects</span>
+    </div>
+  </footer>
+
+  <script src="content.js"></script>
+  <script>
+    let currentLang = 'en';
+
+    // Load content on start
+    function loadContent(lang) {
+      const content = window.content[lang];
+      if (!content) return;
+
+      document.getElementById('intro-title').textContent = content.intro.title;
+      document.getElementById('intro-p1').textContent = content.intro.p1;
+      document.getElementById('intro-p2').textContent = content.intro.p2;
+      document.getElementById('mission-vision-title').textContent = content.missionVisionTitle;
+      document.getElementById('mission-text').textContent = content.mission;
+      document.getElementById('vision-text').textContent = content.vision;
+      document.getElementById('urban-title').textContent = content.urbanProblem.title;
+      document.getElementById('urban-p1').textContent = content.urbanProblem.p1;
+      document.getElementById('urban-p2').textContent = content.urbanProblem.p2;
+      document.getElementById('solution-title').textContent = content.solution.title;
+      document.getElementById('solution-p1').textContent = content.solution.p1;
+      document.getElementById('solution-p2').textContent = content.solution.p2;
+      document.getElementById('values-title').textContent = content.valuesTitle;
+      document.getElementById('serve-title').textContent = content.serveTitle;
+      document.getElementById('footer-tagline').textContent = content.footerTagline;
+
+      // Values grid
+      const valuesGrid = document.getElementById('values-grid');
+      valuesGrid.innerHTML = content.values.map(v => `
+        <div class="card value-card">
+          <div class="icon"><span>●</span></div>
+          <span class="text-xs">${v.title}</span>
+          <p class="text-xs">${v.desc}</p>
+        </div>
+      `).join('');
+
+      // Serve grid
+      const serveGrid = document.getElementById('serve-grid');
+      serveGrid.innerHTML = content.serve.map(item => `
+        <div class="card serve-card">
+          <div class="serve-icon">Icon</div>
+          <span class="text-xs">${item}</span>
+        </div>
+      `).join('');
+    }
+
+    // Language toggle
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentLang = btn.dataset.lang;
+        document.querySelector('.lang-btn.active').classList.remove('active');
+        btn.classList.add('active');
+        loadContent(currentLang);
+      });
+    });
+
+    // Smooth scroll to sections
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Init
+    lucide.createIcons();
+    if (window.content) loadContent('en');
+  </script>
+</body>
+</html>

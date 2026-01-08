@@ -1,0 +1,48 @@
+/* ===============================
+   GLOBAL LAYOUT HELPERS
+================================ */
+
+.flex-1 {
+  flex: 1;
+}
+
+/* ===============================
+   SECTION 3: URBAN → SOLUTION
+   Alignment Fix
+================================ */
+
+#projects .flex-row {
+  display: flex;
+  align-items: stretch; /* KEY FIX */
+}
+
+#projects .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Center arrow vertically between cards */
+#projects .arrow {
+  align-self: center;
+  flex-shrink: 0;
+}
+
+/* Ensure equal visual rhythm */
+#projects .card p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===============================
+   RESPONSIVE SAFETY
+================================ */
+
+@media (max-width: 1024px) {
+  #projects .flex-row {
+    align-items: flex-start;
+  }
+
+  #projects .arrow {
+    transform: rotate(90deg);
+  }
+}

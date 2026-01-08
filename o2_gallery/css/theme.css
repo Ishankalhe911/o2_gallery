@@ -1,5 +1,5 @@
 /* ========================================
-   theme.css FOR O₂ GALLERY GREENERY PROJECTS v2.0
+   theme.css FOR O₂ GALLERY GREENERY PROJECTS v2.1 - FIXED LAYOUT
    Professional • Creative • Breathable • Warm + Hero & Gallery
    Palette: Tree Green #2E7D32, Sky Blue #42A5F5
    ======================================== */
@@ -7,6 +7,7 @@
 /* --- Fonts (Professional yet Warm) --- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
 
+/* --- CSS VARIABLES --- */
 :root {
   --tree-green: #2E7D32;
   --tree-green-dark: #1B5E20;
@@ -22,18 +23,20 @@
   --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --border-radius: 24px;
 }
-html, body { height: 100%; margin: 0; }
-body { min-height: 100vh; display: flex; flex-direction: column; }
 
-
-/* --- Base Typography & Spacing --- */
+/* --- PERFECT FULL HEIGHT LAYOUT (FIXED) --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 120px; }
-main { flex: 1; padding-bottom: 2rem; }
-
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: linear-gradient(135deg, var(--mint-cream) 0%, #E8F5E9 40%, var(--warm-white) 100%);
   color: #1a472a;
@@ -41,7 +44,12 @@ body {
   overflow-x: hidden;
 }
 
-/* --- HERO SECTION (New Full-Screen Impact) --- */
+main {
+  flex: 1;
+  padding-bottom: 3rem;
+}
+
+/* --- HERO SECTION (Full-Screen Impact) --- */
 .hero-section {
   height: 100vh;
   min-height: 600px;
@@ -132,7 +140,18 @@ header {
   box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 
-.header-inner { padding: 1.5rem 0; }
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header-inner { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 1.5rem 0; 
+}
 
 .logo {
   background: linear-gradient(135deg, var(--tree-green), var(--tree-green-light));
@@ -150,7 +169,7 @@ header {
   box-shadow: 0 25px 50px rgba(46,125,50,0.3); 
 }
 
-/* --- Navigation (Creative & Smooth) --- */
+/* --- Navigation --- */
 nav {
   display: flex;
   gap: 2rem;
@@ -188,7 +207,7 @@ nav span:hover {
 
 nav span:hover::before { width: 90%; }
 
-/* --- Language Toggle (Premium Glass) --- */
+/* --- Language Toggle --- */
 .lang-toggle {
   display: flex;
   gap: 0.5rem;
@@ -215,7 +234,7 @@ nav span:hover::before { width: 90%; }
   box-shadow: var(--warm-shadow);
 }
 
-/* --- Glassmorphism Cards (Elevated Design) --- */
+/* --- Glassmorphism Cards --- */
 .card {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
@@ -235,11 +254,7 @@ nav span:hover::before { width: 90%; }
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, 
-    transparent, 
-    rgba(255,255,255,0.5), 
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
   transition: left 0.8s;
 }
 
@@ -251,7 +266,7 @@ nav span:hover::before { width: 90%; }
   border-color: rgba(46,125,50,0.35);
 }
 
-/* --- Section Specific Enhancements --- */
+/* --- Section Specific Styles --- */
 #about .placeholder {
   background: linear-gradient(135deg, #E8F5E9, #C8E6C9, #A5D6A7);
   border: 2px solid rgba(46,125,50,0.25);
@@ -260,43 +275,25 @@ nav span:hover::before { width: 90%; }
   overflow: hidden;
   box-shadow: var(--warm-shadow);
   min-height: 400px;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--tree-green);
 }
 
 #about .placeholder::before {
   content: '🌿 Before & After Projects';
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--tree-green);
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-shadow: 0 2px 10px rgba(255,255,255,0.8);
   z-index: 2;
 }
 
-#about .placeholder::after {
-  content: '';
-  position: absolute;
-  top: -30%;
-  right: -20%;
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(circle, rgba(66,165,245,0.2) 0%, transparent 70%);
-  animation: float 8s ease-in-out infinite;
-}
+#mission .card { border-color: rgba(46,125,50,0.3); }
+#projects .card:nth-child(1) { border-color: rgba(66,165,245,0.4); }
+#projects .card:nth-child(3) { border-color: rgba(46,125,50,0.4); }
 
-/* --- Mission & Vision Cards --- */
-#mission .card {
-  border-color: rgba(46,125,50,0.3);
-}
-
-#mission .card:hover {
-  box-shadow: 0 35px 70px rgba(46,125,50,0.35);
-}
-
-/* --- Problem → Solution Flow --- */
 #projects {
   background: linear-gradient(135deg, rgba(227,242,253,0.3), rgba(232,245,233,0.3));
   border-radius: var(--border-radius);
@@ -304,43 +301,24 @@ nav span:hover::before { width: 90%; }
   margin: 2rem 0;
 }
 
-#projects .card {
-  background: linear-gradient(135deg, rgba(227,242,253,0.8), rgba(232,245,233,0.8));
-}
-
-#projects .card:nth-child(1) { border-color: rgba(66,165,245,0.4); }
-#projects .card:nth-child(3) { border-color: rgba(46,125,50,0.4); }
-
 #projects .arrow {
   stroke-width: 4;
   color: var(--sky-blue);
   filter: drop-shadow(0 6px 12px rgba(66,165,245,0.4));
   transform: scale(1.3);
-  transition: var(--transition);
 }
 
-#projects:hover .arrow { transform: scale(1.5) translateX(10px); }
-
-/* --- Values Grid (Interactive Icons) --- */
-#values .value-card {
-  padding: 3rem 2rem;
-  text-align: center;
-}
-
+#values .value-card { padding: 3rem 2rem; text-align: center; }
 #values .icon {
   background: linear-gradient(135deg, var(--sky-blue), var(--sky-blue-light));
   color: white;
-  width: 5rem;
-  height: 5rem;
+  width: 5rem; height: 5rem;
   border-radius: 50%;
   font-size: 1.8rem;
   font-weight: bold;
   margin: 0 auto 2rem;
   box-shadow: 0 20px 45px rgba(66,165,245,0.5);
-  transition: var(--transition);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
 }
 
 #values .value-card:hover .icon {
@@ -348,7 +326,6 @@ nav span:hover::before { width: 90%; }
   box-shadow: 0 25px 55px rgba(66,165,245,0.6);
 }
 
-/* --- Who We Serve (Premium Icons) --- */
 #contact .serve-card {
   background: linear-gradient(135deg, #E8F5E9, rgba(255,255,255,0.95));
   padding: 3.5rem 2.5rem;
@@ -357,25 +334,16 @@ nav span:hover::before { width: 90%; }
 .serve-icon {
   background: linear-gradient(135deg, var(--tree-green), var(--tree-green-light));
   color: white;
-  width: 7rem;
-  height: 7rem;
+  width: 7rem; height: 7rem;
   border-radius: 50%;
   font-size: 2.5rem;
   font-weight: bold;
   box-shadow: 0 25px 50px rgba(46,125,50,0.5);
-  transition: var(--transition);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   margin-bottom: 2rem;
 }
 
-#contact .serve-card:hover .serve-icon {
-  transform: scale(1.1) rotate(180deg);
-  box-shadow: 0 35px 70px rgba(46,125,50,0.6);
-}
-
-/* --- Center Titles (Gradient Perfection) --- */
+/* --- Center Titles --- */
 .center-title {
   text-align: center;
   margin-bottom: 5rem;
@@ -405,16 +373,16 @@ nav span:hover::before { width: 90%; }
   transform: translateX(-50%);
 }
 
-/* --- Luxurious Footer --- */
-footer { margin-top: auto !important; flex-shrink: 0; }
-
+/* --- PERFECT FOOTER (No White Space) --- */
 footer {
+  margin-top: auto !important;
+  flex-shrink: 0;
+  width: 100%;
   background: linear-gradient(135deg, var(--tree-green), var(--tree-green-dark));
   color: white;
-  padding: 6rem 0 4rem;
+  padding: 4rem 0 2rem;
   position: relative;
   overflow: hidden;
-  margin-top: 8rem;
 }
 
 footer::before {
@@ -428,40 +396,23 @@ footer::before {
   animation: float 30s ease-in-out infinite;
 }
 
-footer p { 
-  font-size: 1.25rem; 
-  margin-bottom: 1.5rem; 
-  opacity: 0.95;
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
 }
 
-footer span { 
-  color: #C8FACC; 
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
+footer p { font-size: 1.25rem; margin-bottom: 1.5rem; opacity: 0.95; }
+footer span { color: #C8FACC; font-size: 0.95rem; opacity: 0.85; }
 
 /* --- Utility Classes --- */
 .text-xs { font-size: 0.9rem; }
 .text-sm { font-size: 1.1rem; }
 .tracking-wide { letter-spacing: 0.03em; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+.flex-row { display: flex; align-items: center; gap: 3rem; }
 
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 3rem;
-  margin: 4rem 0;
-}
-
-.stat-number {
-  font-size: 3.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--tree-green), var(--sky-blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: block;
-}
-
-/* --- WhatsApp Button (Fixed) --- */
+/* --- WhatsApp Button --- */
 .whatsapp-btn {
   position: fixed;
   bottom: 30px;
@@ -476,7 +427,8 @@ footer span {
   font-size: 2rem;
   box-shadow: 0 10px 30px rgba(37,211,102,0.5);
   z-index: 1000;
-  transition: var(--transition);
+  text-decoration: none;
+  color: white;
 }
 
 .whatsapp-btn:hover {
@@ -484,53 +436,7 @@ footer span {
   box-shadow: 0 15px 40px rgba(37,211,102,0.7);
 }
 
-/* --- Responsive Design (Perfect Mobile) --- */
-@media (max-width: 1200px) {
-  .container { padding: 0 3vw; }
-}
-
-@media (max-width: 1024px) {
-  nav { display: none; }
-  .grid-2, .grid-4, .flex-row {
-    grid-template-columns: 1fr !important;
-    display: flex !important;
-    flex-direction: column;
-    gap: 3rem;
-  }
-  .card { padding: 2.5rem 2rem; }
-  #projects { padding: 3rem 2rem; margin: 1.5rem 0; }
-}
-
-@media (max-width: 768px) {
-  body { padding: 0 2vw; }
-  section { padding: 4rem 0 !important; }
-  .hero-section { padding: 2rem 0; min-height: 80vh; }
-  h1 { font-size: 2.5rem; }
-  .center-title span { font-size: 1.3rem; padding: 1.2rem 2rem; }
-  .hero-title { font-size: 2.8rem; }
-  .card { padding: 2rem 1.5rem; }
-}
-
-/* --- Animations (Subtle Entrance) --- */
-section {
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-section:nth-child(1) { animation-delay: 0.2s; }
-section:nth-child(2) { animation-delay: 0.4s; }
-section:nth-child(3) { animation-delay: 0.6s; }
-section:nth-child(4) { animation-delay: 0.8s; }
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* --- Loading State --- */
+/* --- Loading Screen --- */
 .loading {
   position: fixed;
   inset: 0;
@@ -559,3 +465,35 @@ section:nth-child(4) { animation-delay: 0.8s; }
   100% { transform: rotate(360deg); }
 }
 
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+  nav { display: none; }
+  .grid-2, .grid-4, .flex-row {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .card { padding: 2.5rem 2rem; }
+}
+
+@media (max-width: 768px) {
+  section { padding: 4rem 0 !important; }
+  .hero-section { min-height: 80vh; }
+  .hero-title { font-size: 2.8rem; }
+  .card { padding: 2rem 1.5rem; }
+  footer { padding: 3rem 0 1.5rem; }
+}
+
+/* --- Animations --- */
+html { scroll-behavior: smooth; scroll-padding-top: 120px; }
+
+section {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}

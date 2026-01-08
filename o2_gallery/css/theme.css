@@ -160,6 +160,12 @@ h1, h2, h3, h4, h5, h6 {
   transition: var(--transition);
   text-decoration: none;
   display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;          /* IMPORTANT */
+  box-shadow: none; 
 }
 
 .logo:hover { 
@@ -533,6 +539,7 @@ section:not(.hero-section) {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

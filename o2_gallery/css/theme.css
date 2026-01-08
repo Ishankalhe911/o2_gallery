@@ -1,0 +1,210 @@
+/* ========================================
+   THEME.CSS FOR O₂ GALLERY GREENERY PROJECTS
+   Palette: Tree Green #2E7D32, Sky Blue #42A5F5
+   ======================================== */
+
+/* --- Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@500;700&display=swap');
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #F7FCFF; /* very light airy background */
+  color: #374151;
+  line-height: 1.6;
+}
+
+/* --- Headings --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  color: #2E7D32; /* tree green for headings */
+}
+
+/* --- Links & Navigation --- */
+nav span {
+  color: #2E7D32;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+nav span:hover {
+  color: #42A5F5;
+  border-color: #42A5F5;
+}
+
+/* --- Language Toggle Buttons --- */
+.lang-btn {
+  font-family: 'Lato', sans-serif;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #2E7D32;
+  border-radius: 0.5rem;
+  background: #FFFFFF;
+  color: #2E7D32;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.lang-btn.active,
+.lang-btn:hover {
+  background-color: #2E7D32;
+  color: #FFFFFF;
+  border-color: #256629;
+}
+
+/* --- Main Sections --- */
+section {
+  padding: 4rem 0;
+}
+
+/* --- Company Intro --- */
+#about .placeholder {
+  background-color: #E8F5E9; /* soft green placeholder */
+  border: 1px solid #2E7D32;
+  color: #2E7D32;
+  font-weight: 500;
+}
+
+/* --- Mission & Vision Cards --- */
+#mission .card {
+  background-color: #FFFFFF;
+  border: 1px solid #2E7D32;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#mission .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(46, 125, 50, 0.2);
+}
+
+/* --- Urban Problem & Solution --- */
+#projects .card {
+  background-color: #E3F2FD; /* light sky blue */
+  border: 1px solid #42A5F5;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#projects .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(66, 165, 245, 0.2);
+}
+
+#projects .arrow {
+  color: #42A5F5;
+  stroke-width: 2;
+  margin: 0 1rem;
+}
+
+/* --- Values Grid --- */
+#values .card.value-card {
+  background-color: #FFFFFF;
+  border: 1px solid #2E7D32;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#values .card.value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(46, 125, 50, 0.15);
+}
+
+#values .icon {
+  color: #42A5F5;
+  border: 1px solid #42A5F5;
+}
+
+/* --- Who We Serve Grid --- */
+#contact .card.serve-card {
+  background-color: #E8F5E9;
+  border: 1px solid #2E7D32;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#contact .card.serve-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(46, 125, 50, 0.15);
+}
+
+.serve-icon {
+  background-color: #42A5F5;
+  color: #FFFFFF;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  margin: 0 auto 0.5rem;
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #2E7D32;
+  color: #FFFFFF;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+footer span {
+  color: #C8FACC;
+}
+
+/* --- Buttons / Call to Actions (if any) --- */
+button.cta-btn {
+  background-color: #2E7D32;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button.cta-btn:hover {
+  background-color: #256629;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(46, 125, 50, 0.2);
+}
+
+/* --- Misc / Utility --- */
+.center-title span {
+  color: #2E7D32;
+  font-weight: 600;
+  border-bottom: 2px solid #42A5F5;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.tracking-wide {
+  letter-spacing: 0.025em;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .grid-2,
+  .grid-4,
+  .flex-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  nav {
+    display: none;
+  }
+}

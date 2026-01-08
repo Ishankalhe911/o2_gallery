@@ -39,6 +39,10 @@
   align-self: center;
   flex-shrink: 0;
 }
+#projects .arrow {
+  margin: 0 1.5rem; /* creates narrative pause */
+}
+
 
 /* Ensure equal visual rhythm */
 #projects .card p:last-child {
@@ -61,6 +65,7 @@
     transform: rotate(90deg);
   }
 }
+
 
 
 

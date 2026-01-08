@@ -5,70 +5,51 @@
    <link rel="stylesheet" href="css/theme.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>O₂ Gallery - Greenery Projects</title>
+  <title>O₂ Gallery</title>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600" as="style">
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  
-  <!-- Loading Screen -->
-  <div class="loading">
-    <div class="loading-spinner"></div>
-  </div>
-  
   <style>
-    /* Base layout preserved + hero enhancements */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
-      line-height: 1.7; 
-    }
-    .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-    header { position: sticky; top: 0; z-index: 1000; }
-    .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 2rem; }
-    main { padding: 0; } /* Hero takes full viewport */
-    section { padding: 6rem 0; }
-    .border-b { border-bottom: 1px solid rgba(46,125,50,0.15); }
-    .border-t { border-top: 1px solid rgba(46,125,50,0.15); }
+    body { font-family: 'Courier New', monospace; background: white; color: #1f2937; line-height: 1.6; }
+    .container { max-width: 1440px; margin: 0 auto; padding: 0 2rem; }
+    header { border-bottom: 1px solid #d1d5db; background: white; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 2rem; }
+    .logo { height: 2.5rem; width: 11rem; border: 1px solid #9ca3af; display: flex; align-items: center; justify-content: center; }
+    .logo span { font-size: 0.75rem; }
+    nav { display: flex; gap: 2rem; }
+    nav span { font-size: 0.75rem; border-bottom: 1px solid transparent; cursor: pointer; padding-bottom: 0.25rem; transition: border-color 0.2s; }
+    nav span:hover { border-color: #9ca3af; }
+    .lang-toggle { display: flex; gap: 0.5rem; font-size: 0.75rem; }
+    .lang-btn { padding: 0.25rem 0.5rem; border: 1px solid #d1d5db; background: none; cursor: pointer; transition: border-color 0.2s; }
+    .lang-btn.active { border-color: #1f2937; }
+    main { padding: 5rem 2rem 0; }
+    section { padding: 4rem 0; }
+    .border-b { border-bottom: 1px solid #e5e7eb; }
+    .border-t { border-top: 1px solid #e5e7eb; }
+    h1 { font-size: 1.25rem; margin-bottom: 1.5rem; }
+    p { font-size: 0.875rem; margin-bottom: 1rem; }
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-    .flex-row { display: flex; align-items: center; gap: 3rem; }
-    .center-title { text-align: center; margin-bottom: 4rem; }
-    .placeholder { 
-      aspect-ratio: 16/9; border-radius: 20px;
-      display: flex; align-items: center; justify-content: center; 
-      font-size: 1rem; font-weight: 500; 
-      position: relative; overflow: hidden;
-    }
-    .card { padding: 2.5rem; border-radius: 20px; }
-    footer { margin-top: 5rem; padding: 4rem 2rem; text-align: center; }
-    .text-xs { font-size: 0.85rem; }
-    .text-sm { font-size: 1rem; }
+    .placeholder { aspect-ratio: 16/9; border: 1px solid #9ca3af; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; }
+    .center-title { text-align: center; margin-bottom: 3rem; }
+    .center-title span { font-size: 0.875rem; letter-spacing: 0.05em; border-bottom: 1px solid #d1d5db; padding-bottom: 0.25rem; display: inline-block; }
+    .card { border: 1px solid #d1d5db; padding: 1.5rem; }
+    .flex-row { display: flex; align-items: center; gap: 2.5rem; }
+    .flex-col { display: flex; flex-direction: column; }
+    .arrow { stroke-width: 1.25; color: #9ca3af; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .value-card { text-align: center; gap: 1rem; }
+    .icon { width: 2rem; height: 2rem; border: 1px solid #d1d5db; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto; }
+    .serve-card { display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; padding: 2rem; }
+    .serve-icon { width: 4rem; height: 4rem; border: 1px solid #d1d5db; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; }
+    footer { border-top: 1px solid #d1d5db; margin-top: 5rem; padding: 3.5rem 2rem; text-align: center; }
+    .text-xs { font-size: 0.75rem; }
+    .text-sm { font-size: 0.875rem; }
     .tracking-wide { letter-spacing: 0.025em; }
-    
-    /* Mobile */
-    @media (max-width: 1024px) { 
-      .grid-2, .grid-4, .flex-row { 
-        grid-template-columns: 1fr; display: flex; flex-direction: column; gap: 2.5rem; 
-      } 
-      nav { display: none; }
-    }
+    @media (max-width: 1024px) { .grid-2, .grid-4, .flex-row { grid-template-columns: 1fr; display: flex; flex-direction: column; gap: 2rem; } nav { display: none; } }
+   
+
   </style>
 </head>
 <body>
-  <!-- LOADING SCREEN (Auto-hides) -->
-  <div class="loading" id="loadingScreen">
-    <div class="loading-spinner"></div>
-  </div>
-
-  <!-- HERO SECTION (NEW - Full Impact) -->
-  <section class="hero-section">
-    <div class="hero-overlay">
-      <h1 class="hero-title" id="hero-title">Transform Your Space<br>Into Oxygen Paradise</h1>
-      <p class="hero-subtitle" id="hero-subtitle">Balcony • Indoor • Terrace Greenery Solutions for Healthy Urban Living</p>
-      <button class="cta-btn hero-cta" onclick="scrollToSection('about')">Get Free Quote</button>
-    </div>
-  </section>
-
   <!-- HEADER -->
   <header>
     <div class="container header-inner">
@@ -76,11 +57,12 @@
         <span>O₂ Gallery</span>
       </div>
      <nav>
-        <span onclick="scrollToSection('about')">About</span>
-        <span onclick="scrollToSection('projects')">Solutions</span>
-        <span onclick="scrollToSection('values')">Values</span>
-        <span onclick="scrollToSection('contact')">Contact</span>
-      </nav>
+  <span onclick="scrollToSection('about')">About</span>
+  <span onclick="scrollToSection('projects')">Solutions</span>
+  <span onclick="scrollToSection('values')">Values</span>
+  <span onclick="scrollToSection('contact')">Contact</span>
+</nav>
+
       <div class="lang-toggle" id="langToggle">
         <button class="lang-btn active" data-lang="en">EN</button>
         <button class="lang-btn" data-lang="hi">HI</button>
@@ -94,11 +76,11 @@
     <section id="about" class="border-b">
       <div class="grid-2">
         <div style="gap: 1.5rem;">
-          <h1 id="intro-title">O₂ Gallery: Urban Oxygen Revolution</h1>
-          <p id="intro-p1">We specialize in designing and installing oxygen-rich greenery solutions for flats, apartments, offices, and commercial spaces using scientifically selected, air-purifying plants.</p>
-          <p id="intro-p2">Every O₂ Gallery transforms balconies, windows, indoor areas, and terraces into functional green oxygen zones that thrive in Indian climatic conditions with minimal maintenance.</p>
+          <h1 id="intro-title">Intro Title</h1>
+          <p id="intro-p1">Intro paragraph 1.</p>
+          <p id="intro-p2">Intro paragraph 2.</p>
         </div>
-        <div class="placeholder">Real Project Gallery Coming Soon</div>
+        <div class="placeholder">Project Image</div>
       </div>
     </section>
 
@@ -108,32 +90,30 @@
         <span id="mission-vision-title">Mission & Vision</span>
       </div>
       <div class="grid-2">
-        <div class="card">
-          <span class="text-xs" style="font-weight: bold; display: block; margin-bottom: 1rem;" id="mission-title">Mission</span>
-          <p id="mission-text">Bring nature closer to everyday life by creating living oxygen systems that combat urban pollution and enhance indoor air quality.</p>
+        <div class="card" style="gap: 1rem;">
+          <span class="text-xs" style="font-weight: bold;">Mission</span>
+          <p id="mission-text">Mission text here.</p>
         </div>
-        <div class="card">
-          <span class="text-xs" style="font-weight: bold; display: block; margin-bottom: 1rem;" id="vision-title">Vision</span>
-          <p id="vision-text">Every urban home and workspace becomes a self-sustaining oxygen gallery delivering fresh air 24/7.</p>
+        <div class="card" style="gap: 1rem;">
+          <span class="text-xs" style="font-weight: bold;">Vision</span>
+          <p id="vision-text">Vision text here.</p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 3: URBAN PROBLEM → SOLUTION -->
+ <!-- SECTION 3: URBAN PROBLEM → SOLUTION -->
     <section id="projects" class="border-t">
       <div class="flex-row">
-        <div class="card">
-          <span class="text-xs" style="font-weight: bold; display: block; margin-bottom: 1rem;" id="urban-title">Urban Challenge</span>
-          <p id="urban-p1">Shrinking urban spaces, rising pollution, limited fresh air access.</p>
-          <p id="urban-p2">Concrete jungles replacing natural greenery in Indian cities.</p>
+        <div class="flex-1 card" style="gap: 1rem;">
+          <span class="text-xs" style="font-weight: bold;" id="urban-title">Urban Problem</span>
+          <p id="urban-p1">Problem p1.</p>
+          <p id="urban-p2">Problem p2.</p>
         </div>
-        <svg class="arrow" width="30" height="30" viewBox="0 0 24 24">
-          <use href="#arrow-right"></use>
-        </svg>
-        <div class="card">
-          <span class="text-xs" style="font-weight: bold; display: block; margin-bottom: 1rem;" id="solution-title">O₂ Solution</span>
-          <p id="solution-p1">Living oxygen systems for balconies, indoors, and terraces.</p>
-          <p id="solution-p2">Low-maintenance, climate-proof plants delivering fresh air daily.</p>
+        <svg class="arrow" width="22" height="22" viewBox="0 0 24 24"><use href="#arrow-right"></use></svg>
+        <div class="flex-1 card" style="gap: 1rem;">
+          <span class="text-xs" style="font-weight: bold;" id="solution-title">Our Solution</span>
+          <p id="solution-p1">Solution p1.</p>
+          <p id="solution-p2">Solution p2.</p>
         </div>
       </div>
     </section>
@@ -144,9 +124,10 @@
         <span class="text-sm tracking-wide" id="values-title">Our Values</span>
       </div>
       <div class="grid-4" id="values-grid">
-        <!-- Populated by JS -->
+        <!-- Values cards populated by JS -->
       </div>
     </section>
+
 
     <!-- SECTION 5: WHO WE SERVE -->
     <section id="contact" class="border-t">
@@ -154,97 +135,62 @@
         <span class="text-sm tracking-wide" id="serve-title">Who We Serve</span>
       </div>
       <div class="grid-4" id="serve-grid">
-        <!-- Populated by JS -->
+        <!-- Serve items populated by JS -->
       </div>
     </section>
-
-    <!-- WHATSAPP BUTTON (Fixed) -->
-    <a href="https://wa.me/919876543210?text=Hi%20O2%20Gallery!%20Interested%20in%20balcony%20greenery" class="whatsapp-btn" target="_blank">
-      💬
-    </a>
   </main>
 
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p class="text-sm" id="footer-tagline">We don't just plant greenery — we design healthier lifestyles</p>
-      <span class="text-xs">© 2026 O₂ Gallery Greenery Projects | Making cities breathe again</span>
+      <p class="text-xs" id="footer-tagline">Footer tagline.</p>
+      <span class="text-xs" style="color: #6b7280;">© O₂ Gallery Greenery Projects</span>
     </div>
   </footer>
 
   <script src="content.js"></script>
   <script>
-    // Enhanced JS with loading + smooth interactions
     let currentLang = 'en';
 
-    // Hide loading screen after 2s
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('loadingScreen').classList.add('hidden');
-      }, 1500);
-    });
-
-    // Smooth scroll function
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start' 
-      });
-    }
-
-    // Load content (Enhanced with your company data)
+    // Load content on start
     function loadContent(lang) {
-      const content = window.content?.[lang] || defaultContent[lang];
-      
-      // Update static content
-      const elements = {
-        'intro-title': 'intro.title',
-        'intro-p1': 'intro.p1', 
-        'intro-p2': 'intro.p2',
-        'mission-vision-title': 'missionVisionTitle',
-        'mission-text': 'mission',
-        'vision-text': 'vision',
-        'urban-title': 'urbanProblem.title',
-        'urban-p1': 'urbanProblem.p1',
-        'urban-p2': 'urbanProblem.p2',
-        'solution-title': 'solution.title',
-        'solution-p1': 'solution.p1',
-        'solution-p2': 'solution.p2',
-        'values-title': 'valuesTitle',
-        'serve-title': 'serveTitle',
-        'footer-tagline': 'footerTagline'
-      };
+      const content = window.content[lang];
+      if (!content) return;
 
-      Object.entries(elements).forEach(([id, path]) => {
-        const el = document.getElementById(id);
-        if (el && content) {
-          const value = path.split('.').reduce((obj, key) => obj?.[key], content);
-          el.textContent = value || el.textContent;
-        }
-      });
+      document.getElementById('intro-title').textContent = content.intro.title;
+      document.getElementById('intro-p1').textContent = content.intro.p1;
+      document.getElementById('intro-p2').textContent = content.intro.p2;
+      document.getElementById('mission-vision-title').textContent = content.missionVisionTitle;
+      document.getElementById('mission-text').textContent = content.mission;
+      document.getElementById('vision-text').textContent = content.vision;
+      document.getElementById('urban-title').textContent = content.urbanProblem.title;
+      document.getElementById('urban-p1').textContent = content.urbanProblem.p1;
+      document.getElementById('urban-p2').textContent = content.urbanProblem.p2;
+      document.getElementById('solution-title').textContent = content.solution.title;
+      document.getElementById('solution-p1').textContent = content.solution.p1;
+      document.getElementById('solution-p2').textContent = content.solution.p2;
+      document.getElementById('values-title').textContent = content.valuesTitle;
+      document.getElementById('serve-title').textContent = content.serveTitle;
+      document.getElementById('footer-tagline').textContent = content.footerTagline;
 
       // Values grid
       const valuesGrid = document.getElementById('values-grid');
-      if (valuesGrid && content.values) {
-        valuesGrid.innerHTML = content.values.map(v => `
-          <div class="card value-card">
-            <div class="icon">🌿</div>
-            <span class="text-sm">${v.title}</span>
-            <p class="text-xs">${v.desc}</p>
-          </div>
-        `).join('');
-      }
+      valuesGrid.innerHTML = content.values.map(v => `
+        <div class="card value-card">
+          <div class="icon"><span>●</span></div>
+          <span class="text-xs">${v.title}</span>
+          <p class="text-xs">${v.desc}</p>
+        </div>
+      `).join('');
 
       // Serve grid
       const serveGrid = document.getElementById('serve-grid');
-      if (serveGrid && content.serve) {
-        serveGrid.innerHTML = content.serve.map(item => `
-          <div class="card serve-card">
-            <div class="serve-icon">${item.icon || '🏠'}</div>
-            <span class="text-sm">${item}</span>
-          </div>
-        `).join('');
-      }
+      serveGrid.innerHTML = content.serve.map(item => `
+        <div class="card serve-card">
+          <div class="serve-icon">Icon</div>
+          <span class="text-xs">${item}</span>
+        </div>
+      `).join('');
     }
 
     // Language toggle
@@ -257,48 +203,14 @@
       });
     });
 
-    // Default content fallback
-    const defaultContent = {
-      en: {
-        intro: {
-          title: "O₂ Gallery: Urban Oxygen Revolution",
-          p1: "We specialize in designing and installing oxygen-rich greenery solutions for flats, apartments, offices, and commercial spaces using scientifically selected, air-purifying plants.",
-          p2: "Every O₂ Gallery transforms balconies, windows, indoor areas, and terraces into functional green oxygen zones that thrive in Indian climatic conditions with minimal maintenance."
-        },
-        missionVisionTitle: "Mission & Vision",
-        mission: "Bring nature closer to everyday life by creating living oxygen systems that combat urban pollution and enhance indoor air quality.",
-        vision: "Every urban home and workspace becomes a self-sustaining oxygen gallery delivering fresh air 24/7.",
-        urbanProblem: {
-          title: "Urban Challenge",
-          p1: "Shrinking urban spaces, rising pollution, limited fresh air access.",
-          p2: "Concrete jungles replacing natural greenery in Indian cities."
-        },
-        solution: {
-          title: "O₂ Solution",
-          p1: "Living oxygen systems for balconies, indoors, and terraces.",
-          p2: "Low-maintenance, climate-proof plants delivering fresh air daily."
-        },
-        valuesTitle: "Our Values",
-        serveTitle: "Who We Serve",
-        footerTagline: "We don't just plant greenery — we design healthier lifestyles",
-        values: [
-          { title: "Sustainability First", desc: "100% climate-suitable plants" },
-          { title: "Low Maintenance", desc: "Water once per week maximum" },
-          { title: "Climate Proof", desc: "Thrives in 45°C Indian summers" },
-          { title: "Honest Pricing", desc: "Transparent costs, quality execution" }
-        ],
-        serve: [
-          "Balcony Gardens",
-          "Indoor Air Purifiers", 
-          "Office Greenery",
-          "Commercial Projects"
-        ]
-      }
-    };
+    // Smooth scroll to sections
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
 
-    // Initialize
+    // Init
     lucide.createIcons();
-    loadContent('en');
+    if (window.content) loadContent('en');
   </script>
 </body>
 </html>

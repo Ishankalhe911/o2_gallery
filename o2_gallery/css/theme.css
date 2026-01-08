@@ -1,8 +1,4 @@
-/* ========================================
-   theme.css FOR O₂ GALLERY GREENERY PROJECTS v2.1 - FIXED LAYOUT
-   Professional • Creative • Breathable • Warm + Hero & Gallery
-   Palette: Tree Green #2E7D32, Sky Blue #42A5F5
-   ======================================== */
+
 
 /* --- Fonts (Professional yet Warm) --- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
@@ -497,3 +493,4 @@ section {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+

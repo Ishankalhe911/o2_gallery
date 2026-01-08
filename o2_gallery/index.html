@@ -97,32 +97,34 @@
       </div>
     </section>
 
-    <!-- SECTION 3: URBAN PROBLEM → SOLUTION -->
-    <section id="projects" class="border-t">
-      <div class="flex-row">
-        <div class="flex-1 card" style="gap: 1rem;">
-          <span class="text-xs" style="font-weight: bold;" id="urban-title">Urban Problem</span>
-          <p id="urban-p1">Problem p1.</p>
-          <p id="urban-p2">Problem p2.</p>
-        </div>
-        <svg class="arrow" width="22" height="22" viewBox="0 0 24 24"><use href="#arrow-right"></use></svg>
-        <div class="flex-1 card" style="gap: 1rem;">
-          <span class="text-xs" style="font-weight: bold;" id="solution-title">Our Solution</span>
-          <p id="solution-p1">Solution p1.</p>
-          <p id="solution-p2">Solution p2.</p>
-        </div>
-      </div>
-    </section>
+   <!-- SECTION 3: URBAN PROBLEM → SOLUTION -->
+<section id="projects" class="border-t">
+  <div class="problem-solution-row">
 
-    <!-- SECTION 4: OUR VALUES -->
-    <section id="values">
-      <div class="center-title">
-        <span class="text-sm tracking-wide" id="values-title">Our Values</span>
-      </div>
-      <div class="grid-4" id="values-grid">
-        <!-- Values cards populated by JS -->
-      </div>
-    </section>
+    <!-- Urban Problem -->
+    <div class="ps-card">
+      <span class="text-xs ps-title" id="urban-title">Urban Problem</span>
+      <p id="urban-p1">Problem p1.</p>
+      <p id="urban-p2">Problem p2.</p>
+    </div>
+
+    <!-- Arrow -->
+    <div class="ps-arrow">
+      <svg width="22" height="22" viewBox="0 0 24 24">
+        <use href="#arrow-right"></use>
+      </svg>
+    </div>
+
+    <!-- Solution -->
+    <div class="ps-card">
+      <span class="text-xs ps-title" id="solution-title">Our Solution</span>
+      <p id="solution-p1">Solution p1.</p>
+      <p id="solution-p2">Solution p2.</p>
+    </div>
+
+  </div>
+</section>
+
 
     <!-- SECTION 5: WHO WE SERVE -->
     <section id="contact" class="border-t">
@@ -209,4 +211,5 @@
   </script>
 </body>
 </html>
+
 

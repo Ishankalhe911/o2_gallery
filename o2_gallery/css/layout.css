@@ -2,6 +2,16 @@
 /* ===============================
    GLOBAL LAYOUT HELPERS
 ================================ */
+@media (max-width: 1024px) {
+  #projects .flex-row {
+    gap: 1.5rem;
+  }
+
+  #projects .arrow {
+    margin: 0.5rem 0;
+  }
+}
+
 
 
 .flex-1 {
@@ -51,6 +61,7 @@
     transform: rotate(90deg);
   }
 }
+
 
 
 

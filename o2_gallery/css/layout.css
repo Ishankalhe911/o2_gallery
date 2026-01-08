@@ -34,6 +34,9 @@
 #projects .card p:last-child {
   margin-bottom: 0;
 }
+#projects .card:last-child {
+  padding-left: 2rem;
+}
 
 /* ===============================
    RESPONSIVE SAFETY
@@ -48,5 +51,6 @@
     transform: rotate(90deg);
   }
 }
+
 
 

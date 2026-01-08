@@ -1,16 +1,15 @@
-
 /* ===============================
    GLOBAL LAYOUT HELPERS
 ================================ */
 
-
-/* layout.css */
+/* Core container */
 .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
+/* Header & Footer structural centering */
 header,
 footer {
   width: 100%;
@@ -22,6 +21,8 @@ footer > .container {
   align-items: center;
   justify-content: space-between;
 }
+
+/* Footer stacked alignment */
 footer {
   text-align: center;
 }
@@ -33,44 +34,44 @@ footer .container {
   gap: 0.75rem;
 }
 
-
+/* Flex helpers */
 .flex-1 {
   flex: 1;
 }
 
+
 /* ===============================
    SECTION 3: URBAN → SOLUTION
-   Alignment Fix
+   Structural Alignment
 ================================ */
 
 #projects .flex-row {
   display: flex;
-  align-items: stretch; /* KEY FIX */
+  align-items: stretch; /* cards equal height */
 }
 
+/* Cards behave as vertical stacks */
 #projects .card {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
-/* Center arrow vertically between cards */
+/* Narrative arrow — STRUCTURAL, not decorative */
 #projects .arrow {
-  align-self: center;
+  width: 40px;              /* visual dominance */
+  height: 40px;
+  stroke-width: 1.75;       /* clarity without aggression */
+  align-self: center;       /* vertical centering */
   flex-shrink: 0;
-}
-#projects .arrow {
-  margin: 0 2rem; /* creates narrative pause */
+  margin: 0 2.5rem;         /* narrative pause */
 }
 
-
-/* Ensure equal visual rhythm */
+/* Remove extra spacing from last paragraph */
 #projects .card p:last-child {
   margin-bottom: 0;
 }
-#projects .card:last-child {
-  padding-left: 2rem;
-}
+
 
 /* ===============================
    RESPONSIVE SAFETY
@@ -78,24 +79,13 @@ footer .container {
 
 @media (max-width: 1024px) {
   #projects .flex-row {
+    flex-direction: column;
     align-items: flex-start;
-  }
-     #projects .flex-row {
     gap: 1.5rem;
   }
-   
-
 
   #projects .arrow {
-     margin: 0.5rem 0;
+    margin: 0.75rem 0;
     transform: rotate(90deg);
   }
 }
-
-
-
-
-
-
-
-

@@ -40,7 +40,7 @@
   flex-shrink: 0;
 }
 #projects .arrow {
-  margin: 0 1.5rem; /* creates narrative pause */
+  margin: 0 2rem; /* creates narrative pause */
 }
 
 
@@ -65,6 +65,7 @@
     transform: rotate(90deg);
   }
 }
+
 
 
 

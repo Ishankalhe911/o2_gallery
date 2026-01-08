@@ -2,9 +2,6 @@
 /* ===============================
    GLOBAL LAYOUT HELPERS
 ================================ */
-body {
-  background: red !important;
-}
 
 
 .flex-1 {
@@ -51,4 +48,5 @@ body {
     transform: rotate(90deg);
   }
 }
+
 

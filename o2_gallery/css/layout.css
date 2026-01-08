@@ -1,38 +1,5 @@
 /* ===============================
    GLOBAL LAYOUT HELPERS
-================================ */
-
-/* Core container */
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-/* Header & Footer structural centering */
-header,
-footer {
-  width: 100%;
-}
-
-header > .container,
-footer > .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Footer stacked alignment */
-footer {
-  text-align: center;
-}
-
-footer .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-}
 
 /* Flex helpers */
 .flex-1 {
@@ -89,3 +56,4 @@ footer .container {
     transform: rotate(90deg);
   }
 }
+

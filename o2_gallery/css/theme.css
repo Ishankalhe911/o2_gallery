@@ -167,6 +167,13 @@ h1, h2, h3, h4, h5, h6 {
   background: none;          /* IMPORTANT */
   box-shadow: none; 
 }
+.logo img {
+  height: 3rem;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+}
+
 
 .logo:hover { 
   transform: translateY(-3px) scale(1.05); 
@@ -539,6 +546,7 @@ section:not(.hero-section) {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

@@ -71,6 +71,21 @@ window.content = {
 
     footerTagline: 'Designing healthier urban lifestyles through functional greenery and sustainable design.'
   }, 
+  enquiry: {
+  cta: 'Enquire Now',
+  title: 'Start Your Green Journey With Us',
+  subtitle:
+    'Share your details and our team will get in touch with you to understand your space, requirements, and how we can bring oxygen-rich greenery into your environment.',
+  form: {
+    name: 'Your Full Name',
+    email: 'Email Address',
+    phone: 'Contact Number',
+    message:
+      'Tell us about your space, location, and what kind of greenery solution you are looking for.',
+    submit: 'Send Enquiry',
+  },
+},
+
 
 
   hi: {
@@ -131,6 +146,21 @@ window.content = {
       'कॉर्पोरेट और व्यावसायिक स्थान',
       'CSR और सरकारी परियोजनाएँ',
     ],
+    enquiry: {
+  cta: 'पूछताछ करें',
+  title: 'हरियाली की शुरुआत हमारे साथ करें',
+  subtitle:
+    'अपनी जानकारी साझा करें ताकि हमारी टीम आपके स्थान और आवश्यकताओं को समझकर आपसे संपर्क कर सके।',
+  form: {
+    name: 'पूरा नाम',
+    email: 'ईमेल पता',
+    phone: 'संपर्क नंबर',
+    message:
+      'अपने स्थान और आवश्यक हरियाली समाधान के बारे में बताएं।',
+    submit: 'पूछताछ भेजें',
+  },
+},
+
 
     footerTagline:
       'हरियाली के माध्यम से स्वस्थ शहरी जीवन का निर्माण।',
@@ -194,6 +224,21 @@ window.content = {
       'कॉर्पोरेट आणि व्यावसायिक जागा',
       'CSR व सरकारी प्रकल्प',
     ],
+    enquiry: {
+  cta: 'चौकशी करा',
+  title: 'आमच्यासोबत हरियाळीची सुरुवात करा',
+  subtitle:
+    'आपली माहिती द्या, जेणेकरून आमची टीम आपल्या जागेची गरज समजून आपल्याशी संपर्क साधेल.',
+  form: {
+    name: 'पूर्ण नाव',
+    email: 'ईमेल पत्ता',
+    phone: 'संपर्क क्रमांक',
+    message:
+      'आपल्या जागेबद्दल आणि अपेक्षित हरियाळी उपायांबद्दल लिहा.',
+    submit: 'चौकशी पाठवा',
+  },
+},
+
 
     footerTagline:
       'हरियाळीद्वारे आरोग्यदायी शहरी जीवनाची निर्मिती.',

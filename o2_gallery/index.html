@@ -178,6 +178,59 @@
 
   <script src="content.js"></script>
   <script>
+     <script>
+  let currentLang = 'en';
+
+  function getValueByPath(obj, path) {
+    return path.split('.').reduce((acc, key) => acc && acc[key], obj);
+  }
+
+  function renderContent(lang = 'en') {
+    const data = window.content[lang];
+
+    // Text content
+    document.querySelectorAll('[data-content]').forEach(el => {
+      const value = getValueByPath(data, el.dataset.content);
+      if (value) el.textContent = value;
+    });
+  }
+
+  function renderPlaceholders(lang = 'en') {
+    const data = window.content[lang];
+
+    document.querySelectorAll('[data-placeholder]').forEach(el => {
+      const value = getValueByPath(data, el.dataset.placeholder);
+      if (value) el.placeholder = value;
+    });
+  }
+
+  function loadContent(lang = 'en') {
+    currentLang = lang;
+    renderContent(lang);
+    renderPlaceholders(lang);
+  }
+
+  // =========================
+  // ENQUIRY FORM TOGGLE
+  // =========================
+  const enquireBtn = document.getElementById('enquireBtn');
+  const enquirySection = document.getElementById('enquiry');
+
+  enquireBtn.addEventListener('click', () => {
+    enquirySection.classList.remove('hidden');
+    enquirySection.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // =========================
+  // INITIAL LOAD
+  // =========================
+
+
+
+
+
+
+     
     let currentLang = 'en';
 
     // Load content on start
@@ -202,13 +255,6 @@
       document.getElementById('footer-tagline').textContent = content.footerTagline;
 
        
-const enquireBtn = document.getElementById('enquireBtn');
-const enquirySection = document.getElementById('enquiry');
-
-enquireBtn.addEventListener('click', () => {
-  enquirySection.classList.remove('hidden');
-  enquirySection.scrollIntoView({ behavior: 'smooth' });
-});
 
       // Values grid
       const valuesGrid = document.getElementById('values-grid');
@@ -267,6 +313,7 @@ enquireBtn.addEventListener('click', () => {
   </script>
 </body>
 </html>
+
 
 
 

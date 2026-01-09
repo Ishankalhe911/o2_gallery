@@ -164,11 +164,10 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   padding: 0;
-  background: none;          /* IMPORTANT */
-  box-shadow: none; 
+  
 }
 .logo img {
-  height: 3rem;
+  height: 2.5rem;
   max-width: 180px;
   object-fit: contain;
   display: block;
@@ -546,6 +545,7 @@ section:not(.hero-section) {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

@@ -4,28 +4,28 @@ window.content = {
 
     intro: {
       title: 'About O₂ Gallery Greenery Projects',
-      p1: 'O₂ Gallery Greenery Projects focuses on integrating nature into modern urban living through thoughtfully designed greenery solutions. Our approach blends aesthetics, sustainability, and functionality.',
-      p2: 'We work with balconies, windows, indoor spaces, and terraces to create oxygen-rich environments that improve air quality while remaining low-maintenance and climate-appropriate.',
+      p1: 'O₂ Gallery Greenery Projects focuses on integrating greenery into modern urban living through thoughtfully designed oxygen-rich environments.',
+      p2: 'We design and install plant-based systems for homes, apartments, offices, and commercial spaces, ensuring better air quality with minimal maintenance.',
     },
 
     missionVisionTitle: 'Mission & Vision',
 
     mission:
-      'Our mission is to bring greenery closer to everyday urban life by creating functional oxygen zones that improve well-being, comfort, and environmental balance.',
+      'To bring nature closer to everyday urban life by creating functional greenery solutions that improve air quality and well-being.',
 
     vision:
-      'We envision cities where greenery is seamlessly integrated into homes and workplaces, making clean air and healthier living a natural part of urban lifestyles.',
+      'To make oxygen-rich greenery an essential and accessible part of urban homes and workspaces across India.',
 
     urbanProblem: {
       title: 'Urban Problem',
-      p1: 'Rapid urbanization has led to shrinking living spaces, increased pollution levels, and reduced access to natural greenery in daily life.',
-      p2: 'Most homes and offices lack adequate ventilation and green zones, resulting in poor air quality and increased health concerns.',
+      p1: 'Urban living spaces are shrinking while pollution levels continue to rise, reducing access to clean and breathable air.',
+      p2: 'Most modern buildings lack natural ventilation and greenery, leading to unhealthy indoor environments.',
     },
 
     solution: {
       title: 'O₂ Gallery Solution',
-      p1: 'We design and install living greenery systems using carefully selected, air-purifying plants tailored for Indian climatic conditions.',
-      p2: 'Our solutions are practical, visually pleasing, and require minimal maintenance, making them ideal for modern urban environments.',
+      p1: 'We create living greenery systems using air-purifying plants selected specifically for Indian climatic conditions.',
+      p2: 'Our solutions are visually pleasing, space-efficient, and designed for long-term sustainability with low maintenance.',
     },
 
     valuesTitle: 'Our Values',
@@ -33,19 +33,19 @@ window.content = {
     values: [
       {
         title: 'Sustainability First',
-        desc: 'Every project is designed with long-term environmental impact and resource efficiency in mind.',
+        desc: 'Every design decision prioritizes environmental responsibility and long-term impact.',
       },
       {
         title: 'Practical Design',
-        desc: 'Our greenery systems are easy to maintain and suitable for everyday urban lifestyles.',
+        desc: 'We focus on solutions that fit naturally into everyday urban lifestyles.',
       },
       {
-        title: 'Climate-Suitable Choices',
-        desc: 'We select plant species that thrive naturally in Indian weather conditions.',
+        title: 'Climate Suitable',
+        desc: 'Plant selection and systems are optimized for Indian weather conditions.',
       },
       {
         title: 'Honest Execution',
-        desc: 'Transparent processes, realistic timelines, and quality-focused delivery guide our work.',
+        desc: 'Transparent processes, fair pricing, and realistic delivery timelines.',
       },
     ],
 
@@ -55,98 +55,136 @@ window.content = {
       'Residential Homes & Apartments',
       'Builders & Real Estate Developers',
       'Corporate Offices & Commercial Spaces',
-      'CSR and Public Development Initiatives',
+      'CSR & Government Green Initiatives',
     ],
 
     footerTagline:
-      'Designing healthier lifestyles by bringing nature back into urban spaces.',
+      'Designing healthier lifestyles by reconnecting urban spaces with nature.',
   },
-};
-
 
   hi: {
     nav: ['हमारे बारे में', 'समाधान', 'मूल्य', 'संपर्क'],
 
     intro: {
-      title: 'O₂ गैलरी ग्रीनरी प्रोजेक्ट्स',
-      p1: 'हरियाली कोई विलासिता नहीं बल्कि स्वस्थ जीवन के लिए आवश्यक है।',
-      p2: 'हम घरों और व्यावसायिक स्थानों के लिए ऑक्सीजन-समृद्ध समाधान प्रदान करते हैं।'
+      title: 'O₂ गैलरी ग्रीनरी प्रोजेक्ट्स के बारे में',
+      p1: 'O₂ गैलरी ग्रीनरी प्रोजेक्ट्स आधुनिक शहरी जीवन में हरियाली को जोड़ने के लिए व्यावहारिक और टिकाऊ समाधान प्रदान करता है।',
+      p2: 'हम घरों, अपार्टमेंट्स, ऑफिस और व्यावसायिक स्थानों के लिए ऑक्सीजन-समृद्ध पौधों की प्रणालियाँ डिज़ाइन और इंस्टॉल करते हैं।',
     },
 
     missionVisionTitle: 'मिशन और विज़न',
-    missionLabel: 'मिशन',
-    visionLabel: 'विज़न',
 
-    mission: 'शहरी जीवन में प्रकृति को व्यावहारिक रूप से वापस लाना।',
-    vision: 'हर घर और कार्यस्थल तक स्वच्छ ऑक्सीजन पहुँचाना।',
+    mission:
+      'शहरी जीवन में प्रकृति को वापस लाकर स्वस्थ और संतुलित वातावरण बनाना।',
+
+    vision:
+      'हर शहरी घर और कार्यस्थल में स्वच्छ और ऑक्सीजन-समृद्ध हरियाली को सामान्य बनाना।',
 
     urbanProblem: {
       title: 'शहरी समस्या',
-      p1: 'शहरों में प्रदूषण लगातार बढ़ रहा है।',
-      p2: 'ताज़ी हवा और हरियाली सीमित होती जा रही है।'
+      p1: 'तेजी से बढ़ते शहरीकरण के कारण रहने की जगह कम हो रही है और प्रदूषण बढ़ रहा है।',
+      p2: 'अधिकांश इमारतों में प्राकृतिक हवा और हरियाली की कमी है।',
     },
 
     solution: {
       title: 'O₂ गैलरी समाधान',
-      p1: 'हम जीवंत ऑक्सीजन सिस्टम तैयार करते हैं।',
-      p2: 'कम रखरखाव वाले, टिकाऊ समाधान।'
+      p1: 'हम भारतीय जलवायु के अनुकूल एयर-प्यूरिफाइंग पौधों से जीवित हरियाली सिस्टम बनाते हैं।',
+      p2: 'हमारे समाधान सुंदर, टिकाऊ और कम देखभाल वाले होते हैं।',
     },
 
     valuesTitle: 'हमारे मूल्य',
+
     values: [
-      { title: 'सस्टेनेबिलिटी', desc: 'पर्यावरण के लिए बेहतर।' },
-      { title: 'व्यावहारिकता', desc: 'कम देखभाल की आवश्यकता।' },
-      { title: 'जलवायु अनुकूल', desc: 'भारतीय मौसम के अनुरूप।' },
-      { title: 'ईमानदारी', desc: 'पारदर्शी और भरोसेमंद कार्य।' }
+      {
+        title: 'सस्टेनेबिलिटी',
+        desc: 'पर्यावरण के प्रति ज़िम्मेदार डिज़ाइन और कार्य।',
+      },
+      {
+        title: 'व्यावहारिकता',
+        desc: 'आसान रखरखाव और उपयोग में सरल समाधान।',
+      },
+      {
+        title: 'जलवायु अनुकूल',
+        desc: 'भारतीय मौसम के लिए उपयुक्त पौधों का चयन।',
+      },
+      {
+        title: 'ईमानदारी',
+        desc: 'पारदर्शी प्रक्रिया और भरोसेमंद निष्पादन।',
+      },
     ],
 
     serveTitle: 'हम किसके लिए काम करते हैं',
-    serve: ['घर', 'बिल्डर्स', 'CSR', 'सरकारी प्रोजेक्ट'],
 
-    footerTagline: 'हरियाली से स्वस्थ जीवन।',
-    footerCopyright: '© O₂ गैलरी ग्रीनरी प्रोजेक्ट्स'
+    serve: [
+      'घरेलू मकान और अपार्टमेंट',
+      'बिल्डर्स और डेवलपर्स',
+      'कॉर्पोरेट और व्यावसायिक स्थान',
+      'CSR और सरकारी परियोजनाएँ',
+    ],
+
+    footerTagline:
+      'हरियाली के माध्यम से स्वस्थ शहरी जीवन का निर्माण।',
   },
 
   mr: {
     nav: ['आमच्याबद्दल', 'उपाय', 'मूल्ये', 'संपर्क'],
 
     intro: {
-      title: 'O₂ गॅलरी ग्रीनरी प्रोजेक्ट्स',
-      p1: 'हरियाळी ही लक्झरी नसून निरोगी जीवनासाठी गरज आहे.',
-      p2: 'आम्ही घर आणि व्यावसायिक ठिकाणांसाठी ऑक्सिजन-समृद्ध उपाय देतो.'
+      title: 'O₂ गॅलरी ग्रीनरी प्रोजेक्ट्स बद्दल',
+      p1: 'O₂ गॅलरी ग्रीनरी प्रोजेक्ट्स आधुनिक शहरी जीवनात हरियाळी एकत्र आणण्यासाठी टिकाऊ आणि व्यावहारिक उपाय देतो.',
+      p2: 'आम्ही घरे, अपार्टमेंट्स, ऑफिस आणि व्यावसायिक जागांसाठी ऑक्सिजन-समृद्ध हरियाळी सिस्टीम डिझाइन करतो.',
     },
 
     missionVisionTitle: 'मिशन आणि व्हिजन',
-    missionLabel: 'मिशन',
-    visionLabel: 'व्हिजन',
 
-    mission: 'शहरी जीवनात निसर्ग परत आणणे.',
-    vision: 'प्रत्येक घरात शुद्ध ऑक्सिजन पोहोचवणे.',
+    mission:
+      'शहरी जीवनात निसर्ग पुन्हा आणून आरोग्यदायी आणि संतुलित वातावरण निर्माण करणे.',
+
+    vision:
+      'प्रत्येक शहरी घर आणि कार्यस्थळी शुद्ध व ऑक्सिजन-समृद्ध हरियाळी पोहोचवणे.',
 
     urbanProblem: {
       title: 'शहरी समस्या',
-      p1: 'प्रदूषण वेगाने वाढत आहे.',
-      p2: 'ताजी हवा आणि हरियाळी कमी होत आहे.'
+      p1: 'वेगाने वाढणाऱ्या शहरीकरणामुळे जागा कमी होत असून प्रदूषण वाढत आहे.',
+      p2: 'बहुतेक इमारतींमध्ये नैसर्गिक हवा आणि हरियाळीची कमतरता आहे.',
     },
 
     solution: {
       title: 'O₂ गॅलरी उपाय',
-      p1: 'जिवंत ऑक्सिजन सिस्टीम्स.',
-      p2: 'टिकाऊ आणि सोपी देखभाल.'
+      p1: 'आम्ही भारतीय हवामानास अनुरूप हवा शुद्ध करणाऱ्या वनस्पतींचा वापर करतो.',
+      p2: 'आमचे उपाय आकर्षक, टिकाऊ आणि कमी देखभाल आवश्यक असलेले आहेत.',
     },
 
     valuesTitle: 'आमची मूल्ये',
+
     values: [
-      { title: 'शाश्वतता', desc: 'पर्यावरणपूरक उपाय.' },
-      { title: 'व्यावहारिकता', desc: 'कमी देखभाल.' },
-      { title: 'हवामान अनुरूप', desc: 'भारतीय हवामानासाठी योग्य.' },
-      { title: 'प्रामाणिकता', desc: 'विश्वासार्ह सेवा.' }
+      {
+        title: 'शाश्वतता',
+        desc: 'पर्यावरणपूरक आणि दीर्घकालीन दृष्टिकोन.',
+      },
+      {
+        title: 'व्यावहारिक डिझाइन',
+        desc: 'दैनंदिन वापरासाठी सोपी आणि उपयुक्त रचना.',
+      },
+      {
+        title: 'हवामान अनुरूप',
+        desc: 'भारतीय हवामानासाठी योग्य वनस्पती.',
+      },
+      {
+        title: 'प्रामाणिकता',
+        desc: 'पारदर्शक प्रक्रिया आणि विश्वासार्ह अंमलबजावणी.',
+      },
     ],
 
     serveTitle: 'आम्ही कोणासाठी काम करतो',
-    serve: ['घरे', 'बिल्डर्स', 'CSR', 'सरकारी प्रकल्प'],
 
-    footerTagline: 'हरियाळीद्वारे आरोग्यदायी जीवन.',
-    footerCopyright: '© O₂ गॅलरी ग्रीनरी प्रोजेक्ट्स'
-  }
+    serve: [
+      'घरे आणि अपार्टमेंट्स',
+      'बिल्डर्स व डेव्हलपर्स',
+      'कॉर्पोरेट आणि व्यावसायिक जागा',
+      'CSR व सरकारी प्रकल्प',
+    ],
+
+    footerTagline:
+      'हरियाळीद्वारे आरोग्यदायी शहरी जीवनाची निर्मिती.',
+  },
 };

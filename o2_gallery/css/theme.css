@@ -405,6 +405,17 @@ nav span:hover::before { width: 90%; }
 }
 
 
+#enquiry-cta {
+  margin: 6rem auto 4rem;
+  text-align: center;
+}
+
+#enquiry-cta .btn-primary {
+  font-size: 1rem;
+  padding: 1rem 2.5rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(46, 125, 50, 0.25);
+}
 
 
 /*Form CSS */
@@ -581,6 +592,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

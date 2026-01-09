@@ -70,7 +70,7 @@ window.content = {
     },
 
     footerTagline: 'Designing healthier urban lifestyles through functional greenery and sustainable design.'
-  }
+  }, 
 
 
   hi: {

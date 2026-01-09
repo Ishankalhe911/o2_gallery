@@ -404,6 +404,46 @@ nav span:hover::before { width: 90%; }
   transform: translateX(-50%);
 }
 
+
+
+
+/*Form CSS */
+
+#enquiry h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+#enquiry p {
+  color: var(--muted-text);
+  margin-bottom: 2rem;
+}
+
+#enquiry input,
+#enquiry textarea {
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.08);
+  font-family: inherit;
+}
+
+#enquiry textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.btn-primary {
+  background: var(--primary-green);
+  color: white;
+  padding: 0.9rem 1.6rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+
 /* --- PERFECT FOOTER (STICKS TO LAST INCH - NO WHITE SPACE) --- */
 footer {
   flex-shrink: 0; /* FIXED: Never compresses */
@@ -541,6 +581,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

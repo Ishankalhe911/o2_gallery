@@ -536,15 +536,12 @@ html {
   scroll-padding-top: 120px; 
 }
 
-section:not(.hero-section) {
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
+
 
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

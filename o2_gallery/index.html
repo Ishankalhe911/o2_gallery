@@ -213,11 +213,28 @@
       document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
 
+     function renderContent(lang = 'en') {
+  const data = window.content[lang];
+
+  document.querySelectorAll('[data-content]').forEach(el => {
+    const path = el.dataset.content.split('.');
+    let value = data;
+
+    path.forEach(key => {
+      if (value) value = value[key];
+    });
+
+    if (value) el.textContent = value;
+  });
+}
+
+
     // Init
     lucide.createIcons();
     if (window.content) loadContent('en');
   </script>
 </body>
 </html>
+
 
 

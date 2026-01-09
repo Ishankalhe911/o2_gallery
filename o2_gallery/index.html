@@ -201,6 +201,15 @@
       document.getElementById('serve-title').textContent = content.serveTitle;
       document.getElementById('footer-tagline').textContent = content.footerTagline;
 
+       
+const enquireBtn = document.getElementById('enquireBtn');
+const enquirySection = document.getElementById('enquiry');
+
+enquireBtn.addEventListener('click', () => {
+  enquirySection.classList.remove('hidden');
+  enquirySection.scrollIntoView({ behavior: 'smooth' });
+});
+
       // Values grid
       const valuesGrid = document.getElementById('values-grid');
       valuesGrid.innerHTML = content.values.map(v => `
@@ -258,6 +267,7 @@
   </script>
 </body>
 </html>
+
 
 
 

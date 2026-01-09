@@ -143,7 +143,30 @@
         <!-- Serve items populated by JS -->
       </div>
     </section>
+
+
+     <!-- ENQUIRY CTA -->
+<section id="enquiry-cta" class="container">
+  <button id="enquireBtn" class="btn-primary" data-content="enquiry.cta"></button>
+</section>
+
+<!-- ENQUIRY FORM (hidden by default) -->
+<section id="enquiry" class="container hidden">
+  <h2 data-content="enquiry.title"></h2>
+  <p data-content="enquiry.subtitle"></p>
+
+  <form id="enquiryForm">
+    <input type="text" id="name" data-placeholder="enquiry.form.name" />
+    <input type="email" id="email" data-placeholder="enquiry.form.email" />
+    <input type="tel" id="phone" data-placeholder="enquiry.form.phone" />
+    <textarea id="message" data-placeholder="enquiry.form.message"></textarea>
+
+    <button type="submit" class="btn-primary" data-content="enquiry.form.submit"></button>
+  </form>
+</section>
+
   </main>
+   
 
   <!-- FOOTER -->
   <footer>
@@ -235,6 +258,7 @@
   </script>
 </body>
 </html>
+
 
 
 

@@ -4,50 +4,65 @@ window.content = {
 
     intro: {
       title: 'About O₂ Gallery Greenery Projects',
-      p1: 'At O₂ Gallery Greenery Projects, we believe greenery is not a luxury, but a necessity for healthier urban living.',
-      p2: 'We design and install oxygen-rich greenery solutions for homes, offices, and commercial environments.'
+      p1: 'O₂ Gallery Greenery Projects focuses on integrating nature into modern urban living through thoughtfully designed greenery solutions. Our approach blends aesthetics, sustainability, and functionality.',
+      p2: 'We work with balconies, windows, indoor spaces, and terraces to create oxygen-rich environments that improve air quality while remaining low-maintenance and climate-appropriate.',
     },
 
     missionVisionTitle: 'Mission & Vision',
-    missionLabel: 'Mission',
-    visionLabel: 'Vision',
 
     mission:
-      'To bring nature closer to everyday urban life by creating functional, sustainable green oxygen zones.',
+      'Our mission is to bring greenery closer to everyday urban life by creating functional oxygen zones that improve well-being, comfort, and environmental balance.',
+
     vision:
-      'To make oxygen-rich greenery an integral part of homes and workspaces across urban India.',
+      'We envision cities where greenery is seamlessly integrated into homes and workplaces, making clean air and healthier living a natural part of urban lifestyles.',
 
     urbanProblem: {
       title: 'Urban Problem',
-      p1: 'Urban spaces are shrinking while pollution levels continue to rise.',
-      p2: 'Access to fresh air and natural greenery is becoming increasingly limited.'
+      p1: 'Rapid urbanization has led to shrinking living spaces, increased pollution levels, and reduced access to natural greenery in daily life.',
+      p2: 'Most homes and offices lack adequate ventilation and green zones, resulting in poor air quality and increased health concerns.',
     },
 
     solution: {
       title: 'O₂ Gallery Solution',
-      p1: 'We create living oxygen systems using carefully selected air-purifying plants.',
-      p2: 'Our solutions are designed for Indian climate conditions with low maintenance needs.'
+      p1: 'We design and install living greenery systems using carefully selected, air-purifying plants tailored for Indian climatic conditions.',
+      p2: 'Our solutions are practical, visually pleasing, and require minimal maintenance, making them ideal for modern urban environments.',
     },
 
     valuesTitle: 'Our Values',
+
     values: [
-      { title: 'Sustainability First', desc: 'Eco-friendly systems built for long-term impact.' },
-      { title: 'Practical Design', desc: 'Low-maintenance greenery solutions.' },
-      { title: 'Climate Suitable', desc: 'Optimized for Indian environmental conditions.' },
-      { title: 'Honest Execution', desc: 'Transparent pricing and reliable delivery.' }
+      {
+        title: 'Sustainability First',
+        desc: 'Every project is designed with long-term environmental impact and resource efficiency in mind.',
+      },
+      {
+        title: 'Practical Design',
+        desc: 'Our greenery systems are easy to maintain and suitable for everyday urban lifestyles.',
+      },
+      {
+        title: 'Climate-Suitable Choices',
+        desc: 'We select plant species that thrive naturally in Indian weather conditions.',
+      },
+      {
+        title: 'Honest Execution',
+        desc: 'Transparent processes, realistic timelines, and quality-focused delivery guide our work.',
+      },
     ],
 
     serveTitle: 'Who We Serve',
+
     serve: [
-      'Homes & Apartments',
-      'Builders & Developers',
-      'CSR Initiatives',
-      'Government Projects'
+      'Residential Homes & Apartments',
+      'Builders & Real Estate Developers',
+      'Corporate Offices & Commercial Spaces',
+      'CSR and Public Development Initiatives',
     ],
 
-    footerTagline: 'Designing healthier lifestyles through greenery.',
-    footerCopyright: '© O₂ Gallery Greenery Projects'
+    footerTagline:
+      'Designing healthier lifestyles by bringing nature back into urban spaces.',
   },
+};
+
 
   hi: {
     nav: ['हमारे बारे में', 'समाधान', 'मूल्य', 'संपर्क'],

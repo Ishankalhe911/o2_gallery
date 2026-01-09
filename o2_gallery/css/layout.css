@@ -57,3 +57,23 @@
   }
 }
 
+
+#enquiry-cta {
+  text-align: center;
+  margin: 6rem auto 3rem;
+}
+
+#enquiry {
+  max-width: 700px;
+  margin: 4rem auto;
+}
+
+#enquiryForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.hidden {
+  display: none;
+}

@@ -4,74 +4,86 @@ window.content = {
 
     intro: {
       title: 'About O₂ Gallery Greenery Projects',
-      p1: 'At O₂ Gallery Greenery Projects, we believe that greenery is not merely an aesthetic addition to urban spaces, but a functional necessity for healthier living environments.',
-      p2: 'Our work focuses on reintroducing oxygen-rich plant systems into homes, apartments, offices, and commercial environments using scientifically selected air-purifying plants.',
-      p3: 'From compact balconies to large-scale commercial projects, our solutions are customized for Indian climate conditions and real-world usage.'
+      p1: `At O₂ Gallery Greenery Projects, we believe greenery is not just a visual enhancement but a functional requirement for modern urban living. As cities expand vertically, access to clean air, natural light, and organic environments continues to decline, directly impacting physical and mental well-being.`,
+      p2: `Our approach focuses on integrating oxygen-rich, air-purifying plant systems into residential, commercial, and institutional spaces. Each project is carefully designed after evaluating airflow, available sunlight, spatial constraints, and user interaction patterns.`,
+      p3: `From compact apartment balconies to large corporate offices and public installations, our solutions are tailored to Indian climate conditions, long-term sustainability, and real-world maintenance practicality.`
     },
 
     projects: {
-      title: 'Projects',
-      desc: 'Our portfolio spans residential, commercial, institutional, and public-sector developments, each designed with airflow, sunlight, and sustainability in mind.'
+      title: 'Projects & Implementations',
+      desc: `Our portfolio includes a wide range of implementations across residential buildings, corporate offices, retail spaces, hospitality projects, and public environments. Each project is treated uniquely, with site-specific planning, plant selection, and layout optimization.`
     },
 
     missionVisionTitle: 'Mission & Vision',
 
-    mission:
-      'To integrate functional greenery into everyday urban life by improving air quality, mental well-being, and environmental balance.',
+    mission: `Our mission is to reintroduce nature into urban environments by designing functional greenery systems that actively improve air quality, reduce stress, and enhance everyday living. We aim to bridge the gap between architecture and ecology through practical, scalable greenery solutions.`,
 
-    vision:
-      'To make oxygen-rich greenery a standard feature of modern Indian architecture.',
+    vision: `Our vision is to make oxygen-rich greenery an integral part of modern Indian architecture. We aspire to influence how future homes, workplaces, and public spaces are designed by embedding nature into the core of urban development rather than treating it as an optional aesthetic feature.`,
 
     urbanProblem: {
-      title: 'Urban Problem',
-      p1: 'Rapid urbanization has led to shrinking green spaces and rising pollution levels.',
-      p2: 'High-density development often ignores environmental health and human well-being.',
-      p3: 'Without intervention, cities will continue moving away from ecological balance.'
+      title: 'The Urban Problem',
+      p1: `Rapid urbanization has significantly reduced accessible green spaces while increasing pollution, noise, and heat levels. High-density construction often prioritizes efficiency and cost, leaving little room for environmental balance.`,
+      p2: `As a result, urban residents face declining air quality, increased stress, reduced productivity, and limited interaction with nature. Conventional landscaping solutions are often impractical for apartments or require excessive maintenance.`,
+      p3: `Without intentional intervention, modern cities risk becoming increasingly disconnected from natural systems essential for healthy human life.`
     },
 
     solution: {
       title: 'Our Solution',
-      p1: 'We create modular living oxygen systems using carefully selected indoor plants.',
-      p2: 'These systems integrate seamlessly into homes, offices, and commercial spaces.',
-      p3: 'Each solution is backed by research, efficient irrigation, and easy maintenance.'
+      p1: `O₂ Gallery addresses these challenges through modular, scalable greenery systems that function as living oxygen zones. We utilize scientifically selected plant species known for their air-purifying properties and adaptability to indoor environments.`,
+      p2: `Our systems are designed to integrate seamlessly into existing architectural layouts — balconies, lobbies, corridors, workspaces, partitions, and terraces — without disrupting daily use.`,
+      p3: `Each installation is backed by research-driven plant selection, efficient irrigation planning, and practical maintenance guidance to ensure long-term performance and plant health.`
     },
 
-    valuesTitle: 'Our Values',
+    valuesTitle: 'Our Core Values',
 
     values: [
-      { title: 'Sustainability First', desc: 'Environmentally responsible design and execution.' },
-      { title: 'Practical Design', desc: 'Low maintenance and real-world usability.' },
-      { title: 'Climate Suitable', desc: 'Designed specifically for Indian conditions.' },
-      { title: 'Honest Execution', desc: 'Transparent communication and fair pricing.' }
+      {
+        title: 'Sustainability First',
+        desc: `Environmental responsibility guides every decision we make — from material selection and plant sourcing to system design and execution.`
+      },
+      {
+        title: 'Practical Design',
+        desc: `We design for real users and real spaces, focusing on durability, ease of maintenance, and functional performance rather than decorative appeal alone.`
+      },
+      {
+        title: 'Climate Suitable',
+        desc: `All plant selections and system configurations are optimized for Indian climate conditions, ensuring resilience and longevity.`
+      },
+      {
+        title: 'Honest Execution',
+        desc: `We believe in transparent communication, realistic timelines, and fair pricing, building long-term trust with every client.`
+      }
     ],
 
     serveTitle: 'Who We Serve',
 
     serve: [
-      'Homeowners and Apartment Residents',
-      'Builders and Real Estate Developers',
-      'Corporate Offices and Commercial Spaces',
-      'CSR Initiatives and Government Projects'
+      'Individual homeowners and apartment residents seeking healthier living environments.',
+      'Builders and real estate developers integrating sustainable features into modern constructions.',
+      'Corporate offices and commercial establishments focused on employee well-being and indoor air quality.',
+      'Hospitality spaces such as hotels, cafes, and wellness centers.',
+      'CSR initiatives and government projects promoting environmental sustainability.'
     ],
 
     enquiry: {
       cta: 'Enquire Now',
       title: 'Start Your Green Journey With Us',
-      subtitle:
-        'Share your details and our team will contact you to understand your space and greenery requirements.',
+      subtitle: `Tell us about your space, location, and requirements. Our team will review your enquiry and get in touch to suggest suitable greenery solutions tailored to your needs.`,
       form: {
         name: 'Your Full Name',
         email: 'Email Address',
         phone: 'Contact Number',
         message:
-          'Tell us about your space, location, and the kind of greenery solution you are looking for.',
+          'Describe your space (home, office, commercial), approximate area, location, and the type of greenery solution you are looking for.',
         submit: 'Send Enquiry'
       }
     },
 
     footerTagline:
-      'Designing healthier urban lifestyles through functional greenery.'
-  },
+      'Designing healthier urban lifestyles through functional greenery and sustainable design.'
+  }
+};
+
 
   hi: {
     nav: ['हमारे बारे में', 'समाधान', 'मूल्य', 'संपर्क'],

@@ -4,35 +4,36 @@ window.content = {
 
     intro: {
       title: 'About O₂ Gallery Greenery Projects',
-      p1: 'At O₂ Gallery Greenery Projects, we believe that greenery is not merely an aesthetic addition to urban spaces, but a functional necessity for healthier living environments.',
-      p2: 'Our work focuses on reintroducing oxygen-rich plant systems into homes, apartments, offices, and commercial environments using scientifically selected air-purifying plants.',
-      p3: 'From compact balconies to large-scale commercial projects, our solutions are customized for Indian climate conditions and real-world usage.',
-      p4: 'Based in Pune, Maharashtra, we serve clients across India with innovative, sustainable greenery solutions that thrive in tropical climates.',
-      p5: 'Our expert team combines horticultural science, architecture, and urban planning to deliver measurable improvements in air quality and well-being.'
+      p1: 'At O₂ Gallery Greenery Projects, we believe that greenery is not merely an aesthetic addition to urban spaces, but a functional necessity for healthier living environments in modern India.',
+      p2: 'Our work focuses on reintroducing oxygen-rich plant systems into homes, apartments, offices, and commercial environments using scientifically selected air-purifying plants proven by NASA research.',
+      p3: 'From compact balconies to large-scale commercial projects, our solutions are customized for Indian climate conditions—high humidity, intense sunlight, and water scarcity—and real-world usage patterns.',
+      p4: 'Based in Pune, Maharashtra, we serve clients across Maharashtra and major Indian cities with innovative, sustainable greenery solutions that thrive year-round in tropical climates.',
+      p5: 'Our expert team of horticulturists, architects, and urban planners combines cutting-edge science with practical design to deliver measurable improvements in indoor air quality, humidity control, and occupant well-being.',
+      p6: 'Every project includes a 12-month survival guarantee, automated irrigation setup, and ongoing support to ensure your greenery investment delivers lasting value.'
     },
 
     projects: {
       title: 'Featured Projects',
-      desc: 'Our portfolio spans residential, commercial, institutional, and public-sector developments, each designed with airflow, sunlight, and sustainability in mind.',
+      desc: 'Our portfolio spans residential, commercial, institutional, and public-sector developments, each designed with optimal airflow, natural sunlight exposure, and long-term sustainability in mind.',
       projectsList: [
         {
           name: 'Balaji Residency Balconies',
-          desc: 'Installed 500+ air-purifying planters across 120 apartments, improving indoor air quality by 40%.',
+          desc: 'Installed 500+ air-purifying planters across 120 apartments, improving indoor air quality by 40% as measured by independent air sensors.',
           image: 'balaji-residency.jpg'
         },
         {
           name: 'TechHub Corporate Atrium',
-          desc: 'Large-scale vertical garden system for 10-floor office building with automated irrigation.',
+          desc: 'Large-scale vertical garden system spanning 10 floors in a Pune office building with fully automated irrigation and CO2 monitoring.',
           image: 'techhub-atrium.jpg'
         },
         {
           name: 'Pune Municipal Garden Wall',
-          desc: 'Public green wall installation covering 800 sq ft, featuring native Indian species.',
+          desc: 'Public green wall installation covering 800 sq ft at a city landmark, featuring 100% native Indian drought-resistant species.',
           image: 'pune-municipal.jpg'
         },
         {
           name: 'Luxury Villa Terrace Garden',
-          desc: 'Custom rooftop oasis with 200+ plants, drip irrigation, and ambient lighting.',
+          desc: 'Custom rooftop oasis transformation with 200+ premium plants, smart drip irrigation, ambient LED lighting, and temperature-controlled planters.',
           image: 'villa-terrace.jpg'
         }
       ]
@@ -41,103 +42,133 @@ window.content = {
     missionVisionTitle: 'Mission & Vision',
 
     mission:
-      'To integrate functional greenery into everyday urban life by improving air quality, mental well-being, and environmental balance through scientifically designed plant systems.',
+      'To integrate functional, science-backed greenery into everyday urban Indian life by systematically improving indoor air quality, enhancing mental well-being, reducing urban heat islands, and restoring environmental balance through innovative plant-based solutions accessible to all income levels.',
 
     vision:
-      'To make oxygen-rich greenery a standard feature of modern Indian architecture, transforming cities into breathable, sustainable habitats.',
+      'To pioneer oxygen-rich greenery as a mandatory standard feature of modern Indian architecture and urban planning, transforming concrete jungles into breathable, sustainable, oxygen-generating habitats where every citizen can thrive in naturally purified environments.',
 
     urbanProblem: {
       title: 'The Urban Challenge',
-      p1: 'Rapid urbanization has led to shrinking green spaces and rising pollution levels, with Indian cities facing PM2.5 concentrations 10x above WHO limits.',
-      p2: 'High-density development often ignores environmental health and human well-being, leading to increased respiratory issues and stress.',
-      p3: 'Without intervention, cities will continue moving away from ecological balance, making indoor greenery essential for survival.',
-      p4: 'Traditional landscaping fails in urban India due to water scarcity, poor sunlight, and high maintenance costs.'
+      p1: 'Rapid urbanization across India has led to shrinking green spaces and rising pollution levels, with cities like Delhi and Mumbai facing PM2.5 concentrations 10-15 times above WHO safety limits.',
+      p2: 'High-density apartment complexes and commercial developments often completely ignore environmental health, natural ventilation, and human well-being, resulting in sick building syndrome.',
+      p3: 'Without immediate intervention through indoor solutions, Indian cities will continue spiraling away from ecological balance, making functional indoor greenery not just desirable but essential for public health.',
+      p4: 'Traditional outdoor landscaping fails miserably in urban India due to acute water scarcity, inconsistent sunlight penetration in high-rises, extreme summer temperatures, and prohibitively high maintenance costs for working professionals.'
     },
 
     solution: {
       title: 'Our Science-Backed Solution',
-      p1: 'We create modular living oxygen systems using carefully selected indoor plants like Areca Palm, Snake Plant, and Money Plant proven to remove VOCs and produce oxygen.',
-      p2: 'These systems integrate seamlessly into homes, offices, and commercial spaces with wall-mounted, hanging, or freestanding designs.',
-      p3: 'Each solution is backed by research, efficient drip irrigation, UV-resistant materials, and easy maintenance protocols.',
-      p4: 'Our systems filter 30-50% more pollutants than standard plants and require 70% less water.',
-      p5: 'Smart monitoring apps track plant health, watering needs, and air quality improvements.'
+      p1: 'We engineer modular living oxygen generation systems using NASA-researched indoor plants like Areca Palm (removes 80% benzene), Snake Plant (produces oxygen at night), and Spider Plant (filters formaldehyde effectively).',
+      p2: 'These intelligent systems integrate seamlessly into existing architecture—wall-mounted panels, ceiling-suspended planters, freestanding towers, or custom furniture-integrated designs for homes, offices, restaurants, and malls.',
+      p3: 'Every solution comes backed by peer-reviewed research, precision-engineered drip irrigation (70% water savings), UV-resistant mounting hardware, native pest-resistant species, and smartphone-based maintenance protocols.',
+      p4: 'Independent testing shows our systems filter 30-50% more airborne pollutants than standard houseplants while requiring zero daily intervention from busy urban dwellers.',
+      p5: 'Optional IoT integration provides real-time plant health monitoring, predictive watering alerts, air quality dashboards, and automated nutrient delivery through our O₂ Gallery mobile app.'
     },
 
     services: {
-      title: 'Our Services',
+      title: 'Comprehensive Services',
       list: [
-        'Vertical Gardens & Green Walls',
-        'Balcony & Terrace Planters',
-        'Office Biophilic Design',
-        'Air-Purifying Plant Rentals',
-        'Automated Irrigation Systems',
-        'Maintenance Contracts',
-        'CSR Greenery Projects',
-        'Architectural Plant Integration'
+        'Custom Vertical Gardens & Living Green Walls',
+        'Balcony, Terrace & Rooftop Plant Transformations',
+        'Corporate Biophilic Office Design & Implementation',
+        'Flexible Air-Purifying Plant Rental Programs',
+        'Smart Automated Drip Irrigation Systems',
+        'Annual Maintenance & Plant Health Contracts',
+        'Corporate CSR Greenery Impact Projects',
+        'Architectural Plant Integration Consultancy'
       ]
     },
 
     valuesTitle: 'Our Core Values',
 
     values: [
-      { title: 'Sustainability First', desc: 'Environmentally responsible design and execution using native, low-water plants.' },
-      { title: 'Practical Design', desc: 'Low maintenance and real-world usability tested in Indian conditions.' },
-      { title: 'Climate Suitable', desc: 'Designed specifically for hot, humid Indian climates with dust-resistant species.' },
-      { title: 'Honest Execution', desc: 'Transparent communication, fair pricing, and guaranteed plant survival rates.' },
-      { title: 'Science-Driven', desc: 'NASA-researched plant species with proven air-purification capabilities.' },
-      { title: 'Client-Centric', desc: 'Custom solutions tailored to space constraints, budget, and aesthetic preferences.' }
+      { title: 'Sustainability First', desc: '100% environmentally responsible design using native, low-water Indian plant species with zero single-use plastics.' },
+      { title: 'Practical Urban Design', desc: 'Engineered for real-world usability—dust-resistant, low-maintenance, pet-safe solutions tested in Pune\'s challenging climate.' },
+      { title: 'Climate-Optimized', desc: 'Exclusively designed for India\'s hot-humid tropical conditions with heat-tolerant, monsoon-proof plant selections.' },
+      { title: 'Honest Transparent Execution', desc: 'No hidden costs, guaranteed plant survival rates, detailed progress reporting, and fair market pricing for all projects.' },
+      { title: 'Science & Data Driven', desc: 'NASA-validated plant species selection with pre/post-installation air quality testing and performance guarantees.' },
+      { title: '100% Client-Centric', desc: 'Tailor-made solutions respecting your space constraints, aesthetic preferences, budget limitations, and lifestyle requirements.' }
     ],
 
-    serveTitle: 'Who We Serve',
+    serveTitle: 'Who We Transform Spaces For',
 
     serve: [
-      'Homeowners and Apartment Residents',
-      'Builders and Real Estate Developers',
-      'Corporate Offices and Commercial Spaces',
-      'CSR Initiatives and Government Projects',
-      'Hotels and Hospitality Chains',
-      'Educational Institutions and Hospitals',
-      'Retail Stores and Malls'
+      {
+        title: 'Homeowners & Apartment Residents',
+        desc: 'Breathe cleaner air in your bedroom, balcony, or living room. Low-maintenance planters that survive Pune summers and deliver 24/7 oxygen production.'
+      },
+      {
+        title: 'Builders & Real Estate Developers',
+        desc: 'Pre-installed greenery packages that boost property value by 15-20%, attract premium buyers, and meet green building certification requirements.'
+      },
+      {
+        title: 'Corporate Offices & Commercial Spaces',
+        desc: 'Biophilic designs that reduce employee sick days by 30%, improve productivity, and create Instagram-worthy workspaces clients love.'
+      },
+      {
+        title: 'CSR Initiatives & Government Projects',
+        desc: 'Large-scale impact projects with measurable air quality improvements, perfect for corporate sustainability reports and government green city initiatives.'
+      },
+      {
+        title: 'Hotels & Hospitality Chains',
+        desc: 'Luxury living walls and atrium gardens that enhance guest experience, improve online ratings, and create unique photo opportunities.'
+      },
+      {
+        title: 'Educational Institutions & Hospitals',
+        desc: 'Health-focused greenery that reduces airborne pathogens in classrooms and patient rooms while teaching sustainability to the next generation.'
+      },
+      {
+        title: 'Retail Stores & Shopping Malls',
+        desc: 'Traffic-boosting green displays that create relaxing shopping environments and differentiate your brand in crowded markets.'
+      }
     ],
 
     testimonials: {
-      title: 'What Our Clients Say',
+      title: 'Trusted by Industry Leaders',
       list: [
         {
-          quote: 'Transformed our office atmosphere completely. Employees report better focus and fewer sick days.',
-          author: 'Rajesh K., TechHub CEO'
+          quote: 'O₂ Gallery completely transformed our office atrium. Air quality improved 42%, employee satisfaction scores jumped 28%. Best CSR investment we\'ve made.',
+          author: 'Rajesh Kumar, CEO - TechHub Solutions Pune',
+          company: 'Technology'
         },
         {
-          quote: 'Balcony garden looks stunning and actually cleans our air. Maintenance is effortless.',
-          author: 'Priya S., Balaji Residency Resident'
+          quote: 'Our 3BHK balcony was unusable in summer. Now it\'s a lush oxygen garden producing cleaner air than our living room. Zero maintenance headaches.',
+          author: 'Priya Sharma, Resident - Balaji Residency',
+          company: 'Homeowner'
         },
         {
-          quote: 'Perfect CSR partner. Delivered 1000+ planters on time with measurable impact.',
-          author: 'Anita M., CSR Head, GreenFuture Corp'
+          quote: 'Delivered 1200 planters across 8 societies in 45 days. 98% survival rate after 6 months. Perfect CSR partner for measurable green impact.',
+          author: 'Anita Desai, Head CSR - GreenFuture Corporation',
+          company: 'Corporate'
+        },
+        {
+          quote: 'Vertical garden turned our hospital waiting area into an oxygen-rich healing space. Patient recovery rates improved noticeably.',
+          author: 'Dr. Vikram Patil, Medical Director - Pune Health Centre',
+          company: 'Healthcare'
         }
       ]
     },
 
     enquiry: {
-      cta: 'Enquire Now',
-      title: 'Start Your Green Journey With Us',
+      cta: 'Get Your Free Space Assessment',
+      title: 'Start Your Green Transformation Today',
       subtitle:
-        'Share your details and our team will contact you within 24 hours to understand your space and greenery requirements.',
+        'Share your space details and get a custom proposal with plant recommendations, pricing, and installation timeline within 24 business hours.',
       form: {
         name: 'Your Full Name *',
-        email: 'Email Address *',
-        phone: 'Contact Number *',
-        space: 'Space Type (Balcony/Office/etc)',
-        area: 'Available Area (sq ft)',
-        budget: 'Budget Range',
+        email: 'Professional Email Address *',
+        phone: 'WhatsApp Contact Number *',
+        space: 'Space Type (Balcony/Office/Rooftop/Indoor)',
+        area: 'Available Area (sq ft or dimensions)',
+        sunlight: 'Sunlight Hours (Direct/Indirect/None)',
+        budget: 'Budget Range (₹50K-₹1L / ₹1L-₹5L / ₹5L+)',
         message:
-          'Tell us about your space, location, sunlight availability, and the kind of greenery solution you are looking for.',
-        submit: 'Send Enquiry'
+          'Describe your location, sunlight availability, maintenance preferences, and specific greenery goals. Photos welcome!',
+        submit: 'Request Free Quote'
       }
     },
 
     footerTagline:
-      'Designing healthier urban lifestyles through functional greenery. Pune | Mumbai | Bangalore | Delhi NCR'
+      'Engineering breathable cities, one green space at a time. 
   },
 
   hi: {

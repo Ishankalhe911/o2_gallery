@@ -213,8 +213,14 @@
     let currentLang = 'en';
 
     function getValueByPath(obj, path) {
-      return path.split('.').reduce((acc, key) => acc && acc[key], obj);
-    }
+    if (!obj || !path) return null;
+    
+    // Check if the key exists exactly as a string (e.g., "intro.title")
+    if (obj[path]) return obj[path];
+    
+    // Otherwise, treat it as a nested path (e.g., intro -> title)
+    return path.split('.').reduce((acc, key) => (acc && acc[key] !== undefined) ? acc[key] : null, obj);
+}
 
     function renderContent(lang = 'en') {
       const data = window.content[lang];
@@ -289,6 +295,7 @@
 
 </body>
 </html>
+
 
 
 

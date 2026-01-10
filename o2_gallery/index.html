@@ -192,12 +192,39 @@
    
 
   <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p class="text-xs" id="footer-tagline"></p>
-      <span class="text-xs" style="color: #6b7280;">© O₂ Gallery Greenery Projects</span>
+ <footer>
+  <div class="container">
+    <div class="grid-4" style="text-align: left; margin-bottom: 3rem; gap: 2rem;">
+      <div class="flex-col">
+        <img src="o2gallerylogo1.png" alt="O₂ Gallery" style="height: 1.5rem; width: fit-content; margin-bottom: 1rem;">
+        <p class="text-xs" data-content="footer.aboutText"></p>
+      </div>
+
+      <div class="flex-col">
+        <span class="text-xs" style="font-weight: bold; margin-bottom: 1rem;">Links</span>
+        <p class="text-xs"><span onclick="scrollToSection('about')" style="cursor:pointer">About</span></p>
+        <p class="text-xs"><span onclick="scrollToSection('projects')" style="cursor:pointer">Solutions</span></p>
+        <p class="text-xs"><span onclick="scrollToSection('values')" style="cursor:pointer">Values</span></p>
+      </div>
+
+      <div class="flex-col">
+        <span class="text-xs" style="font-weight: bold; margin-bottom: 1rem;">Contact</span>
+        <p class="text-xs" data-content="footer.phone"></p>
+        <p class="text-xs" data-content="footer.email"></p>
+      </div>
+
+      <div class="flex-col">
+        <span class="text-xs" style="font-weight: bold; margin-bottom: 1rem;">Location</span>
+        <p class="text-xs" data-content="footer.address"></p>
+      </div>
     </div>
-  </footer>
+
+    <div class="border-t" style="padding-top: 2rem;">
+      <p class="text-xs" data-content="footer.tagline" style="margin-bottom: 0.5rem;"></p>
+      <span class="text-xs" style="color: #6b7280;">© 2026 O₂ Gallery Greenery Projects</span>
+    </div>
+  </div>
+</footer>
 
   <script src="content.js"></script>
 <script>
@@ -295,6 +322,7 @@
 
 </body>
 </html>
+
 
 
 

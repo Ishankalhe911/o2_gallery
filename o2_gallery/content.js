@@ -1,141 +1,138 @@
 window.content = {
   en: {
+    // Intro Section
     "intro.title": "About O₂ Gallery Greenery Projects",
     "intro.p1": "At O₂ Gallery Greenery Projects, we believe that greenery is not merely an aesthetic addition to urban spaces, but a functional necessity for healthier living environments in modern India.",
     "intro.p2": "Our work focuses on reintroducing oxygen-rich plant systems into homes, apartments, offices, and commercial environments using scientifically selected air-purifying plants proven by NASA research.",
-    "intro.p3": "From compact balconies to large-scale commercial projects, our solutions are customized for Indian climate conditions—high humidity, intense sunlight, and water scarcity—and real-world usage patterns.",
+    "intro.p3": "From compact balconies to large-scale commercial projects, our solutions are customized for Indian climate conditions—high humidity, intense sunlight, and water scarcity.",
 
+    // Mission & Vision
     "missionVisionTitle": "Mission & Vision",
-    "mission": "To integrate functional, science-backed greenery into everyday urban Indian life by systematically improving indoor air quality, enhancing mental well-being, reducing urban heat islands, and restoring environmental balance through innovative plant-based solutions accessible to all income levels.",
-    "vision": "To pioneer oxygen-rich greenery as a mandatory standard feature of modern Indian architecture and urban planning, transforming concrete jungles into breathable, sustainable, oxygen-generating habitats where every citizen can thrive in naturally purified environments.",
+    "mission": "To integrate functional, science-backed greenery into everyday urban Indian life by systematically improving indoor air quality, enhancing mental well-being, and restoring environmental balance.",
+    "vision": "To pioneer oxygen-rich greenery as a mandatory standard feature of modern Indian architecture, transforming concrete jungles into breathable, sustainable habitats.",
 
+    // Urban Problem → Solution
     "urbanProblem.title": "The Urban Challenge",
-    "urbanProblem.p1": "Rapid urbanization across India has led to shrinking green spaces and rising pollution levels, with cities like Delhi and Mumbai facing PM2.5 concentrations 10-15 times above WHO safety limits.",
-    "urbanProblem.p2": "High-density apartment complexes and commercial developments often completely ignore environmental health, natural ventilation, and human well-being, resulting in sick building syndrome.",
-    "urbanProblem.p3": "Without immediate intervention through indoor solutions, Indian cities will continue spiraling away from ecological balance, making functional indoor greenery not just desirable but essential for public health.",
+    "urbanProblem.p1": "Rapid urbanization across India has led to shrinking green spaces and rising pollution levels, with cities facing PM2.5 concentrations 10-15 times above WHO safety limits.",
+    "urbanProblem.p2": "High-density apartment complexes ignore environmental health, natural ventilation, and human well-being, resulting in sick building syndrome.",
+    "urbanProblem.p3": "Without immediate intervention through indoor solutions, Indian cities will continue spiraling away from ecological balance.",
 
     "solution.title": "Our Science-Backed Solution",
-    "solution.p1": "We engineer modular living oxygen generation systems using NASA-researched indoor plants like Areca Palm (removes 80% benzene), Snake Plant (produces oxygen at night), and Spider Plant (filters formaldehyde effectively).",
-    "solution.p2": "These intelligent systems integrate seamlessly into existing architecture—wall-mounted panels, ceiling-suspended planters, freestanding towers, or custom furniture-integrated designs for homes, offices, restaurants, and malls.",
-    "solution.p3": "Every solution comes backed by peer-reviewed research, precision-engineered drip irrigation (70% water savings), UV-resistant mounting hardware, native pest-resistant species, and smartphone-based maintenance protocols.",
+    "solution.p1": "We engineer modular living oxygen generation systems using NASA-researched indoor plants like Areca Palm, Snake Plant, and Spider Plant.",
+    "solution.p2": "These intelligent systems integrate seamlessly into existing architecture—wall-mounted panels, ceiling-suspended planters, or custom furniture-integrated designs.",
+    "solution.p3": "Every solution comes with precision-engineered drip irrigation, UV-resistant hardware, and smartphone-based maintenance protocols.",
 
-    "valuesTitle": "Our Values",
-    values: [
-      { title: "Sustainability First", desc: "100% environmentally responsible design using native, low-water Indian plant species with zero single-use plastics." },
-      { title: "Practical Urban Design", desc: "Engineered for real-world usability—dust-resistant, low-maintenance, pet-safe solutions tested in Pune's challenging climate." },
-      { title: "Climate-Optimized", desc: "Exclusively designed for India's hot-humid tropical conditions with heat-tolerant, monsoon-proof plant selections." },
-      { title: "Honest Transparent Execution", desc: "No hidden costs, guaranteed plant survival rates, detailed progress reporting, and fair market pricing for all projects." }
-    ],
-
-    "serveTitle": "Who We Serve",
-    serve: [
-      "Homeowners & Apartment Residents",
-      "Builders & Real Estate Developers", 
-      "Corporate Offices & Commercial Spaces",
-      "CSR Initiatives & Government Projects"
-    ],
-
-    "enquiry.cta": "Get Your Free Space Assessment",
-    "enquiry.title": "Start Your Green Transformation Today",
-    "enquiry.subtitle": "Share your space details and get a custom proposal with plant recommendations, pricing, and installation timeline within 24 business hours.",
+    // Enquiry
+    "enquiry.cta": "Get Free Quote",
+    "enquiry.title": "Start Your Green Transformation",
+    "enquiry.subtitle": "Share your space details for a custom proposal within 24 hours.",
     "enquiry.form.name": "Your Full Name *",
-    "enquiry.form.email": "Professional Email Address *",
-    "enquiry.form.phone": "WhatsApp Contact Number *",
-    "enquiry.form.message": "Describe your location, sunlight availability, maintenance preferences, and specific greenery goals. Photos welcome!",
-    "enquiry.form.submit": "Request Free Quote",
+    "enquiry.form.email": "Email Address *",
+    "enquiry.form.phone": "WhatsApp Number *",
+    "enquiry.form.message": "Describe your space, sunlight, and greenery goals",
+    "enquiry.form.submit": "Request Quote",
 
-    "footer-tagline": "Engineering breathable cities, one green space at a time."
+    // Values & Serve (arrays for dynamic population)
+    values: [
+      { title: "Sustainability", desc: "Native low-water plants, zero plastics" },
+      { title: "Practical Design", desc: "Dust-resistant, low-maintenance for Pune" },
+      { title: "Climate Optimized", desc: "Heat-tolerant for Indian summers" },
+      { title: "Transparent", desc: "No hidden costs, guaranteed results" }
+    ],
+
+    serve: [
+      "Homeowners & Apartments",
+      "Builders & Developers",
+      "Corporate Offices", 
+      "CSR Projects"
+    ]
   },
 
   hi: {
-    "intro.title": "O₂ गैलरी ग्रीनरी प्रोजेक्ट्स",
-    "intro.p1": "हरियाली केवल सजावट नहीं बल्कि एक आवश्यकता है।",
-    "intro.p2": "हम घरों और कार्यालयों के लिए ऑक्सीजन-समृद्ध समाधान प्रदान करते हैं।",
-    "intro.p3": "पुणे के लिए विशेष रूप से डिजाइन किया गया।",
+    "intro.title": "O₂ गैलरी ग्रीनरी प्रोजेक्ट्स के बारे में",
+    "intro.p1": "हरियाली केवल सजावट नहीं, आधुनिक भारत में स्वस्थ जीवन के लिए आवश्यकता है।",
+    "intro.p2": "हम NASA प्रमाणित वायु-शुद्धिकरण पौधों का उपयोग करते हुए घरों और कार्यालयों में ऑक्सीजन समृद्ध प्रणाली लाते हैं।",
+    "intro.p3": "उच्च आर्द्रता, तेज धूप और पानी की कमी के लिए भारतीय जलवायु के अनुकूल समाधान।",
 
     "missionVisionTitle": "मिशन और विज़न",
-    "mission": "शहरी जीवन में प्रकृति को वापस लाना।",
-    "vision": "हर घर तक स्वच्छ ऑक्सीजन पहुँचाना।",
+    "mission": "शहरी भारतीय जीवन में वैज्ञानिक हरियाली को एकीकृत करना।",
+    "vision": "कंक्रीट के जंगलों को सांस लेने योग्य हरित निवास में बदलना।",
 
-    "urbanProblem.title": "शहरी समस्या",
-    "urbanProblem.p1": "प्रदूषण बढ़ रहा है।",
-    "urbanProblem.p2": "हरियाली कम होती जा रही है।",
-    "urbanProblem.p3": "तुरंत हस्तक्षेप की आवश्यकता है।",
+    "urbanProblem.title": "शहरी चुनौती",
+    "urbanProblem.p1": "तेजी से शहरीकरण से हरी जगहें कम हो रही हैं और प्रदूषण बढ़ रहा है।",
+    "urbanProblem.p2": "अधिक घनत्व वाले अपार्टमेंट्स में वेंटिलेशन और पर्यावरण स्वास्थ्य की अनदेखी।",
+    "urbanProblem.p3": "तत्काल हस्तक्षेप के बिना पारिस्थितिक संतुलन बिगड़ता जाएगा।",
 
-    "solution.title": "O₂ गैलरी समाधान",
-    "solution.p1": "जीवित ऑक्सीजन सिस्टम।",
-    "solution.p2": "कम देखभाल वाले समाधान।",
-    "solution.p3": "NASA द्वारा प्रमाणित पौधे।",
+    "solution.title": "हमारा वैज्ञानिक समाधान",
+    "solution.p1": "NASA अनुसंधान आधारित पौधों से ऑक्सीजन उत्पादन प्रणाली।",
+    "solution.p2": "दीवार पर, छत से लटकते या फर्नीचर में एकीकृत हरियाली।",
+    "solution.p3": "स्मार्ट ड्रिप सिंचाई और मोबाइल आधारित रखरखाव।",
+
+    "enquiry.cta": "मुफ्त कोट्स",
+    "enquiry.title": "हरियाली यात्रा शुरू करें",
+    "enquiry.subtitle": "अपनी जगह का विवरण साझा करें।",
+    "enquiry.form.name": "पूरा नाम *",
+    "enquiry.form.email": "ईमेल *",
+    "enquiry.form.phone": "व्हाट्सएप नंबर *",
+    "enquiry.form.message": "अपनी जगह, धूप और हरियाली लक्ष्य बताएं",
+    "enquiry.form.submit": "कोट्स मंगवाएं",
 
     values: [
-      { title: "सस्टेनेबिलिटी", desc: "पर्यावरण के लिए बेहतर।" },
-      { title: "व्यावहारिक", desc: "कम रखरखाव।" },
-      { title: "जलवायु-अनुकूल", desc: "भारतीय मौसम के लिए।" },
-      { title: "पारदर्शी", desc: "कोई छिपा खर्च नहीं।" }
+      { title: "स्थिरता", desc: "देशी कम पानी वाले पौधे" },
+      { title: "प्रैक्टिकल", desc: "पुणे के लिए कम रखरखाव" },
+      { title: "जलवायु अनुकूल", desc: "गर्मी सहनशील" },
+      { title: "पारदर्शी", desc: "कोई छिपा खर्च नहीं" }
     ],
 
     serve: [
-      "घर मालिक",
-      "बिल्डर्स", 
+      "घर मालिक और अपार्टमेंट",
+      "बिल्डर और डेवलपर्स",
       "कॉर्पोरेट कार्यालय",
-      "CSR परियोजनाएँ"
-    ],
-
-    "enquiry.cta": "पूछताछ करें",
-    "enquiry.title": "हरियाली की शुरुआत करें",
-    "enquiry.subtitle": "अपनी जानकारी साझा करें।",
-    "enquiry.form.name": "पूरा नाम",
-    "enquiry.form.email": "ईमेल",
-    "enquiry.form.phone": "संपर्क नंबर",
-    "enquiry.form.message": "अपनी आवश्यकता बताएं।",
-    "enquiry.form.submit": "भेजें",
-
-    "footer-tagline": "हरियाली से स्वस्थ जीवन।"
+      "CSR प्रोजेक्ट्स"
+    ]
   },
 
   mr: {
-    "intro.title": "O₂ गॅलरी ग्रीनरी प्रोजेक्ट्स",
-    "intro.p1": "हरियाळी ही गरज आहे.",
-    "intro.p2": "आम्ही ऑक्सिजन-समृद्ध उपाय देतो.",
-    "intro.p3": "पुणे साठी खास डिझाइन.",
+    "intro.title": "O₂ गॅलरी ग्रीनरी प्रोजेक्ट्स बद्दल",
+    "intro.p1": "हरियाळी फक्त सजावट नाही तर आधुनिक भारतात आरोग्यदायी जीवनाची गरज आहे.",
+    "intro.p2": "NASA प्रमाणित हवा शुद्ध करणाऱ्या वनस्पती वापरून घर आणि ऑफिसमध्ये ऑक्सिजन प्रणाली.",
+    "intro.p3": "उच्च आर्द्रता, तीव्र सूर्यप्रकाश आणि पाणी टंचाईसाठी डिझाइन.",
 
     "missionVisionTitle": "मिशन आणि व्हिजन",
-    "mission": "शहरी जीवनात निसर्ग आणणे.",
-    "vision": "प्रत्येक घरात शुद्ध ऑक्सिजन.",
+    "mission": "शहरी भारतीय जीवनात वैज्ञानिक हरियाळी आणणे.",
+    "vision": "काँक्रीट जंगलांना श्वास घेता येणारे हरित निवासस्थान बनवणे.",
 
-    "urbanProblem.title": "शहरी समस्या",
-    "urbanProblem.p1": "प्रदूषण वाढत आहे.",
-    "urbanProblem.p2": "हरियाळी कमी होत आहे.",
-    "urbanProblem.p3": "तात्काळ उपाय आवश्यक.",
+    "urbanProblem.title": "शहरी आव्हान",
+    "urbanProblem.p1": "जलद शहरीकरणामुळे हिरवी जागा कमी आणि प्रदूषण वाढत आहे.",
+    "urbanProblem.p2": "घनदाट अपार्टमेंट्समध्ये हवा प्रसरण आणि पर्यावरण आरोग्याकडे दुर्लक्ष.",
+    "urbanProblem.p3": "पुरेसा हस्तक्षेप न झाल्यास पर्यावरणीय संतुलन बिघडेल.",
 
-    "solution.title": "O₂ गॅलरी उपाय",
-    "solution.p1": "जिवंत ऑक्सिजन सिस्टीम.",
-    "solution.p2": "कमी देखभाल.",
-    "solution.p3": "NASA प्रमाणित वनस्पती.",
+    "solution.title": "आमचा वैज्ञानिक उपाय",
+    "solution.p1": "NASA संशोधनावर आधारित ऑक्सिजन उत्पादन प्रणाली.",
+    "solution.p2": "भिंतीवर, छतावर लटकणारे किंवा फर्निचरमध्ये मिसळलेले.",
+    "solution.p3": "स्मार्ट ड्रिप सिंचन आणि मोबाईल आधारित देखभाल.",
+
+    "enquiry.cta": "मोफत कोट्स",
+    "enquiry.title": "हरियाळी प्रवास सुरु करा",
+    "enquiry.subtitle": "तुमच्या जागेची माहिती द्या.",
+    "enquiry.form.name": "पूर्ण नाव *",
+    "enquiry.form.email": "ईमेल *",
+    "enquiry.form.phone": "व्हॉट्सअॅप नंबर *",
+    "enquiry.form.message": "तुमची जागा, सूर्यप्रकाश आणि हरियाळी ध्येय सांगा",
+    "enquiry.form.submit": "कोट्स मागवा",
 
     values: [
-      { title: "शाश्वतता", desc: "पर्यावरणपूरक." },
-      { title: "प्रॅक्टिकल", desc: "कमी देखभाल." },
-      { title: "हवामान अनुकूल", desc: "भारतीय हवामानासाठी." },
-      { title: "पारदर्शक", desc: "कोणताही लपलेला खर्च नाही." }
+      { title: "शाश्वतता", desc: "मूळ कमी पाण्याचे वनस्पती" },
+      { title: "प्रॅक्टिकल", desc: "पुण्यासाठी कमी देखभाल" },
+      { title: "हवामान अनुकूल", desc: "उष्णतासह्य" },
+      { title: "पारदर्शक", desc: "लपलेला खर्च नाही" }
     ],
 
     serve: [
-      "घरमालक",
-      "बिल्डर", 
+      "घरमालक आणि अपार्टमेंट",
+      "बिल्डर आणि डेव्हलपर",
       "कॉर्पोरेट ऑफिस",
       "CSR प्रकल्प"
-    ],
-
-    "enquiry.cta": "चौकशी करा",
-    "enquiry.title": "हरियाळीची सुरुवात करा",
-    "enquiry.subtitle": "आपली माहिती द्या.",
-    "enquiry.form.name": "पूर्ण नाव",
-    "enquiry.form.email": "ईमेल",
-    "enquiry.form.phone": "संपर्क क्रमांक",
-    "enquiry.form.message": "तपशील लिहा.",
-    "enquiry.form.submit": "पाठवा",
-
-    "footer-tagline": "हरियाळीद्वारे आरोग्यदायी जीवन."
+    ]
   }
 };

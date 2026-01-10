@@ -22,7 +22,7 @@ window.content = {
       p3: "Every solution comes with precision-engineered drip irrigation, UV-resistant hardware, and smartphone-based maintenance protocols."
     },
     enquiry: {
-      cta: "Get Free Quote",
+      cta: "Enquire Now",
       title: "Start Your Green Transformation",
       subtitle: "Share your space details for a custom proposal within 24 hours.",
       form: {
@@ -30,7 +30,7 @@ window.content = {
         email: "Email Address *",
         phone: "WhatsApp Number *",
         message: "Describe your space, sunlight, and greenery goals",
-        submit: "Request Quote"
+        submit: "Submit Enquiry"
       }
     },
     valuesTitle: "Our Values",
@@ -72,7 +72,7 @@ window.content = {
       p3: "स्मार्ट ड्रिप सिंचाई और मोबाइल आधारित रखरखाव।"
     },
     enquiry: {
-      cta: "मुफ्त कोट्स",
+      cta: "अभी पूछताछ करें",
       title: "हरियाली यात्रा शुरू करें",
       subtitle: "अपनी जगह का विवरण साझा करें।",
       form: {
@@ -80,7 +80,7 @@ window.content = {
         email: "ईमेल *",
         phone: "व्हाट्सएप नंबर *",
         message: "अपनी जगह, धूप और हरियाली लक्ष्य बताएं",
-        submit: "कोट्स मंगवाएं"
+        submit: "पूछताछ भेजें"
       }
     },
     valuesTitle: "हमारे मूल्य",
@@ -122,7 +122,7 @@ window.content = {
       p3: "स्मार्ट ड्रिप सिंचन आणि मोबाईल आधारित देखभाल।"
     },
     enquiry: {
-      cta: "मोफत कोट्स",
+      cta: "आता चौकशी करा",
       title: "हरियाळी प्रवास सुरु करा",
       subtitle: "तुमच्या जागेची माहिती द्या.",
       form: {
@@ -130,7 +130,7 @@ window.content = {
         email: "ईमेल *",
         phone: "व्हॉट्सअॅप नंबर *",
         message: "तुमची जागा, सूर्यप्रकाश आणि हरियाळी ध्येय सांगा",
-        submit: "कोट्स मागवा"
+        submit: "चौकशी सादर करा"
       }
     },
     valuesTitle: "आमची मूल्ये",

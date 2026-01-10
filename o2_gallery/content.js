@@ -48,6 +48,13 @@ window.content = {
       "CSR Projects"
     ]
   },
+  footer: {
+  aboutText: "Specializing in NASA-approved indoor plants and modular greenery for modern Indian urban spaces.",
+  phone: "+91 [Your Phone]",
+  email: "hello@o2gallery.in",
+  address: "Pune, Maharashtra, India",
+  tagline: "Breathe Better, Live Greener."
+},
 
   hi: {
     intro: {

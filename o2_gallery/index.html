@@ -315,16 +315,22 @@
       });
 
       // VALUES GRID
-      const valuesGrid = document.getElementById('values-grid');
-      if (valuesGrid && data.values) {
-        valuesGrid.innerHTML = data.values.map(v => `
-          <div class="card value-card">
-            <div class="icon">●</div>
-            <span class="text-xs">${v.title}</span>
-            <p class="text-xs">${v.desc}</p>
-          </div>
-        `).join('');
-      }
+      // VALUES GRID - Updated for 2-Column Power Duo
+const valuesGrid = document.getElementById('values-grid');
+if (valuesGrid && data.values) {
+  // We take the first 2 values from your content.js array
+  valuesGrid.innerHTML = data.values.slice(0, 2).map((v, index) => `
+    <div class="value-card-large" data-aos="fade-up" data-aos-delay="${index * 100}">
+      <div class="value-icon-box">
+        <div class="main-icon">${v.icon || '🌿'}</div>
+      </div>
+      <div class="value-text-content">
+        <h3>${v.title}</h3>
+        <p>${v.desc}</p>
+      </div>
+    </div>
+  `).join('');
+}
 
       // SERVE GRID
       const serveGrid = document.getElementById('serve-grid');
@@ -384,6 +390,7 @@ window.setLanguage = function(lang) {
 
 </body>
 </html>
+
 
 
 

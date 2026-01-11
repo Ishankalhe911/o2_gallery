@@ -73,11 +73,12 @@
 
 </nav>
 
-      <div class="lang-toggle" id="langToggle">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="hi">हिन्दी</button>
-        <button class="lang-btn" data-lang="mr">मराठी</button>
-      </div>
+  <div class="language-toggle lang-en-active" id="langToggle">
+  <div class="indicator"></div>
+  <span class="lang-label active" data-lang="en" onclick="setLanguage('en')">English</span>
+  <span class="lang-label" data-lang="hi" onclick="setLanguage('hi')">हिन्दी</span>
+  <span class="lang-label" data-lang="mr" onclick="setLanguage('mr')">मराठी</span>
+</div>
     </div>
   </header>
 
@@ -347,6 +348,7 @@
 
 </body>
 </html>
+
 
 
 

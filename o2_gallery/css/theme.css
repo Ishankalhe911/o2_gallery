@@ -381,34 +381,33 @@ nav span:hover {
 nav span:hover::before { width: 90%; }
 
 /* --- Animated Native Script Toggle --- */
+/* --- PREMIUM ANIMATED TOGGLE (O2 GREEN THEME) --- */
 .language-toggle {
   display: inline-flex;
-  background: rgba(0, 119, 182, 0.1); 
+  background: rgba(46, 125, 50, 0.1); /* Soft Tree Green Tint */
   border-radius: 50px;
   position: relative;
   padding: 4px;
   cursor: pointer;
   width: 260px; 
   user-select: none;
-  border: 1px solid rgba(0, 128, 128, 0.2);
+  border: 1px solid rgba(46, 125, 50, 0.2);
+  transition: var(--transition);
 }
 
+/* The sliding background pill */
 .indicator {
   position: absolute;
   height: calc(100% - 8px);
   width: calc(33.33% - 5.33px);
-  background: var(--o2-gradient);
+  /* Fresh Green Gradient */
+  background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%); 
   border-radius: 40px;
-  box-shadow: 0 4px 12px rgba(0, 128, 128, 0.3);
-  transition: transform 0.45s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+  transition: transform 0.45s cubic-bezier(0.18, 0.89, 0.32, 1.28); 
   left: 4px;
   z-index: 1;
 }
-
-/* Positions for the slider */
-.lang-en-active .indicator { transform: translateX(0%); }
-.lang-hi-active .indicator { transform: translateX(100%); }
-.lang-mr-active .indicator { transform: translateX(200%); }
 
 .lang-label {
   flex: 1;
@@ -417,12 +416,12 @@ nav span:hover::before { width: 90%; }
   padding: 8px 0;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--o2-teal);
+  color: #2E7D32; /* Deep Green for inactive */
   transition: color 0.3s ease;
 }
 
 .lang-label.active {
-  color: #ffffff;
+  color: #ffffff; /* Contrast white for the selected language */
 }
 
 /* --- Glassmorphism Cards --- */
@@ -777,6 +776,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

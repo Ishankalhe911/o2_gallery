@@ -506,100 +506,89 @@ nav span:hover::before { width: 90%; }
 }
 
 /* --- Values Section: The Power Duo --- */
-.values-wrapper {
+/* --- PREMIUM SPLIT VALUES SECTION (Lucent Style) --- */
+
+/* 1. The Layout Container */
+.split-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two equal large columns */
-  gap: 2.5rem;
-  margin-top: 2rem;
-}
-
-.value-card-large {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(46, 125, 50, 0.15);
-  border-radius: 32px;
-  padding: 3rem;
-  display: flex; /* Horizontal layout inside the card */
-  align-items: flex-start;
-  gap: 2rem;
-  transition: var(--transition);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-}
-
-.value-card-large:hover {
-  transform: translateY(-10px);
-  border-color: var(--tree-green-light);
-  box-shadow: 0 30px 60px rgba(46, 125, 50, 0.12);
-}
-
-.value-icon-box {
-  flex-shrink: 0;
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, #f0fdf4, #e8f5e9);
-  border-radius: 20px;
-  display: flex;
+  grid-template-columns: 1fr 1fr; /* 50% Image, 50% Content */
+  gap: 5rem;
   align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
-  box-shadow: inset 0 2px 4px rgba(255,255,255,0.8);
+  padding: 4rem 0;
 }
 
-.value-text-content h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+/* 2. The Large Image Box (Fills the 'Empty' Space) */
+.section-image-box {
+  position: relative;
+  height: 650px; /* Tall height for impact */
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.section-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Floating Badge on Image */
+.image-tag {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  background: white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 700;
+  color: var(--tree-green-dark);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  font-size: 0.9rem;
+}
+
+/* 3. The Vertical Stack of 4 Cards */
+.values-vertical-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.value-card-premium {
+  background: white;
+  padding: 2rem;
+  border-radius: 24px;
+  border-left: 6px solid var(--tree-green); /* The "O2" accent line */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
+  border-top: 1px solid rgba(0,0,0,0.02);
+  border-right: 1px solid rgba(0,0,0,0.02);
+  border-bottom: 1px solid rgba(0,0,0,0.02);
+}
+
+.value-card-premium:hover {
+  transform: translateX(15px); /* Slides out when hovered */
+  background: #F8FAF9;
+  border-left-color: var(--sky-blue);
+  box-shadow: 0 15px 40px rgba(46, 125, 50, 0.1);
+}
+
+.premium-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
   color: var(--tree-green-dark);
 }
 
-.value-text-content p {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--soft-gray);
-}
-
-/* Responsive: Stack them on mobile */
+/* 4. Responsive (Stacks on mobile) */
 @media (max-width: 992px) {
-  .values-wrapper {
+  .split-layout {
     grid-template-columns: 1fr;
+    gap: 3rem;
   }
-  
-  .value-card-large {
-    padding: 2rem;
-    flex-direction: column; /* Icon on top for mobile */
-    gap: 1.5rem;
-    text-align: center;
-  }
-  
-  .value-icon-box {
-    margin: 0 auto;
+  .section-image-box {
+    height: 400px;
   }
 }
-
-#values .value-card { 
-  padding: 3rem 2rem; 
-  text-align: center; 
-}
-
-#values .icon {
-  background: linear-gradient(135deg, var(--sky-blue), var(--sky-blue-light));
-  color: white;
-  width: 5rem; 
-  height: 5rem;
-  border-radius: 50%;
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin: 0 auto 2rem;
-  box-shadow: 0 20px 45px rgba(66,165,245,0.5);
-  display: flex; 
-  align-items: center; 
-  justify-content: center;
-}
-
-#values .value-card:hover .icon {
-  transform: scale(1.15) rotate(360deg);
-  box-shadow: 0 25px 55px rgba(66,165,245,0.6);
-}
-
 #contact .serve-card {
   background: linear-gradient(135deg, #E8F5E9, rgba(255,255,255,0.95));
   padding: 3.5rem 2.5rem;
@@ -843,6 +832,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

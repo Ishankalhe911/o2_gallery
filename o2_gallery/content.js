@@ -47,13 +47,16 @@ window.content = {
       "Progressive Corporate Offices & Co-working Spaces", 
       "Public Institutions & NGO CSR Projects"
     ],
-    footer: {
-      aboutText: "O₂ Gallery is Pune's leading botanical engineering firm, specializing in NASA-approved indoor plant systems that purify air and improve mental health.",
-      phone: "+91 98765 43210",
-      email: "hello@o2gallery.in",
-      address: "Baner-Pashan Link Road, Pune, MH 411045",
-      tagline: "Breath Better. Live Greener. Think O₂."
-    }
+ // Inside window.content.en.footer
+  footer: {
+  aboutText: "O₂ Gallery is Pune's leading botanical engineering firm, specializing in NASA-approved indoor plant systems that purify air and improve mental health.",
+  phone: "+91 98765 43210",
+  email: "hello@o2gallery.in",
+  address: "Baner-Pashan Link Road, Pune, MH 411045",
+  tagline: "Breath Better. Live Greener. Think O₂.",
+  socialTitle: "Follow Our Journey",
+  servicesTitle: "Our Expertise" // New field
+}
   },
 
   hi: {

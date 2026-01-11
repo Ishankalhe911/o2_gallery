@@ -30,6 +30,19 @@
 .nav-enquire:hover {
   background: #256628;
 }
+
+
+function toggleLanguage() {
+  const toggle = document.querySelector('.language-toggle');
+  const isHindi = toggle.classList.toggle('hindi-active');
+  
+  // Update active text styling
+  document.getElementById('label-en').classList.toggle('active', !isHindi);
+  document.getElementById('label-hi').classList.toggle('active', isHindi);
+
+  // Here you would also trigger your actual language change logic
+  console.log("Language switched to:", isHindi ? "Hindi" : "English");
+}
 /* --- PREMIUM FOOTER STYLES --- */
 .site-footer {
   background: #1a3321; /* Darker, more professional forest green */
@@ -745,6 +758,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

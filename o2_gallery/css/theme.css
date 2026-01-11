@@ -380,32 +380,49 @@ nav span:hover {
 
 nav span:hover::before { width: 90%; }
 
-/* --- Language Toggle --- */
-.lang-toggle {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.lang-btn {
-  font-family: 'Inter', sans-serif;
-  padding: 0.6rem 1.2rem;
-  border: 2px solid rgba(46,125,50,0.25);
-  border-radius: 16px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(15px);
-  color: var(--tree-green);
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: var(--transition);
+/* --- Animated Native Script Toggle --- */
+.language-toggle {
+  display: inline-flex;
+  background: rgba(0, 119, 182, 0.1); 
+  border-radius: 50px;
+  position: relative;
+  padding: 4px;
   cursor: pointer;
+  width: 260px; 
+  user-select: none;
+  border: 1px solid rgba(0, 128, 128, 0.2);
 }
 
-.lang-btn:hover, .lang-btn.active {
-  background: linear-gradient(135deg, var(--tree-green), var(--tree-green-light));
-  color: white;
-  border-color: var(--tree-green-light);
-  transform: translateY(-3px);
-  box-shadow: var(--warm-shadow);
+.indicator {
+  position: absolute;
+  height: calc(100% - 8px);
+  width: calc(33.33% - 5.33px);
+  background: var(--o2-gradient);
+  border-radius: 40px;
+  box-shadow: 0 4px 12px rgba(0, 128, 128, 0.3);
+  transition: transform 0.45s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  left: 4px;
+  z-index: 1;
+}
+
+/* Positions for the slider */
+.lang-en-active .indicator { transform: translateX(0%); }
+.lang-hi-active .indicator { transform: translateX(100%); }
+.lang-mr-active .indicator { transform: translateX(200%); }
+
+.lang-label {
+  flex: 1;
+  z-index: 2;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--o2-teal);
+  transition: color 0.3s ease;
+}
+
+.lang-label.active {
+  color: #ffffff;
 }
 
 /* --- Glassmorphism Cards --- */
@@ -760,6 +777,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

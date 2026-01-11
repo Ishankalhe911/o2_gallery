@@ -142,33 +142,24 @@
 
 
     <!-- SECTION 4: OUR VALUES -->
-   <section id="values" class="section-padding">
+   <section id="values" class="section-padding border-t">
   <div class="container">
-    <div class="center-title">
-      <span data-content="values.tagline">The O2 Standard</span>
-      <h2 data-content="values.title">Our Core Values</h2>
-    </div>
-
-    <div class="values-wrapper">
+    <div class="split-layout">
       
-      <div class="value-card-large" data-aos="fade-up">
-        <div class="value-icon-box">
-          <div class="main-icon">🌿</div>
-        </div>
-        <div class="value-text-content">
-          <h3 data-content="values.card1_title">Sustainable Innovation</h3>
-          <p data-content="values.card1_desc">We blend eco-friendly practices with modern technology to create self-sustaining green havens that thrive in urban environments.</p>
+      <div class="split-visual">
+        <div class="section-image-box">
+          <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=1000" alt="Sustainable Greenery">
+          <div class="image-tag">O₂ Standards</div>
         </div>
       </div>
 
-      <div class="value-card-large" data-aos="fade-up" data-aos-delay="100">
-        <div class="value-icon-box">
-          <div class="main-icon">✨</div>
+      <div class="split-content">
+        <div class="section-header-left">
+          <h2 data-content="valuesTitle" class="premium-title"></h2>
         </div>
-        <div class="value-text-content">
-          <h3 data-content="values.card2_title">Uncompromising Quality</h3>
-          <p data-content="values.card2_desc">Every leaf and layout is curated with precision. We don't just plant gardens; we engineer premium lifestyle experiences.</p>
-        </div>
+        
+        <div id="values-grid" class="values-vertical-stack">
+          </div>
       </div>
 
     </div>
@@ -315,19 +306,14 @@
       });
 
       // VALUES GRID
-      // VALUES GRID - Updated for 2-Column Power Duo
+     // VALUES GRID - Updated to show ALL values in a vertical list
 const valuesGrid = document.getElementById('values-grid');
 if (valuesGrid && data.values) {
-  // We take the first 2 values from your content.js array
-  valuesGrid.innerHTML = data.values.slice(0, 2).map((v, index) => `
-    <div class="value-card-large" data-aos="fade-up" data-aos-delay="${index * 100}">
-      <div class="value-icon-box">
-        <div class="main-icon">${v.icon || '🌿'}</div>
-      </div>
-      <div class="value-text-content">
-        <h3>${v.title}</h3>
-        <p>${v.desc}</p>
-      </div>
+  // REMOVED .slice(0, 2) to show all 4 values
+  valuesGrid.innerHTML = data.values.map((v, index) => `
+    <div class="value-card-premium" data-aos="fade-left" data-aos-delay="${index * 100}">
+      <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem; color: #1B5E20;">${v.title}</h3>
+      <p class="text-xs" style="color: #6B7280; line-height: 1.5;">${v.desc}</p>
     </div>
   `).join('');
 }
@@ -390,6 +376,7 @@ window.setLanguage = function(lang) {
 
 </body>
 </html>
+
 
 
 

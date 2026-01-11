@@ -316,14 +316,27 @@
     }
 
     // Language toggle
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelector('.lang-btn.active')?.classList.remove('active');
-        btn.classList.add('active');
-        currentLang = btn.dataset.lang;
-        renderContent(currentLang);
-      });
-    });
+  
+window.setLanguage = function(lang) {
+  const toggle = document.getElementById('langToggle');
+  const labels = document.querySelectorAll('.lang-label');
+
+  if (!toggle) return;
+
+  // 1. Move the slider background via CSS class
+  toggle.className = `language-toggle lang-${lang}-active`;
+
+  // 2. Update active text color state
+  labels.forEach(label => {
+    label.classList.toggle('active', label.dataset.lang === lang);
+  });
+
+  // 3. Update the content on the page
+  currentLang = lang;
+  renderContent(lang);
+  
+  console.log("O2 Gallery switched to:", lang);
+};
 
     // Enquiry form toggle
     const enquireBtn = document.getElementById('enquireBtn');
@@ -348,6 +361,7 @@
 
 </body>
 </html>
+
 
 
 

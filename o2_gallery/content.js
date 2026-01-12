@@ -192,4 +192,5 @@ hi: {
       socialTitle: "आमचा प्रवास पहा",
       servicesTitle: "आमचे कौशल्य"
     }
-  },
+  }
+};

@@ -45,6 +45,14 @@ window.content = {
         title: "Quality & Transparency", 
         desc: "Every installation is a result of radical transparency and precision engineering. From heat-tolerant foliage selection to smartphone-integrated maintenance, we provide guaranteed results and long-term plant health monitoring without hidden costs." 
       }
+      { 
+  title: "Precision Botanical Engineering", 
+  desc: "We don't just plant; we engineer. Every oxygen wall is calculated for airflow and light saturation to ensure 100% plant survival." 
+},
+{ 
+  title: "Zero-Waste Maintenance", 
+  desc: "Our smart irrigation cycles reduce water wastage by 70%. We use organic growth stimulants safe for pets and children." 
+}
     ],
     serveTitle: "Who We Create For",
     serve: [
@@ -111,13 +119,13 @@ hi: {
         desc: "हर इंस्टॉलेशन पूर्ण पारदर्शिता और सटीक इंजीनियरिंग का परिणाम है। हम गर्मी सहने वाले पौधों के चयन से लेकर स्मार्टफोन-एकीकृत रखरखाव तक, बिना किसी छिपे खर्च के गारंटीकृत परिणाम प्रदान करते हैं।" 
       }
       { 
-       title: "Precision Botanical Engineering", 
-        desc: "We don't just plant; we engineer. Every oxygen wall is calculated for airflow and light saturation to ensure 100% plant survival." 
-      },
-      { 
-       title: "Zero-Waste Maintenance", 
-        desc: "Our smart irrigation cycles reduce water wastage by 70%. We use organic growth stimulants safe for pets and children." 
-      }
+  title: "सटीक बॉटनिकल इंजीनियरिंग", 
+  desc: "हम केवल पौधे नहीं लगाते; हम इंजीनियरिंग करते हैं। हर ऑक्सीजन वॉल को हवा के प्रवाह और रोशनी के आधार पर डिजाइन किया जाता है।" 
+},
+{ 
+  title: "शून्य-अपशिष्ट रखरखाव", 
+  desc: "हमारा स्मार्ट सिंचाई सिस्टम पानी की बर्बादी को 70% तक कम करता है। हम केवल जैविक खाद का उपयोग करते हैं जो पूरी तरह सुरक्षित है।" 
+}
     ],
     serveTitle: "हम किसके लिए निर्माण करते हैं",
     serve: [
@@ -183,6 +191,14 @@ hi: {
         title: "गुणवत्ता आणि पारदर्शकता", 
         desc: "प्रत्येक प्रकल्प पूर्ण पारदर्शकता आणि अचूक इंजिनिअरिंगचा नमुना आहे. उष्णता सहन करणाऱ्या झाडांच्या निवडीपासून ते मोबाईल ॲपद्वारे देखभालीपर्यंत, आम्ही कोणत्याही लपविलेल्या खर्चाशिवाय झाडांच्या आरोग्याची खात्री देतो." 
       }
+      { 
+  title: "अचूक बॉटनिकल इंजिनिअरिंग", 
+  desc: "आम्ही फक्त झाडे लावत नाही; आम्ही त्यांचे नियोजन करतो. प्रत्येक प्रकल्पात हवा आणि प्रकाशाचा अचूक अभ्यास केला जातो." 
+},
+{ 
+  title: "झिरो-वेस्ट मेंटेनन्स", 
+  desc: "आमची स्मार्ट सिंचन पद्धत पाण्याची ७०% बचत करते. आम्ही पाळीव प्राणी आणि मुलांसाठी सुरक्षित असलेल्या सेंद्रिय खतांचा वापर करतो." 
+}
     ],
     serveTitle: "आम्ही कोणासाठी काम करतो",
     serve: [

@@ -316,16 +316,32 @@
       });
 
       // VALUES GRID
-     // VALUES GRID - Updated to show ALL values in a vertical list
-const valuesGrid = document.getElementById('values-grid');
-if (valuesGrid && data.values) {
-  // REMOVED .slice(0, 2) to show all 4 values
-  valuesGrid.innerHTML = data.values.map((v, index) => `
-    <div class="value-card-premium" data-aos="fade-left" data-aos-delay="${index * 100}">
-      <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem; color: #1B5E20;">${v.title}</h3>
-      <p class="text-xs" style="color: #6B7280; line-height: 1.5;">${v.desc}</p>
-    </div>
-  `).join('');
+    
+
+// Updated VALUES GRID logic
+const grid1 = document.getElementById('values-grid-row-1');
+const grid2 = document.getElementById('values-grid-row-2');
+
+if (data.values) {
+  // First 2 cards for the first row
+  if (grid1) {
+    grid1.innerHTML = data.values.slice(0, 2).map((v, index) => `
+      <div class="value-card-premium">
+        <h3>${v.title}</h3>
+        <p class="text-xs">${v.desc}</p>
+      </div>
+    `).join('');
+  }
+  
+  // Next 2 cards for the second row
+  if (grid2) {
+    grid2.innerHTML = data.values.slice(2, 4).map((v, index) => `
+      <div class="value-card-premium">
+        <h3>${v.title}</h3>
+        <p class="text-xs">${v.desc}</p>
+      </div>
+    `).join('');
+  }
 }
 
       // SERVE GRID
@@ -386,6 +402,7 @@ window.setLanguage = function(lang) {
 
 </body>
 </html>
+
 
 
 

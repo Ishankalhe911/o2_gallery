@@ -44,7 +44,7 @@ window.content = {
         icon: "✨", 
         title: "Quality & Transparency", 
         desc: "Every installation is a result of radical transparency and precision engineering. From heat-tolerant foliage selection to smartphone-integrated maintenance, we provide guaranteed results and long-term plant health monitoring without hidden costs." 
-      }
+      },
       { 
   title: "Precision Botanical Engineering", 
   desc: "We don't just plant; we engineer. Every oxygen wall is calculated for airflow and light saturation to ensure 100% plant survival." 

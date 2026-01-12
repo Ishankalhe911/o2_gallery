@@ -7,6 +7,15 @@
 }
 
 
+/*image edits*/
+.placeholder img {
+  width: 100%;       /* Makes image match container width */
+  height: 100%;      /* Makes image match container height */
+  object-fit: cover; /* Resizes the image to fill the box without stretching */
+  display: block;    /* Removes extra whitespace at the bottom */
+}
+
+
 /* ===============================
    SECTION 3: URBAN → SOLUTION
    Structural Alignment
@@ -77,3 +86,4 @@
 .hidden {
   display: none;
 }
+

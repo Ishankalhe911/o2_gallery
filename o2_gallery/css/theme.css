@@ -621,6 +621,109 @@ nav span:hover::before { width: 90%; }
   justify-content: center;
   margin-bottom: 2rem;
 }
+/* --- Values Section: The Power Duo --- */
+/* --- PREMIUM SPLIT VALUES SECTION (Lucent Style) --- */
+
+/* 1. The Layout Container */
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 50% Image, 50% Content */
+  gap: 5rem;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+/* 2. The Large Image Box (Fills the 'Empty' Space) */
+.section-image-box {
+  position: relative;
+  height: 650px; /* Tall height for impact */
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.section-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Floating Badge on Image */
+.image-tag {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  background: white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 700;
+  color: var(--tree-green-dark);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  font-size: 0.9rem;
+}
+
+/* 3. The Vertical Stack of 4 Cards */
+.values-vertical-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.value-card-premium {
+  background: white;
+  padding: 2rem;
+  border-radius: 24px;
+  border-left: 6px solid var(--tree-green); /* The "O2" accent line */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
+  border-top: 1px solid rgba(0,0,0,0.02);
+  border-right: 1px solid rgba(0,0,0,0.02);
+  border-bottom: 1px solid rgba(0,0,0,0.02);
+}
+
+.value-card-premium:hover {
+  transform: translateX(15px); /* Slides out when hovered */
+  background: #F8FAF9;
+  border-left-color: var(--sky-blue);
+  box-shadow: 0 15px 40px rgba(46, 125, 50, 0.1);
+}
+
+.premium-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: var(--tree-green-dark);
+}
+
+/* 4. Responsive (Stacks on mobile) */
+@media (max-width: 992px) {
+  .split-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .section-image-box {
+    height: 400px;
+  }
+}
+#contact .serve-card {
+  background: linear-gradient(135deg, #E8F5E9, rgba(255,255,255,0.95));
+  padding: 3.5rem 2.5rem;
+}
+
+.serve-icon {
+  background: linear-gradient(135deg, var(--tree-green), var(--tree-green-light));
+  color: white;
+  width: 7rem; 
+  height: 7rem;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  font-weight: bold;
+  box-shadow: 0 25px 50px rgba(46,125,50,0.5);
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  margin-bottom: 2rem;
+}
 
 /* --- Center Titles --- */
 .center-title {
@@ -845,6 +948,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

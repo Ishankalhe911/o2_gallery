@@ -110,6 +110,14 @@ hi: {
         title: "गुणवत्ता और पारदर्शिता", 
         desc: "हर इंस्टॉलेशन पूर्ण पारदर्शिता और सटीक इंजीनियरिंग का परिणाम है। हम गर्मी सहने वाले पौधों के चयन से लेकर स्मार्टफोन-एकीकृत रखरखाव तक, बिना किसी छिपे खर्च के गारंटीकृत परिणाम प्रदान करते हैं।" 
       }
+      { 
+       title: "Precision Botanical Engineering", 
+        desc: "We don't just plant; we engineer. Every oxygen wall is calculated for airflow and light saturation to ensure 100% plant survival." 
+      },
+      { 
+       title: "Zero-Waste Maintenance", 
+        desc: "Our smart irrigation cycles reduce water wastage by 70%. We use organic growth stimulants safe for pets and children." 
+      }
     ],
     serveTitle: "हम किसके लिए निर्माण करते हैं",
     serve: [

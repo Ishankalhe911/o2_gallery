@@ -405,7 +405,22 @@ nav span:hover::before { width: 90%; }
   left: 4px;
   z-index: 1;
 }
+/* --- Language Toggle Sliding Logic --- */
 
+/* When English is active (Default) */
+.language-toggle.lang-en-active .indicator {
+  transform: translateX(0);
+}
+
+/* When Hindi is active - Move to middle */
+.language-toggle.lang-hi-active .indicator {
+  transform: translateX(calc(100% + 4px));
+}
+
+/* When Marathi is active - Move to end */
+.language-toggle.lang-mr-active .indicator {
+  transform: translateX(calc(200% + 8px));
+}
 .lang-label {
   flex: 1;
   z-index: 2;
@@ -830,6 +845,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

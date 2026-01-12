@@ -312,29 +312,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+/* --- UPDATED LOGO (No borders, Transparent, Bigger) --- */
 .logo {
-  background: none !important; /* Removes the green/gradient background */
-  border: none !important;       /* Removes the border */
-  box-shadow: none !important;   /* Removes the shadow */
-  padding: 0;
+  background: transparent !important; /* Removes green box */
+  border: none !important;            /* Removes gray border */
+  box-shadow: none !important;        /* Removes shadows */
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-.logo:hover {
-  transform: scale(1.05); /* Keeps a slight zoom effect without the box shadow */
-  background: none;
-  box-shadow: none;
+  justify-content: flex-start;        /* Aligns to the left of nav */
+  padding: 0;
+  height: auto; 
+  width: auto;                        /* Removes the fixed 11rem width */
+  transition: transform 0.3s ease;
 }
 
 .logo img {
-  height: 2.5rem; /* Adjust height as needed */
-  width: auto;
+  height: 3.5rem;                     /* INCREASED SIZE (was 2.5rem) */
+  width: auto;                        /* Maintains aspect ratio */
   display: block;
   object-fit: contain;
+}
+
+/* Optional: Slight hover effect without the box appearing */
+.logo:hover {
+  transform: scale(1.02);
+  background: transparent;
 }
 
 /* --- Navigation --- */
@@ -828,6 +830,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

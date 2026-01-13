@@ -1,6 +1,6 @@
 /* ===============================
    GLOBAL RESPONSIVE FOUNDATION
-   Ensures Zoom and Desktop Scaling
+   Ensures Zoom and Desktop Scalings
 ================================ */
 :root {
   --tree-green: #2E7D32;
@@ -228,4 +228,5 @@ img {
     padding-left: 1rem;
   }
 }
+
 

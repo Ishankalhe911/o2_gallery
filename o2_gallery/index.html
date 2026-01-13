@@ -60,29 +60,24 @@
 
 
 
-     <nav>
+  <nav>
   <span onclick="scrollToSection('about')">About</span>
   <span onclick="scrollToSection('projects')">Solutions</span>
-  <span onclick="scrollToSection('values')">
-     <div class="dropdown">
-  <span class="nav-link" onclick="scrollToSection('values')">
-    Values <i data-lucide="chevron-down" class="nav-icon"></i>
-  </span>
-  <div class="dropdown-content">
-    <a href="javascript:void(0)" onclick="scrollToSection('value-0')">Eco-Sustainable</a>
-    <a href="javascript:void(0)" onclick="scrollToSection('value-1')">Quality & Transparency</a>
-    <a href="javascript:void(0)" onclick="scrollToSection('value-2')">Precision Engineering</a>
-    <a href="javascript:void(0)" onclick="scrollToSection('value-3')">Zero-Waste</a>
+  
+  <div class="dropdown">
+    <span class="nav-link">
+      Values <i data-lucide="chevron-down" class="nav-icon"></i>
+    </span>
+    <div class="dropdown-content">
+      <a href="javascript:void(0)" onclick="scrollToSection('value-0')">Eco-Sustainable</a>
+      <a href="javascript:void(0)" onclick="scrollToSection('value-1')">Quality & Transparency</a>
+      <a href="javascript:void(0)" onclick="scrollToSection('value-2')">Precision Engineering</a>
+      <a href="javascript:void(0)" onclick="scrollToSection('value-3')">Zero-Waste</a>
+    </div>
   </div>
-</div>
-  </span>
-  <span onclick="scrollToSection('contact')">Contact</span>
-        <span
-  class="nav-enquire"
-  data-content="enquiry.cta"
-  onclick="openEnquiry()">
-</span>
 
+  <span onclick="scrollToSection('contact')">Contact</span>
+  <span class="nav-enquire" data-content="enquiry.cta" onclick="openEnquiry()"></span>
 </nav>
 
   <div class="language-toggle lang-en-active" id="langToggle">
@@ -529,6 +524,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 

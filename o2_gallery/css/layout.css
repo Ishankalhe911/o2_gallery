@@ -1,89 +1,170 @@
 /* ===============================
-   GLOBAL LAYOUT HELPERS
-
-/* Flex helpers */
-.flex-1 {
-  flex: 1;
+   GLOBAL RESPONSIVE FOUNDATION
+   Ensures Zoom and Desktop Scaling
+================================ */
+:root {
+  --tree-green: #2E7D32;
+  --transition: all 0.3s ease;
+  /* Fluid Base: prevents tiny text on huge screens and huge text on small screens */
+  font-size: clamp(14px, 1vw, 18px); 
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/*image edits*/
+body {
+  overflow-x: hidden; /* Prevent horizontal scroll on zoom */
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%; /* Fluid side padding */
+}
+
+/* Image helpers */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .placeholder img {
-  width: 100%;       /* Makes image match container width */
-  height: 100%;      /* Makes image match container height */
-  object-fit: cover; /* Resizes the image to fill the box without stretching */
-  display: block;    /* Removes extra whitespace at the bottom */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-
 
 /* ===============================
-   SECTION 3: URBAN → SOLUTION
-   Structural Alignment
+   SECTION-SPECIFIC LAYOUTS
 ================================ */
 
+/* Grid System for Sections */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Section 3: Urban Solution */
 #projects .flex-row {
   display: flex;
-  align-items: stretch; /* cards equal height */
+  align-items: stretch;
+  gap: 2rem;
 }
 
-/* Cards behave as vertical stacks */
-#projects .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-/* Narrative arrow — STRUCTURAL, not decorative */
 #projects .arrow {
-  width: 40px;              /* visual dominance */
+  width: 40px;
   height: 40px;
-  stroke-width: 1.75;       /* clarity without aggression */
-  align-self: center;       /* vertical centering */
+  align-self: center;
   flex-shrink: 0;
-  margin: 0 2.5rem;         /* narrative pause */
 }
 
-/* Remove extra spacing from last paragraph */
-#projects .card p:last-child {
-  margin-bottom: 0;
+/* Section 4: Values Split Layout */
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 4rem;
 }
 
+.section-image-box {
+  width: 100%;
+  height: 500px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* Section 5: Who We Serve Tabs */
+.tabs-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+}
 
 /* ===============================
-   RESPONSIVE SAFETY
+   ENQUIRY FORM CARD
+================================ */
+.form-card {
+  max-width: 800px;
+  margin: 4rem auto;
+  background: #ffffff;
+  padding: clamp(1.5rem, 5vw, 3.5rem); /* Responsive padding */
+  border-radius: 24px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.05);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ===============================
+   RESPONSIVE BREAKPOINTS (Mobile/Tablet)
 ================================ */
 
+/* Tablet & Smaller Desktop Zoom (1024px) */
 @media (max-width: 1024px) {
+  .grid-2, .split-layout, .tabs-container {
+    grid-template-columns: 1fr; /* Stack everything */
+    gap: 2rem;
+  }
+  
   #projects .flex-row {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
   }
 
   #projects .arrow {
-    margin: 0.75rem 0;
     transform: rotate(90deg);
+    margin: 1rem auto;
+  }
+
+  .reverse-layout {
+    display: flex;
+    flex-direction: column-reverse;
   }
 }
 
+/* Mobile Devices (768px and below) */
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 0;
+  }
 
-#enquiry-cta {
-  text-align: center;
-  margin: 6rem auto 3rem;
+  .form-row {
+    grid-template-columns: 1fr; /* Stack form fields */
+  }
+
+  .header-inner {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.8rem;
+  }
 }
 
-#enquiry {
-  max-width: 700px;
-  margin: 4rem auto;
-}
-
-#enquiryForm {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
+/* Hidden Utility */
 .hidden {
-  display: none;
+  display: none !important;
 }
-

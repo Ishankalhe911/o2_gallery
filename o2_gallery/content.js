@@ -63,25 +63,25 @@ window.content = {
           id: "home",
           title: "Modern Homeowners",
           desc: "Transforming luxury apartments into breathable sanctuaries with NASA-approved air purification systems customized for high-rise balconies.",
-          image: "https://images.unsplash.com/photo-1585129718310-8da128608293?q=80&w=1000&auto=format&fit=crop"
+          image: "assets/clients1.jpg"
         },
         {
           id: "builders",
           title: "Sustainable Builders",
           desc: "Integrating vertical forests and smart greenery as a standard architectural feature for green-certified real estate developments.",
-          image: "https://images.unsplash.com/photo-1545239351-ef35f43d514b?q=80&w=1000&auto=format&fit=crop"
+          image: "assets/clients2.jpg"
         },
         {
           id: "office",
           title: "Progressive Offices",
           desc: "Boosting employee productivity and reducing 'Sick Building Syndrome' with intelligent, oxygen-rich corporate installations.",
-          image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1000&auto=format&fit=crop"
+          image: "assets/clients3.jpg"
         },
         {
           id: "public",
           title: "Public Institutions",
           desc: "Restoring ecological balance in schools, hospitals, and public squares through large-scale botanical engineering and CSR projects.",
-          image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop"
+          image: "assets/clients4.jpg"
         }
       ]
     },

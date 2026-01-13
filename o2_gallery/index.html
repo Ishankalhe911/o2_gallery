@@ -445,11 +445,17 @@ function renderContent(lang) {
 
 
 
-   function scrollToSection(id) {
+  function scrollToSection(id) {
+    // Attempt to find the element
     const element = document.getElementById(id);
-    if (!element) return;
     
-    // 100px is the safe distance to leave room for your sticky nav
+    // If it doesn't exist yet (because JS is still rendering), 
+    // we wait 50ms and try again
+    if (!element) {
+        setTimeout(() => scrollToSection(id), 50);
+        return;
+    }
+    
     const headerOffset = 100; 
     const elementPosition = element.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -459,7 +465,6 @@ function renderContent(lang) {
         behavior: "smooth"
     });
 }
-   
 
 // 5. Language Switcher
 window.setLanguage = function(lang) {
@@ -524,6 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 

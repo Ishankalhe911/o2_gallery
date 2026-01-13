@@ -407,7 +407,7 @@ function renderContent(lang) {
     const data = window.content[lang];
     if (!data) return;
 
-    // Update all text with [data-content]
+    // 1. Update text content
     document.querySelectorAll('[data-content]').forEach(el => {
         const value = getValueByPath(data, el.dataset.content);
         if (value) {
@@ -419,19 +419,47 @@ function renderContent(lang) {
         }
     });
 
-    // Update Values Cards
+    // 2. Update Values Cards with IDs
     const grid1 = document.getElementById('values-grid-row-1');
     const grid2 = document.getElementById('values-grid-row-2');
+    
     if (data.values) {
-        if (grid1) grid1.innerHTML = data.values.slice(0, 2).map(v => 
-            `<div class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`).join('');
-        if (grid2) grid2.innerHTML = data.values.slice(2, 4).map(v => 
-            `<div class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`).join('');
+        // First two cards (ID: value-0, value-1)
+        if (grid1) grid1.innerHTML = data.values.slice(0, 2).map((v, i) => 
+            `<div id="value-${i}" class="value-card-premium">
+                <h3>${v.title}</h3>
+                <p class="text-xs">${v.desc}</p>
+            </div>`).join('');
+
+        // Next two cards (ID: value-2, value-3)
+        if (grid2) grid2.innerHTML = data.values.slice(2, 4).map((v, i) => 
+            `<div id="value-${i + 2}" class="value-card-premium">
+                <h3>${v.title}</h3>
+                <p class="text-xs">${v.desc}</p>
+            </div>`).join('');
     }
     
-    // Refresh Icons (Lucide)
+    // 3. Refresh Lucide Icons
     if (window.lucide) lucide.createIcons();
 }
+
+
+
+   function scrollToSection(id) {
+    const element = document.getElementById(id);
+    if (!element) return;
+    
+    // 100px is the safe distance to leave room for your sticky nav
+    const headerOffset = 100; 
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+    });
+}
+   
 
 // 5. Language Switcher
 window.setLanguage = function(lang) {
@@ -496,6 +524,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 

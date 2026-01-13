@@ -178,12 +178,26 @@
 
     <!-- SECTION 5: WHO WE SERVE -->
     <section id="contact" class="border-t">
-      <div class="center-title">
-        <span class="text-sm tracking-wide" id="serve-title">Who We Serve</span>
-      </div>
-      <div class="grid-4" id="serve-grid">
-        <!-- Serve items populated by JS -->
-      </div>
+      <section id="serve-section" class="container" style="margin-top: 8rem; margin-bottom: 8rem;">
+    <div class="center-title">
+        <span class="text-sm tracking-wide" id="serve-title">Who We Create For</span>
+    </div>
+
+    <div class="tabs-container">
+        <div class="tabs-nav" id="tabs-nav">
+            </div>
+
+        <div class="tabs-content" id="tabs-content-area">
+            <div class="tabs-image-wrapper">
+                <img id="tab-image" src="" alt="O2 Gallery Solutions">
+                <div class="tabs-text-overlay">
+                    <h3 id="tab-content-title"></h3>
+                    <p id="tab-content-desc"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     </section>
 
 
@@ -379,6 +393,56 @@ window.setLanguage = function(lang) {
   console.log("O2 Gallery switched to:", lang);
 };
 
+
+     // Function to update the specific "Who We Serve" tab system
+function updateServeTabs(lang = 'en') {
+    const nav = document.getElementById('tabs-nav');
+    const sectionData = window.content[lang].serveSection;
+    
+    // Update main title
+    document.getElementById('serve-title').innerText = sectionData.title;
+    
+    // Clear and rebuild nav buttons
+    nav.innerHTML = '';
+    sectionData.categories.forEach((cat, index) => {
+        const btn = document.createElement('button');
+        // If it's the first button, give it the 'active' class
+        btn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
+        btn.innerHTML = cat.title;
+        btn.onclick = () => switchTabData(index, lang);
+        nav.appendChild(btn);
+    });
+
+    // Initial load of the first tab's content
+    switchTabData(0, lang);
+}
+
+// Function to handle the visual swap of images and text
+function switchTabData(index, lang) {
+    const data = window.content[lang].serveSection.categories[index];
+    const contentArea = document.getElementById('tabs-content-area');
+    
+    // 1. Update active button styling
+    document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i === index);
+    });
+
+    // 2. Smooth transition: Fade out, change data, fade in
+    contentArea.style.opacity = 0;
+    
+    setTimeout(() => {
+        document.getElementById('tab-image').src = data.image;
+        document.getElementById('tab-content-title').innerText = data.title;
+        document.getElementById('tab-content-desc').innerText = data.desc;
+        contentArea.style.opacity = 1;
+    }, 250);
+}
+
+// INITIALIZATION: Call this inside your DOMContentLoaded or window.onload
+document.addEventListener('DOMContentLoaded', () => {
+    updateServeTabs('en'); // Default to English on load
+});
+
     // Enquiry form toggle
     const enquireBtn = document.getElementById('enquireBtn');
     const enquirySection = document.getElementById('enquiry');
@@ -402,6 +466,7 @@ window.setLanguage = function(lang) {
 
 </body>
 </html>
+
 
 
 

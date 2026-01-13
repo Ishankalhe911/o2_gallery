@@ -898,27 +898,77 @@ nav span:hover::before { width: 90%; }
 
 /*Form CSS */
 
-#enquiry h2 {
-  font-size: 2rem;
+/* --- NEW STRUCTURED FORM STYLES --- */
+
+/* This creates the white "box" that contains the form */
+.form-card {
+  max-width: 800px;
+  margin: 4rem auto;
+  background: #ffffff;
+  padding: 3.5rem;
+  border-radius: 24px; /* Matches your --border-radius */
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.05); /* Soft premium shadow */
+  border: 1px solid rgba(46, 125, 50, 0.1);
+}
+
+/* Logic for side-by-side fields (Project Type & Email) */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--tree-green);
   margin-bottom: 0.5rem;
+  font-family: 'Poppins', sans-serif;
 }
 
-#enquiry p {
-  color: var(--muted-text);
-  margin-bottom: 2rem;
-}
-
-#enquiry input,
-#enquiry textarea {
-  padding: 0.9rem 1rem;
+/* Updated Input Styling to match the "feel" */
+.form-input {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.08);
-  font-family: inherit;
+  font-size: 1rem;
+  background-color: #fcfcfc;
+  transition: all 0.3s ease;
 }
 
-#enquiry textarea {
-  min-height: 120px;
-  resize: vertical;
+.form-input:focus {
+  outline: none;
+  border-color: var(--tree-green);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.1);
+}
+
+/* Centers the button at the bottom */
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Makes the submit button a pill-shape like the reference */
+.submit-btn {
+  width: auto !important; /* Prevents it from filling the whole width */
+  min-width: 220px;
+  border-radius: 50px !important;
+}
+
+/* Mobile fix for the grid */
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; }
+  .form-card { padding: 2rem 1.5rem; }
 }
 
 .btn-primary {
@@ -1072,6 +1122,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

@@ -291,181 +291,131 @@
 </footer>
 
   <script src="content.js"></script>
+<script src="content.js"></script>
 <script>
    function openEnquiry() {
-  const enquirySection = document.getElementById('enquiry');
-  if (!enquirySection) return;
+     const enquirySection = document.getElementById('enquiry');
+     if (!enquirySection) return;
+     enquirySection.classList.remove('hidden');
+     enquirySection.scrollIntoView({ behavior: 'smooth' });
+   }
 
-  enquirySection.classList.remove('hidden');
-  enquirySection.scrollIntoView({ behavior: 'smooth' });
-}
+   function scrollToSection(id) {
+     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    let currentLang = 'en';
+   function getValueByPath(obj, path) {
+     if (!obj || !path) return null;
+     if (obj[path]) return obj[path];
+     return path.split('.').reduce((acc, key) => (acc && acc[key] !== undefined) ? acc[key] : null, obj);
+   }
 
-    function getValueByPath(obj, path) {
-    if (!obj || !path) return null;
-    
-    // Check if the key exists exactly as a string (e.g., "intro.title")
-    if (obj[path]) return obj[path];
-    
-    // Otherwise, treat it as a nested path (e.g., intro -> title)
-    return path.split('.').reduce((acc, key) => (acc && acc[key] !== undefined) ? acc[key] : null, obj);
-}
+   function updateServeTabs(lang = 'en') {
+     const nav = document.getElementById('tabs-nav');
+     const sectionData = window.content[lang]?.serveSection;
+     if (!sectionData) return;
+     
+     document.getElementById('serve-title').innerText = sectionData.title;
+     nav.innerHTML = '';
+     sectionData.categories.forEach((cat, index) => {
+       const btn = document.createElement('button');
+       btn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
+       btn.innerHTML = cat.title;
+       btn.onclick = () => switchTabData(index, lang);
+       nav.appendChild(btn);
+     });
+     switchTabData(0, lang);
+   }
 
-    function renderContent(lang = 'en') {
-      const data = window.content[lang];
-      if (!data) return;
+   function switchTabData(index, lang) {
+     const data = window.content[lang]?.serveSection?.categories[index];
+     if (!data) return;
+     const contentArea = document.getElementById('tabs-content-area');
+     
+     document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+       btn.classList.toggle('active', i === index);
+     });
+     contentArea.style.opacity = 0;
+     setTimeout(() => {
+       document.getElementById('tab-image').src = data.image;
+       document.getElementById('tab-content-title').innerText = data.title;
+       document.getElementById('tab-content-desc').innerText = data.desc;
+       contentArea.style.opacity = 1;
+     }, 250);
+   }
 
-      // Text nodes
-      document.querySelectorAll('[data-content]').forEach(el => {
-        const value = getValueByPath(data, el.dataset.content);
-        if (value) el.textContent = value;
-      });
+   function renderContent(lang = 'en') {
+     const data = window.content[lang];
+     if (!data) return;
 
-      // Placeholders
-      document.querySelectorAll('[data-placeholder]').forEach(el => {
-        const value = getValueByPath(data, el.dataset.placeholder);
-        if (value) el.placeholder = value;
-      });
+     document.querySelectorAll('[data-content]').forEach(el => {
+       const value = getValueByPath(data, el.dataset.content);
+       if (value) el.textContent = value;
+     });
 
-      // VALUES GRID
-    
+     document.querySelectorAll('[data-placeholder]').forEach(el => {
+       const value = getValueByPath(data, el.dataset.placeholder);
+       if (value) el.placeholder = value;
+     });
 
-// Updated VALUES GRID logic
-const grid1 = document.getElementById('values-grid-row-1');
-const grid2 = document.getElementById('values-grid-row-2');
+     // VALUES GRID
+     const grid1 = document.getElementById('values-grid-row-1');
+     const grid2 = document.getElementById('values-grid-row-2');
+     if (data.values) {
+       if (grid1) {
+         grid1.innerHTML = data.values.slice(0, 2).map((v) => 
+           `<div class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`
+         ).join('');
+       }
+       if (grid2) {
+         grid2.innerHTML = data.values.slice(2, 4).map((v) => 
+           `<div class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`
+         ).join('');
+       }
+     }
 
-if (data.values) {
-  // First 2 cards for the first row
-  if (grid1) {
-    grid1.innerHTML = data.values.slice(0, 2).map((v, index) => `
-      <div class="value-card-premium">
-        <h3>${v.title}</h3>
-        <p class="text-xs">${v.desc}</p>
-      </div>
-    `).join('');
-  }
-  
-  // Next 2 cards for the second row
-  if (grid2) {
-    grid2.innerHTML = data.values.slice(2, 4).map((v, index) => `
-      <div class="value-card-premium">
-        <h3>${v.title}</h3>
-        <p class="text-xs">${v.desc}</p>
-      </div>
-    `).join('');
-  }
-}
+     // SERVE GRID
+     const serveGrid = document.getElementById('serve-grid');
+     if (serveGrid && data.serve) {
+       serveGrid.innerHTML = data.serve.map(item => 
+         `<div class="card serve-card"><div class="serve-icon">Icon</div><span class="text-xs">${item}</span></div>`
+       ).join('');
+     }
+   }
 
-      // SERVE GRID
-      const serveGrid = document.getElementById('serve-grid');
-      if (serveGrid && data.serve) {
-        serveGrid.innerHTML = data.serve.map(item => `
-          <div class="card serve-card">
-            <div class="serve-icon">Icon</div>
-            <span class="text-xs">${item}</span>
-          </div>
-        `).join('');
-      }
-    }
+   window.setLanguage = function(lang) {
+     const toggle = document.getElementById('langToggle');
+     const labels = document.querySelectorAll('.lang-label');
+     if (toggle) {
+       toggle.className = `language-toggle lang-${lang}-active`;
+       labels.forEach(label => {
+         label.classList.toggle('active', label.dataset.lang === lang);
+       });
+     }
+     renderContent(lang);
+     updateServeTabs(lang);
+     console.log("Language switched to:", lang);
+   };
 
-    // Language toggle
-  
-window.setLanguage = function(lang) {
-  const toggle = document.getElementById('langToggle');
-  const labels = document.querySelectorAll('.lang-label');
-
-  if (!toggle) return;
-
-  // 1. Move the slider background via CSS class
-  toggle.className = `language-toggle lang-${lang}-active`;
-
-  // 2. Update active text color state
-  labels.forEach(label => {
-    label.classList.toggle('active', label.dataset.lang === lang);
-  });
-
-  // 3. Update the content on the page
-  currentLang = lang;
-  renderContent(lang);
-  
-  console.log("O2 Gallery switched to:", lang);
-};
-
-
-     // Function to update the specific "Who We Serve" tab system
-function updateServeTabs(lang = 'en') {
-    const nav = document.getElementById('tabs-nav');
-    const sectionData = window.content[lang].serveSection;
-    
-    // Update main title
-    document.getElementById('serve-title').innerText = sectionData.title;
-    
-    // Clear and rebuild nav buttons
-    nav.innerHTML = '';
-    sectionData.categories.forEach((cat, index) => {
-        const btn = document.createElement('button');
-        // If it's the first button, give it the 'active' class
-        btn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
-        btn.innerHTML = cat.title;
-        btn.onclick = () => switchTabData(index, lang);
-        nav.appendChild(btn);
-    });
-
-    // Initial load of the first tab's content
-    switchTabData(0, lang);
-}
-
-// Function to handle the visual swap of images and text
-function switchTabData(index, lang) {
-    const data = window.content[lang].serveSection.categories[index];
-    const contentArea = document.getElementById('tabs-content-area');
-    
-    // 1. Update active button styling
-    document.querySelectorAll('.tab-btn').forEach((btn, i) => {
-        btn.classList.toggle('active', i === index);
-    });
-
-    // 2. Smooth transition: Fade out, change data, fade in
-    contentArea.style.opacity = 0;
-    
-    setTimeout(() => {
-        document.getElementById('tab-image').src = data.image;
-        document.getElementById('tab-content-title').innerText = data.title;
-        document.getElementById('tab-content-desc').innerText = data.desc;
-        contentArea.style.opacity = 1;
-    }, 250);
-}
-
-// INITIALIZATION: Call this inside your DOMContentLoaded or window.onload
-document.addEventListener('DOMContentLoaded', () => {
-    updateServeTabs('en'); // Default to English on load
-});
-
-    // Enquiry form toggle
-    const enquireBtn = document.getElementById('enquireBtn');
-    const enquirySection = document.getElementById('enquiry');
-
-    if (enquireBtn && enquirySection) {
-      enquireBtn.addEventListener('click', () => {
-        enquirySection.classList.remove('hidden');
-        enquirySection.scrollIntoView({ behavior: 'smooth' });
-      });
-    }
-
-    // Init
-    renderContent('en');
-    lucide.createIcons();
-  });
-
-  function scrollToSection(id) {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  }
+   document.addEventListener('DOMContentLoaded', () => {
+     renderContent('en');
+     updateServeTabs('en');
+     
+     const enquireBtn = document.getElementById('enquireBtn');
+     const enquirySection = document.getElementById('enquiry');
+     if (enquireBtn && enquirySection) {
+       enquireBtn.addEventListener('click', openEnquiry);
+     }
+     
+     if (typeof lucide !== 'undefined') {
+       lucide.createIcons();
+     }
+   });
 </script>
 
 </body>
 </html>
+
 
 
 

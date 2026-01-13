@@ -331,184 +331,158 @@
 
 <script>
     
-   function openEnquiry() {
-       let currentLang = 'en';        
+  // 1. Global State
 window.currentLang = 'en';
-       
 
-     const enquirySection = document.getElementById('enquiry');
-     if (!enquirySection) return;
-     enquirySection.classList.remove('hidden');
-     enquirySection.scrollIntoView({ behavior: 'smooth' });
-   }
-
-   function scrollToSection(id) {
-     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-   }
-
-   function getValueByPath(obj, path) {
-     if (!obj || !path) return null;
-     if (obj[path]) return obj[path];
-     return path.split('.').reduce((acc, key) => (acc && acc[key] !== undefined) ? acc[key] : null, obj);
-   }
-
-   function updateServeTabs(lang = 'en') {
-     const nav = document.getElementById('tabs-nav');
-     const sectionData = window.content[lang]?.serveSection;
-     if (!sectionData) return;
-     
-     document.getElementById('serve-title').innerText = sectionData.title;
-     nav.innerHTML = '';
-     sectionData.categories.forEach((cat, index) => {
-       const btn = document.createElement('button');
-       btn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
-       btn.innerHTML = cat.title;
-       btn.onclick = () => switchTabData(index, lang);
-       nav.appendChild(btn);
-     });
-     switchTabData(0, lang);
-   }
-
-   function switchTabData(index, lang) {
-     const data = window.content[lang]?.serveSection?.categories[index];
-     if (!data) return;
-     const contentArea = document.getElementById('tabs-content-area');
-     
-     document.querySelectorAll('.tab-btn').forEach((btn, i) => {
-       btn.classList.toggle('active', i === index);
-     });
-     contentArea.style.opacity = 0;
-     setTimeout(() => {
-       document.getElementById('tab-image').src = data.image;
-       document.getElementById('tab-content-title').innerText = data.title;
-       document.getElementById('tab-content-desc').innerText = data.desc;
-       contentArea.style.opacity = 1;
-     }, 250);
-   }
-
-   function renderContent(lang = 'en') {
-     const data = window.content[lang];
-     if (!data) return;
-
-     document.querySelectorAll('[data-content]').forEach(el => {
-       const value = getValueByPath(data, el.dataset.content);
-       if (value) el.textContent = value;
-     });
-
-     document.querySelectorAll('[data-placeholder]').forEach(el => {
-       const value = getValueByPath(data, el.dataset.placeholder);
-       if (value) el.placeholder = value;
-     });
-
-     // VALUES GRID
-     const grid1 = document.getElementById('values-grid-row-1');
-     const grid2 = document.getElementById('values-grid-row-2');
-     if (data.values) {
-       if (grid1) {
-         grid1.innerHTML = data.values.slice(0, 2).map((v) => 
-           `<div class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`
-         ).join('');
-       }
-       if (grid2) {
-         grid2.innerHTML = data.values.slice(2, 4).map((v) => 
-           `<div class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`
-         ).join('');
-       }
-     }
-
-     // SERVE GRID
-     const serveGrid = document.getElementById('serve-grid');
-     if (serveGrid && data.serve) {
-       serveGrid.innerHTML = data.serve.map(item => 
-         `<div class="card serve-card"><div class="serve-icon">Icon</div><span class="text-xs">${item}</span></div>`
-       ).join('');
-     }
-   }
-
-   window.setLanguage = function(lang) {
-      window.currentLang = lang;
-     const toggle = document.getElementById('langToggle');
-     const labels = document.querySelectorAll('.lang-label');
-     if (toggle) {
-       toggle.className = `language-toggle lang-${lang}-active`;
-       labels.forEach(label => {
-         label.classList.toggle('active', label.dataset.lang === lang);
-       });
-     }
-     renderContent(lang);
-     updateServeTabs(lang);
-     console.log("Language switched to:", lang);
-   };
-
-   function initFormHandler() {  // ADD ENTIRE FUNCTION
-  const form = document.getElementById('enquiryForm');
-  if (!form) return;
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const submitBtn = form.querySelector('.submit-btn');
-    const btnText = submitBtn.querySelector('.btn-text');
-    const btnLoader = submitBtn.querySelector('.btn-loader');
-    const messageDiv = document.getElementById('form-message');
-    
-    submitBtn.disabled = true;
-    btnText.textContent = '';
-    btnLoader.style.display = 'inline';
-    
-    const formData = {
-      projectType: document.getElementById('project-type').value,
-      name: document.getElementById('name').value,
-      phone: document.getElementById('phone').value,
-      email: document.getElementById('email').value,
-      message: document.getElementById('message').value,
-      lang: window.currentLang
-    };
-    
-    setTimeout(() => {
-      messageDiv.textContent = '✅ Thank you! We will contact you within 24 hours.';
-      messageDiv.className = 'form-message success';
-      messageDiv.style.display = 'block';
-      form.reset();
-      submitBtn.disabled = false;
-      btnLoader.style.display = 'none';
-      btnText.textContent = window.content[currentLang]?.enquiry?.form?.submit || 'Submit Enquiry';
-      messageDiv.scrollIntoView({ behavior: 'smooth' });
-    }, 2000);
-  });
-
-  function validateForm() {
-    const name = document.getElementById('name')?.value.trim();
-    const email = document.getElementById('email')?.value.trim();
-    const phone = document.getElementById('phone')?.value.trim();
-    const projectType = document.getElementById('project-type')?.value;
-    document.querySelector('.submit-btn')?.disabled = !(name && email && phone && projectType);
-  }
-
-  ['name','email','phone','project-type'].forEach(id => {
-    document.getElementById(id)?.addEventListener('input', validateForm);
-  });
+function scrollToSection(id) {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 }
 
+function openEnquiry() {
+    const enquirySection = document.getElementById('enquiry');
+    if (!enquirySection) return;
+    enquirySection.classList.remove('hidden');
+    enquirySection.scrollIntoView({ behavior: 'smooth' });
+}
 
-   document.addEventListener('DOMContentLoaded', () => {
-     renderContent('en');
-     updateServeTabs('en');
-       initFormHandler();
-     
-     const enquireBtn = document.getElementById('enquireBtn');
-     const enquirySection = document.getElementById('enquiry');
-     if (enquireBtn && enquirySection) {
-       enquireBtn.addEventListener('click', openEnquiry);
-     }
-     
-     if (typeof lucide !== 'undefined') {
-       lucide.createIcons();
-     }
-   });
+// 2. Deep Data Helper
+function getValueByPath(obj, path) {
+    return path.split('.').reduce((acc, key) => (acc && acc[key] !== undefined) ? acc[key] : null, obj);
+}
+
+// 3. Update the "Who We Create For" Tabs
+function updateServeTabs(lang) {
+    const nav = document.getElementById('tabs-nav');
+    const sectionData = window.content[lang]?.serveSection;
+    if (!sectionData || !nav) return;
+
+    document.getElementById('serve-title').innerText = sectionData.title;
+    nav.innerHTML = '';
+    
+    sectionData.categories.forEach((cat, index) => {
+        const btn = document.createElement('button');
+        btn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
+        btn.innerHTML = cat.title;
+        btn.onclick = () => switchTabData(index, lang);
+        nav.appendChild(btn);
+    });
+    switchTabData(0, lang);
+}
+
+function switchTabData(index, lang) {
+    const data = window.content[lang]?.serveSection?.categories[index];
+    if (!data) return;
+
+    document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i === index);
+    });
+
+    const contentArea = document.getElementById('tabs-content-area');
+    contentArea.style.opacity = 0;
+
+    setTimeout(() => {
+        document.getElementById('tab-image').src = data.image;
+        document.getElementById('tab-content-title').innerText = data.title;
+        document.getElementById('tab-content-desc').innerText = data.desc;
+        contentArea.style.opacity = 1;
+    }, 250);
+}
+
+// 4. Main Render Function
+function renderContent(lang) {
+    const data = window.content[lang];
+    if (!data) return;
+
+    // Update all text with [data-content]
+    document.querySelectorAll('[data-content]').forEach(el => {
+        const value = getValueByPath(data, el.dataset.content);
+        if (value) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.placeholder = value;
+            } else {
+                el.textContent = value;
+            }
+        }
+    });
+
+    // Update Values Cards
+    const grid1 = document.getElementById('values-grid-row-1');
+    const grid2 = document.getElementById('values-grid-row-2');
+    if (data.values) {
+        if (grid1) grid1.innerHTML = data.values.slice(0, 2).map(v => 
+            `<div class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`).join('');
+        if (grid2) grid2.innerHTML = data.values.slice(2, 4).map(v => 
+            `<div class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`).join('');
+    }
+    
+    // Refresh Icons (Lucide)
+    if (window.lucide) lucide.createIcons();
+}
+
+// 5. Language Switcher
+window.setLanguage = function(lang) {
+    window.currentLang = lang;
+    const toggle = document.getElementById('langToggle');
+    if (toggle) toggle.className = `language-toggle lang-${lang}-active`;
+    
+    document.querySelectorAll('.lang-label').forEach(label => {
+        label.classList.toggle('active', label.dataset.lang === lang);
+    });
+
+    renderContent(lang);
+    updateServeTabs(lang);
+};
+
+// 6. Form Handling
+function initFormHandler() {
+    const form = document.getElementById('enquiryForm');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const submitBtn = form.querySelector('.submit-btn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoader = submitBtn.querySelector('.btn-loader');
+        const messageDiv = document.getElementById('form-message');
+
+        submitBtn.disabled = true;
+        btnText.style.display = 'none';
+        btnLoader.style.display = 'inline';
+
+        setTimeout(() => {
+            const successMsg = window.currentLang === 'hi' ? '✅ धन्यवाद! हम आपसे संपर्क करेंगे।' : 
+                               window.currentLang === 'mr' ? '✅ धन्यवाद! आम्ही लवकरच संपर्क करू।' : 
+                               '✅ Thank you! We will contact you within 24 hours.';
+            
+            messageDiv.textContent = successMsg;
+            messageDiv.style.display = 'block';
+            form.reset();
+            submitBtn.disabled = false;
+            btnLoader.style.display = 'none';
+            btnText.style.display = 'inline';
+            messageDiv.scrollIntoView({ behavior: 'smooth' });
+        }, 2000);
+    });
+
+    // Real-time validation
+    form.querySelectorAll('input, select, textarea').forEach(input => {
+        input.addEventListener('input', () => {
+            const isValid = form.checkValidity();
+            form.querySelector('.submit-btn').disabled = !isValid;
+        });
+    });
+}
+
+// 7. Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    setLanguage('en');
+    initFormHandler();
+});
 </script>
 
 </body>
 </html>
+
 
 
 

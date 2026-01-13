@@ -320,7 +320,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* --- UPDATED LOGO (No borders, Transparent, Bigger) --- */
 .logo {
-  background: transparent !important; /* Removes green box */
+  /* Removes green box */
   border: none !important;            /* Removes gray border */
   box-shadow: none !important;        /* Removes shadows */
   display: flex;
@@ -956,6 +956,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

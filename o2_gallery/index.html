@@ -3,11 +3,16 @@
 <head>
    <link rel="stylesheet" href="css/layout.css">
    <link rel="stylesheet" href="css/theme.css">
+   
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>O₂ Gallery</title>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <style>
+     .hero-particles * { pointer-events: none !important; }
+.hero-text-box, .hero-cta, .hero-title, .hero-subtitle {
+  position: relative; z-index: 20 !important; pointer-events: auto !important;
+}
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {background: white; color: #1f2937; line-height: 1.6; }
     .container { max-width: 1440px; margin: 0 auto; padding: 0 2rem; }
@@ -570,6 +575,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 

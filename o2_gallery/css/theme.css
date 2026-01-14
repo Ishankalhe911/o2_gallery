@@ -49,7 +49,7 @@ background: #002d35; /* Deep Oxygen Teal */
 border-top: 4px solid var(--o2-blue);
   color: #e8f5e9;
   padding: 5rem 0 2rem;
-  margin-top: 0;
+  margin-top: 80px;
  
 }
 
@@ -1314,6 +1314,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

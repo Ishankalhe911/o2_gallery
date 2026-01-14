@@ -817,14 +817,32 @@ nav span:hover::before { width: 90%; }
     object-fit: cover;
 }
 
+
 .tabs-text-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     padding: 3.5rem 2.5rem 2.5rem;
-    background: linear-gradient(to top, rgba(0, 45, 53, 0.95) 20%, transparent 100%);
+    backdrop-filter: blur(8px);
+    background: linear-gradient(
+        to top, 
+        rgba(0, 45, 53, 0.85) 40%, 
+        transparent 100%
+    );
     color: white;
+}
+
+.tabs-text-overlay h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.tabs-text-overlay p {
+    font-size: 1rem;
+    opacity: 0.9;
+    line-height: 1.6;
 }
 
 /* --- UNIVERSAL PREMIUM BUTTON STYLE --- */
@@ -1150,6 +1168,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

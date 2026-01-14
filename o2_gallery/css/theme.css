@@ -1324,6 +1324,11 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+@media (max-width: 480px) {
+  .language-toggle { flex-direction: column; gap: 0.5rem; width: auto; }
+  main { padding: 1.5rem 1rem 0 !important; }
+}
+
 
 
 

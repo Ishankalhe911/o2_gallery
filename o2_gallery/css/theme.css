@@ -312,7 +312,7 @@ header {
     color: white;
     overflow: hidden;
     background: #001d23; /* Deep dark base */
-    margin-bottom:
+    margin-bottom:2.5rem;
 }
 @media screen and (min-width: 1024px) {
   .hero-section {
@@ -1317,6 +1317,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

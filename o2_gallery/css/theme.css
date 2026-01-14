@@ -751,23 +751,51 @@ nav span:hover::before { width: 90%; }
 .tab-btn {
     padding: 1.5rem 2rem;
     border-radius: 20px;
+    /* Changed: Start with a subtle, clean border and no background */
     border: 1px solid rgba(46, 125, 50, 0.1);
-    background: var(--tree-green);
+    background: #fcfcfc; 
+    color: #4b5563; /* Muted gray-text */
     text-align: left;
     font-family: 'Poppins', sans-serif;
     font-size: 1.1rem;
-    font-weight: 600;
-    
+    font-weight: 500; /* Slightly lighter weight for non-active */
+    position: relative;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tab-btn.active {
     background: var(--tree-green);
     color: white;
+    font-weight: 600;
     border-color: var(--tree-green);
-    transform: translateX(15px);
-    box-shadow: -10px 10px 30px rgba(46, 125, 50, 0.2);
+    /* The shift feels more intentional now */
+    transform: translateX(20px); 
+    box-shadow: -15px 15px 40px rgba(46, 125, 50, 0.25);
+}
+
+/* Premium Highlight: A white light "glow" that sweeps across the button when selected */
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.2), 
+        transparent
+    );
+    animation: sweep 2s infinite;
+}
+
+@keyframes sweep {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
 }
 
 .tabs-content {
@@ -1122,6 +1150,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

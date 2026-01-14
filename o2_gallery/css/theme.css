@@ -1361,15 +1361,19 @@ html {
 }
 
 @media (max-width: 768px) {
-  .arrow{ 
-    /* Rotates the arrow 90 degrees clockwise to point down */
-    transform: rotate(90deg); 
+  #projects .arrow { 
+    /* Combined: Rotates AND keeps your 1.15x scale */
+    transform: rotate(90deg) scale(1.15); 
     
-    /* Optional: Ensure it is centered between the cards */
+    /* Centers the icon between the stacked cards */
     display: block;
-    margin: 20px auto; 
+    margin: 1.5rem auto; 
+    
+    /* Ensures the icon doesn't take up full width so it can center */
+    width: fit-content;
   }
 }
+
 
 
 

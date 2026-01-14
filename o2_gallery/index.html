@@ -10,6 +10,13 @@
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   
 </head>
+<style>
+   hero-particles * { pointer-events: none !important; }
+.hero-text-box, .hero-cta, .hero-title, .hero-subtitle {
+position: relative; z-index: 20 !important; pointer-events: auto !important;
+}
+</style>
+
 <body>
   <!-- HEADER ---->
   <header>
@@ -529,6 +536,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 

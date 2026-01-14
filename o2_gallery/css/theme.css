@@ -1336,19 +1336,30 @@ html {
     width: auto !important;                /* Shrink to content */
     padding: 0.5rem !important;           /* Small padding */
     background: rgba(46, 125, 50, 0.1);   /* Keep green tint */
-    border-radius: 25px;                  /* Pill shape */
+    border-radius: 25px; 
+    padding: 6px 8px !important;
+    height: 42px !important;
+    align-items: center !important; 
   }
   
   .indicator {
     width: calc(33.33% - 4px) !important; /* Smaller pill for 3 languages */
     height: calc(100% - 4px) !important;
+    height: 30px !important; 
+    top: 6px !important;                 /
+    left: 6px !important
   }
   
   .lang-label {
     font-size: 0.75rem !important;        /* Smaller text */
-    padding: 0.4rem 0.8rem !important;    /* Tight padding */
+    padding: 0.4rem 0.8rem !important;  
+    height: 30px !important;             
+    display: flex !important;
+    align-items: center !important;      
+    min-width: 0;
   }
 }
+
 
 
 

@@ -610,69 +610,90 @@ nav span:hover::before { width: 90%; }
   border-color: rgba(46,125,50,0.35);
 }
 
-/* --- MISSION & VISION PREMIUM STYLING --- */
+/* ---MISSION & VISION STYLING --- */
 
-.mission-vision-grid {
-    gap: 3rem;
-    margin-top: 2rem;
+#mission .grid-2 {
+    gap: 4rem;
+    margin-top: 6rem; /* Extra space for the floating images */
+    align-items: stretch;
 }
 
-.mission-vision-card {
+#mission .card {
     display: flex;
     flex-direction: column;
-    align-items: center;    /* Centers everything horizontally */
-    text-align: center;     /* Centers the paragraph text */
-    padding: 4rem 2.5rem !important;
+    align-items: center;    
+    text-align: center;     
+    /* Space at top for image, space at bottom for text balance */
+    padding: 0 2.5rem 4rem !important; 
     background: #ffffff;
-    height: 100%;           /* Ensures both cards are equal height */
+    border: 1px solid rgba(46, 125, 50, 0.08);
+    position: relative;
+    overflow: visible; /* ALLOWS CIRCLE TO POP OUT OF CARD */
+    border-radius: var(--border-radius);
 }
 
-/* The Circular Image Wrapper */
+/* THE DOMINATING CENTERED CIRCLE */
 .card-image-circle {
-    width: 160px;
-    height: 160px;
+    width: 260px;           /* LARGE & DOMINATING */
+    height: 260px;
     border-radius: 50%;
     overflow: hidden;
+    margin-top: -130px;     /* Sits halfway outside the card */
     margin-bottom: 2rem;
-    border: 6px solid var(--mint-cream);
-    box-shadow: 0 10px 25px rgba(46, 125, 50, 0.1);
+    border: 12px solid #ffffff; /* Thick white frame */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    z-index: 5;
     transition: var(--transition);
 }
 
 .card-image-circle img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures image isn't squashed */
+    object-fit: cover;
+    transform: scale(1.1); /* Ensures image covers full circle area */
+    transition: transform 0.6s ease;
 }
 
-/* Label Styling (Mission/Vision text) */
+/* MISSION/VISION TEXT LABELS */
 .card-label {
+    display: block;
+    font-size: 1.2rem !important;
     font-weight: 700 !important;
     color: var(--tree-green);
-    letter-spacing: 2px;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
 }
 
-/* Hover Effect */
-.mission-vision-card:hover .card-image-circle {
-    transform: scale(1.05);
+/* HOVER EFFECTS */
+#mission .card:hover .card-image-circle {
+    transform: translateY(-10px) scale(1.02);
     border-color: var(--tree-green-light);
-    box-shadow: 0 15px 35px rgba(46, 125, 50, 0.2);
+    box-shadow: 0 20px 50px rgba(46, 125, 50, 0.25);
 }
 
-/* --- MOBILE RESPONSIVENESS --- */
+#mission .card:hover .card-image-circle img {
+    transform: scale(1.25); /* Zoom effect into the image */
+}
+
+/* --- MOBILE RESPONSIVENESS FIXES --- */
 @media (max-width: 768px) {
-    .mission-vision-card {
-        padding: 3rem 1.5rem !important;
+    #mission .grid-2 {
+        margin-top: 10rem; /* Space for stacked floating images */
+        gap: 10rem;        /* Prevent overlap when stacked */
     }
-    
+
     .card-image-circle {
-        width: 130px;
-        height: 130px;
+        width: 200px;      /* Large but fits mobile width */
+        height: 200px;
+        margin-top: -100px;
+    }
+
+    #mission .card {
+        padding: 0 1.5rem 3rem !important;
     }
 }
-
 /* --- Section Specific Styles --- */
 #about .placeholder {
   background: linear-gradient(135deg, #E8F5E9, #C8E6C9, #A5D6A7);
@@ -1476,6 +1497,7 @@ html {
   }
   
 }
+
 
 
 

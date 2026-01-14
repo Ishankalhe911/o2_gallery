@@ -1372,7 +1372,31 @@ html {
     /* Ensures the icon doesn't take up full width so it can center */
     width: fit-content;
   }
+  .tabs-text-overlay {
+    padding: 2rem 1.5rem 1.5rem !important; 
+  }
+
+  
+  #tab-content-title {
+    font-size: 1.6rem !important; 
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    word-wrap: break-word; 
+  }
+
+ 
+  #tab-content-desc {
+    font-size: 0.95rem !important;
+    max-width: 100% !important; 
+  }
+
+ 
+  .tabs-content {
+    height: 450px !important; 
+  }
+  
 }
+
 
 
 

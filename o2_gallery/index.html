@@ -92,39 +92,38 @@
 
    <section id="about" class="hero-section">
     <div class="hero-background-wrapper">
-      <img src="assets/hero-bg.jpg" alt="Botanical Gallery" class="hero-bg-img">
-      <div class="hero-overlay"></div>
-      
-      <div class="hero-particles">
-        <div class="particle"></div><div class="particle"></div>
-        <div class="particle"></div><div class="particle"></div>
-        <div class="particle"></div>
-      </div>
+        <img src="assets/hero-bg.jpg" alt="Botanical Gallery" class="hero-bg-img">
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-particles">
+            <div class="particle"></div><div class="particle"></div>
+            <div class="particle"></div><div class="particle"></div>
+            <div class="particle"></div>
+        </div>
     </div>
     
-    <div class="container hero-content-grid">
-      <div class="hero-text-box">
-        <h1 data-content="intro.title" class="hero-title reveal-text"></h1>
-        <div class="hero-desc-wrapper">
-           <p data-content="intro.p1" class="hero-description"></p>
-           <p data-content="intro.p2" class="hero-description"></p>
-        </div>
-        <div class="hero-cta-group">
-          <button class="btn-primary-glow" onclick="scrollToSection('contact')">
-            <span data-content="enquiry.cta"></span>
-            <i data-lucide="arrow-right" class="btn-icon"></i>
-          </button>
-        </div>
-      </div>
+    <div class="container">
+        <div class="hero-text-box">
+            <h1 data-content="intro.title" class="hero-title"></h1>
+            
+            <div class="hero-desc-wrapper">
+                <p data-content="intro.p1" class="hero-subtitle"></p>
+                <p data-content="intro.p2" class="hero-subtitle" style="margin-top: -1.5rem;"></p>
+            </div>
 
-      <div class="hero-visual">
-        <div class="glass-badge">
-           <span class="pulse-dot"></span>
-           <span class="badge-text">100% Organic O₂</span>
+            <div class="hero-actions">
+                <button class="hero-cta" onclick="scrollToSection('contact')">
+                    <span data-content="enquiry.cta"></span>
+                </button>
+                
+                <div class="glass-tagline">
+                    <span class="pulse-dot"></span>
+                    <span class="tagline-text">100% Organic O₂</span>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
+</section>
 
    
 
@@ -568,6 +567,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 

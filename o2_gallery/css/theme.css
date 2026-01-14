@@ -909,6 +909,15 @@ nav span:hover::before { width: 90%; }
     cursor: pointer;
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.tab-btn:not(.active):hover {
+    background: #ffffff;
+    border-color: var(--tree-green-light);
+    color: var(--tree-green);
+    transform: translateX(10px); /* Moves slightly to invite the click */
+    box-shadow: 0 10px 20px rgba(46, 125, 50, 0.1);
+    padding-left: 2.5rem; /* Pushes text right to create dynamic feel */
 }
 
 .tab-btn.active {
@@ -1315,6 +1324,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

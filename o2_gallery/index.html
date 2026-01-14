@@ -377,26 +377,31 @@ function updateServeTabs(lang) {
     });
     switchTabData(0, lang);
 }
-
 function switchTabData(index, lang) {
     const data = window.content[lang]?.serveSection?.categories[index];
     if (!data) return;
 
+    // 1. Update active button classes
     document.querySelectorAll('.tab-btn').forEach((btn, i) => {
         btn.classList.toggle('active', i === index);
     });
 
     const contentArea = document.getElementById('tabs-content-area');
+    
+    // 2. Premium "Slide & Fade" Animation
     contentArea.style.opacity = 0;
+    contentArea.style.transform = 'translateY(15px)';
 
     setTimeout(() => {
         document.getElementById('tab-image').src = data.image;
         document.getElementById('tab-content-title').innerText = data.title;
         document.getElementById('tab-content-desc').innerText = data.desc;
+        
+        contentArea.style.transition = 'all 0.5s ease-out';
         contentArea.style.opacity = 1;
+        contentArea.style.transform = 'translateY(0)';
     }, 250);
 }
-
 // 4. Main Render Function
 function renderContent(lang) {
     const data = window.content[lang];
@@ -524,6 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 

@@ -1394,8 +1394,26 @@ html {
   .tabs-content {
     height: 450px !important; 
   }
+  #about .placeholder {
+    min-height: auto !important;      /* Remove the 400px height restriction */
+    aspect-ratio: auto !important;   /* Let the image's own shape decide the height */
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;          
+    overflow: hidden;
+    border-radius: 12px;             /* Keeps the nice rounded corners */
+  }
+
+ 
+  #about .placeholder img {
+    width: 100% !important;
+    height: auto !important;         /* This is the most important line for responsiveness */
+    display: block;
+    object-fit: cover;               /* Makes it look premium by filling the space */
+  }
   
 }
+
 
 
 

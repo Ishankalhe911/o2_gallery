@@ -45,19 +45,22 @@ function toggleLanguage() {
 }
 /* --- PREMIUM FOOTER STYLES --- */
 .site-footer {
-background: #002d35; /* Deep Oxygen Teal */
-border-top: 4px solid var(--o2-blue);
-  color: #e8f5e9;
-  padding: 5rem 0 2rem;
-  margin-top: 0px;
+  background: #002d35; /* Deep Oxygen Teal */
  
+  border-top: 4px solid var(--tree-green-light); 
+  color: #e8f5e9;
+  
+  
+  padding: 8rem 0 3rem; /* Increased top padding from 5rem to 8rem */
+  margin-top: 100px;    /* Created a large gap between the body and footer */
+  /* ----------------------- */
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
   gap: 3rem;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 
 .footer-logo {
@@ -72,7 +75,7 @@ border-top: 4px solid var(--o2-blue);
   font-family: 'Poppins', sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -1314,6 +1317,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

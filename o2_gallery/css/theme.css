@@ -316,6 +316,9 @@ header {
   opacity: 0.95;
   max-width: 600px;
   line-height: 1.5;
+  opacity: 0;
+    animation: fadeInUpHero 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s; /* Starts slightly after the title */
 }
 
 .hero-cta {
@@ -331,6 +334,9 @@ header {
   transition: var(--transition);
   position: relative;
   z-index: 2;
+  opacity: 0;
+    animation: fadeInUpHero 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+    animation-delay: 0.4s; /* Starts last for a sequenced 'reveal' */
 }
 
 .hero-cta:hover {
@@ -1226,6 +1232,7 @@ html {
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 

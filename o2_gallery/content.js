@@ -28,7 +28,7 @@ window.content = {
       form: {
         name: "Your Full Name *",
         email: "Email Address *",
-        phone: "WhatsApp Number *",
+        phone: "Mobile Number *",
         message: "Tell us about your space and goals.",
         submit: "Submit Enquiry"
       }
@@ -89,7 +89,7 @@ window.content = {
       form: {
         name: "आपका पूरा नाम *",
         email: "ईमेल पता *",
-        phone: "WhatsApp नंबर *",
+        phone: "Phone नंबर *",
         message: "अपनी जगह और अपने लक्ष्यों के बारे में बताएं।",
         submit: "पूछताछ सबमिट करें"
       }
@@ -150,7 +150,7 @@ window.content = {
       form: {
         name: "तुमचे पूर्ण नाव *",
         email: "ईमेल पत्ता *",
-        phone: "WhatsApp नंबर *",
+        phone: "Phone नंबर *",
         message: "तुमच्या जागेबद्दल आणि तुमच्या गरजांबद्दल सांगा.",
         submit: "चौकशी सादर करा"
       }

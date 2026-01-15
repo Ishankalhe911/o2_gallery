@@ -241,24 +241,33 @@ position: relative; z-index: 20 !important; pointer-events: auto !important;
 <!-- ENQUIRY FORM (hidden by default) -->
 <!-- ENQUIRY FORM (Enhanced - Multilingual Ready) -->
 <section id="enquiry" class="container hidden">
-  <div class="form-card"> <div class="form-header">
+  <div class="form-card">
+    <div class="form-header">
       <h2 data-content="enquiry.title"></h2>
       <p data-content="enquiry.subtitle" class="form-subtitle"></p>
     </div>
     
-    <form id="enquiryForm" 
+    <form 
+      id="enquiryForm"
       class="enquiry-form"
       action="https://formsubmit.co/ishankalhe1@gmail.com"
-      method="POST" >
+      method="POST"
+    >
+      <!-- FormsSubmit required hidden fields -->
+      <input type="hidden" name="_subject" value="🌿 O₂ Gallery Enquiry">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://ishankalhe911.github.io/o2_gallery/o2_gallery/#contact">
+      
       <div class="form-group">
         <label class="form-label" data-content="enquiry.form.name"></label>
-        <input type="text" id="name" class="form-input" placeholder="e.g. Julia Aquila" required />
+        <input type="text" name="name" id="name" class="form-input" placeholder="e.g. Julia Aquila" required />
       </div>
-
+      
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Project Type *</label>
-          <select id="project-type" class="form-input" required>
+          <select name="project_type" id="project-type" class="form-input" required>
             <option value="">Select type...</option>
             <option value="balcony">Balcony Garden</option>
             <option value="office">Office Greenery</option>
@@ -267,18 +276,18 @@ position: relative; z-index: 20 !important; pointer-events: auto !important;
         </div>
         <div class="form-group">
           <label class="form-label" data-content="enquiry.form.email"></label>
-          <input type="email" id="email" class="form-input" placeholder="e.g. name@email.com" required />
+          <input type="email" name="email" id="email" class="form-input" placeholder="e.g. name@email.com" required />
         </div>
       </div>
       
       <div class="form-group">
         <label class="form-label" data-content="enquiry.form.phone"></label>
-        <input type="tel" id="phone" class="form-input" placeholder="+91 9876543210" required />
+        <input type="tel" name="phone" id="phone" class="form-input" placeholder="+91 9876543210" required />
       </div>
       
       <div class="form-group">
         <label class="form-label" data-content="enquiry.form.message"></label>
-        <textarea id="message" class="form-input" rows="4" placeholder="Tell us more..." required></textarea>
+        <textarea name="message" id="message" class="form-input" rows="4" placeholder="Tell us more..." required></textarea>
       </div>
       
       <div class="form-actions">
@@ -287,7 +296,6 @@ position: relative; z-index: 20 !important; pointer-events: auto !important;
           <span class="btn-loader" style="display: none;">Sending...</span>
         </button>
       </div>
-    </form>
     </form>
     
     <div id="form-message" class="form-message" style="display: none; margin-top: 1rem;"></div>
@@ -568,6 +576,7 @@ window.setLanguage = function(lang) {
 
 </body>
 </html>
+
 
 
 

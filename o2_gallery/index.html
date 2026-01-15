@@ -453,18 +453,25 @@ position: relative; z-index: 20 !important; pointer-events: auto !important;
   }
 
   // Language Switcher
-  window.setLanguage = function(lang) {
-    window.currentLang = lang;
-    const toggle = document.getElementById('langToggle');
-    if (toggle) toggle.className = `language-toggle lang-${lang}-active`;
-    
-    document.querySelectorAll('.lang-label').forEach(label => {
-      label.classList.toggle('active', label.dataset.lang === lang);
-    });
+window.setLanguage = function(lang) {
+  window.currentLang = lang;
+  
+  // Update toggle class
+  const toggle = document.getElementById('langToggle');
+  if (toggle) {
+    // Remove all lang-active classes first
+    toggle.className = 'language-toggle';
+    toggle.classList.add(`lang-${lang}-active`);
+  }
+  
+  // Update active labels
+  document.querySelectorAll('.lang-label').forEach(label => {
+    label.classList.toggle('active', label.dataset.lang === lang);
+  });
 
-    renderContent(lang);
-    updateServeTabs(lang);
-  };
+  renderContent(lang);
+  updateServeTabs(lang);
+};
 
   // Form Handler
   function initFormHandler() {
@@ -555,6 +562,7 @@ position: relative; z-index: 20 !important; pointer-events: auto !important;
 
 </body>
 </html>
+
 
 
 

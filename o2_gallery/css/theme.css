@@ -429,28 +429,51 @@ header {
 }
 
 .hero-cta {
-  background: linear-gradient(135deg, var(--tree-green-light), var(--tree-green));
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 1.25rem 3rem;
-  font-size: 1.2rem;
+  /* 1. THE ALIGNMENT FIX */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Space between text and arrow */
+  
+  /* 2. THE SIZING FIX (Sleeker & Centered) */
+  height: 3.4rem;        /* Fixed height prevents 'fat' look */
+  padding: 0 2.5rem;     /* Only horizontal padding */
+  
+  /* 3. TYPOGRAPHY */
+  font-size: 1.05rem;    /* Slightly smaller for a premium feel */
   font-weight: 600;
+  line-height: 1;        /* Removes font-internal spacing */
+  color: white;
+  
+  /* 4. VISUALS */
+  background: linear-gradient(135deg, var(--tree-green-light), var(--tree-green));
+  border: none;
+  border-radius: 999px;  /* Perfect pill shape */
   cursor: pointer;
-  box-shadow: 0 20px 40px rgba(46,125,50,0.4);
-  transition: var(--transition);
+  
+  /* 5. EFFECTS & ANIMATION */
+  box-shadow: 0 15px 30px rgba(46, 125, 50, 0.25); /* Softer shadow */
+  transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
   position: relative;
   z-index: 2;
   opacity: 0;
-    animation: fadeInUpHero 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
-    animation-delay: 0.4s; /* Starts last for a sequenced 'reveal' */
+  animation: fadeInUpHero 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+  animation-delay: 0.4s;
 }
 
 .hero-cta:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(46,125,50,0.6);
+  transform: translateY(-5px); /* Subtler move is more premium */
+  box-shadow: 0 20px 40px rgba(46, 125, 50, 0.4);
 }
 
+/* Ensure the icon is also centered */
+.hero-cta i, 
+.hero-cta svg {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+}
 /* --- Professional Headings --- */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
@@ -1548,6 +1571,7 @@ html {
 
   
 }
+
 
 
 

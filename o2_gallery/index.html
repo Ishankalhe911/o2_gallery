@@ -488,36 +488,50 @@ window.setLanguage = function(lang) {
   updateServeTabs(lang);
 };
 
-    // Form Handler
   function initFormHandler() {
-    const form = document.getElementById('enquiryForm');
-    if (!form) return;
+  const form = document.getElementById('enquiryForm');
+  if (!form) return;
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const submitBtn = form.querySelector('.submit-btn');
-      const btnText = submitBtn.querySelector('.btn-text');
-      const btnLoader = submitBtn.querySelector('.btn-loader');
-      const messageDiv = document.getElementById('form-message');
-
-      submitBtn.disabled = true;
-      btnText.style.display = 'none';
-      btnLoader.style.display = 'inline';
-
-      setTimeout(() => {
-        const successMsg = window.currentLang === 'hi' ? '✅ धन्यवाद! हम आपसे संपर्क करेंगे।' : 
-                           window.currentLang === 'mr' ? '✅ धन्यवाद! आम्ही लवकरच संपर्क करू।' : 
-                           '✅ Thank you! We will contact you within 24 hours.';
-        
-        messageDiv.textContent = successMsg;
-        messageDiv.style.display = 'block';
-        form.reset();
-        submitBtn.disabled = false;
-        btnLoader.style.display = 'none';
-        btnText.style.display = 'inline';
-        messageDiv.scrollIntoView({ behavior: 'smooth' });
-      }, 2000);
+  // 1. Button validation (your existing code)
+  form.querySelectorAll('input, select, textarea').forEach(input => {
+    input.addEventListener('input', () => {
+      form.querySelector('.submit-btn').disabled = !form.checkValidity();
     });
+  });
+
+  // 2. Show success message BEFORE FormsSubmit redirects
+  form.addEventListener('submit', function(e) {
+    const submitBtn = form.querySelector('.submit-btn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoader = submitBtn.querySelector('.btn-loader');
+    const messageDiv = document.getElementById('form-message');
+
+    // Show loader instantly
+    submitBtn.disabled = true;
+    btnText.style.display = 'none';
+    btnLoader.style.display = 'inline';
+
+    // Show success message for 2 seconds THEN let FormsSubmit work
+    setTimeout(() => {
+      const successMsg = window.currentLang === 'hi' ? 
+        '✅ धन्यवाद! हम आपसे संपर्क करेंगे।' :
+        window.currentLang === 'mr' ? 
+        '✅ धन्यवाद! आम्ही लवकरच संपर्क करू।' :
+        '✅ Thank you! We will contact you within 24 hours.';
+      
+      messageDiv.textContent = successMsg;
+      messageDiv.className = 'form-message success';
+      messageDiv.style.display = 'block';
+      
+      // Let FormsSubmit submit after showing message
+      setTimeout(() => {
+        form.submit(); // Native submit - sends to your Gmail
+      }, 1500);
+    }, 800);
+  });
+}
+
+
 
     form.querySelectorAll('input, select, textarea').forEach(input => {
       input.addEventListener('input', () => {
@@ -576,6 +590,7 @@ window.setLanguage = function(lang) {
 
 </body>
 </html>
+
 
 
 

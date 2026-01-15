@@ -1831,127 +1831,135 @@ html {
 
 
 /* Animations and other extra css*/
-/* O₂ AIR FLOW + TREE GROWTH NAVBAR ANIMATION */
+/* BOLD O₂ AIR FLOW + GROWING TREE NAVBAR */
 @media (min-width: 1025px) {
+  header {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* BOLD O₂ BUBBLES */
   header::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      /* O₂ bubbles rising */
-      radial-gradient(circle at 20% 10%, rgba(16,185,129,0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(16,185,129,0.08) 0%, transparent 50%),
-      /* Air flow streams */
-      linear-gradient(90deg, transparent 0%, rgba(16,185,129,0.03) 50%, transparent 100%);
-    animation: o2-airflow 8s ease-in-out infinite;
-    pointer-events: none;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, rgba(16,185,129,0.8) 0%, rgba(34,197,94,0.6) 50%, transparent 70%);
+    border-radius: 50%;
+    top: -20px;
+    left: 15%;
+    animation: o2-bubble-rise 4s infinite linear;
+    box-shadow: 0 0 20px rgba(16,185,129,0.6);
     z-index: 0;
-    border-radius: inherit;
   }
-
-  /* Tree growth particles */
+  
+  /* SECOND BUBBLE */
   header::after {
     content: '';
     position: absolute;
-    width: 4px;
-    height: 4px;
-    background: radial-gradient(circle, rgba(34,197,94,0.6) 0%, rgba(16,185,129,0.3) 70%);
+    width: 16px;
+    height: 16px;
+    background: radial-gradient(circle, rgba(34,197,94,0.9) 0%, rgba(16,185,129,0.7) 50%, transparent 70%);
     border-radius: 50%;
-    top: 20%;
-    left: 10%;
-    animation: tree-growth 6s linear infinite;
-    box-shadow: 
-      20px -10px 0 rgba(34,197,94,0.4),
-      60px 5px 0 rgba(16,185,129,0.3);
-    pointer-events: none;
+    top: -30px;
+    left: 75%;
+    animation: o2-bubble-rise 5s 1s infinite linear;
+    box-shadow: 0 0 25px rgba(34,197,94,0.7);
     z-index: 0;
   }
+  
+  /* GROWING TREE BRANCH */
+  nav::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 5%;
+    width: 3px;
+    height: 0;
+    background: linear-gradient(to top, #059669, #10b981);
+    animation: tree-grow 3s infinite ease-in-out;
+    box-shadow: 0 0 10px rgba(5,150,105,0.8);
+    z-index: 0;
+  }
+  
+  /* TREE LEAVES */
+  nav span::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 10px;
+    background: radial-gradient(ellipse at 30% 30%, #10b981 0%, #059669 50%, #047857 100%);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%) scale(0) rotate(-15deg);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 2;
+    animation: leaf-grow 2.5s infinite 0.5s;
+  }
 }
 
-/* O₂ AIR FLOW ANIMATION */
-@keyframes o2-airflow {
-  0%, 100% { 
-    opacity: 0.3; 
-    transform: scale(1) translateX(0);
-  }
-  50% { 
-    opacity: 0.7; 
-    transform: scale(1.05) translateX(-5px);
-  }
-}
-
-/* TREE GROWTH ANIMATION */
-@keyframes tree-growth {
+/* POWERFUL O₂ BUBBLE RISE */
+@keyframes o2-bubble-rise {
   0% {
-    transform: translateY(100%) scale(0) rotate(-10deg);
+    transform: translateY(120vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    transform: translateY(-30px) scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* DRAMATIC TREE GROWTH */
+@keyframes tree-grow {
+  0%, 100% {
+    height: 0;
+    transform: scaleX(0.8);
+    opacity: 0;
+  }
+  50% {
+    height: 40px;
+    transform: scaleX(1.2);
+    opacity: 1;
+  }
+}
+
+/* BOLD LEAF GROWTH */
+@keyframes leaf-grow {
+  0%, 100% {
+    transform: translateX(-50%) scale(0) rotate(-15deg);
     opacity: 0;
   }
   20%, 80% {
-    transform: translateY(-20%) scale(1) rotate(0deg);
+    transform: translateX(-50%) scale(1.1) rotate(0deg);
     opacity: 1;
   }
-  100% {
-    transform: translateY(-120%) scale(1.2) rotate(10deg);
-    opacity: 0;
+  50% {
+    transform: translateX(-50%) scale(1.3) rotate(8deg);
   }
 }
 
-/* SUBTLE LEAF FLOATING */
-nav span::before,
-.lang-label::before {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 6px;
-  background: radial-gradient(ellipse, #10b981 0%, #059669 70%, transparent 100%);
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  top: -4px;
-  left: 50%;
-  transform: translateX(-50%) scale(0);
-  opacity: 0;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  z-index: 1;
-}
-
-nav span:hover::before,
-.lang-label:hover::before {
-  transform: translateX(-50%) scale(1) rotate(10deg);
-  opacity: 1;
-  animation: leaf-float 2s ease-in-out infinite;
+/* HOVER BOOST */
+nav span:hover::before {
+  animation: leaf-float 1s ease-in-out;
+  transform: translateX(-50%) scale(1.4) rotate(15deg) !important;
+  opacity: 1 !important;
 }
 
 @keyframes leaf-float {
-  0%, 100% { transform: translateX(-50%) scale(1) rotate(10deg) translateY(0); }
-  50% { transform: translateX(-50%) scale(1.1) rotate(15deg) translateY(-2px); }
+  0%, 100% { transform: translateX(-50%) scale(1.4) rotate(15deg) translateY(0); }
+  50% { transform: translateX(-50%) scale(1.6) rotate(20deg) translateY(-4px); }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

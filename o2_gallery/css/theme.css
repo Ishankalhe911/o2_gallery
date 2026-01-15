@@ -1880,6 +1880,31 @@ html {
     transform: translateX(0%); 
   }
 }
+header { padding: 2rem 0; min-height: 90px; } /* Desktop breathing room */
+
+.hero-section { 
+  padding-top: 140px !important; /* Desktop: account for sticky header */
+  margin-top: 2rem; 
+}
+
+@media (max-width: 768px) {
+  .hero-section { padding-top: 120px !important; } /* Mobile enhancement */
+}
+
+p { margin-bottom: 1.5rem; line-height: 1.7; } /* Global paragraph breathing */
+
+main { padding: 0 0 6rem; } /* Footer gap */
+
+section:not(.hero-section) { padding: 6rem 0; } /* All sections */
+
+.center-title { margin-bottom: 6rem; } /* Increase from 5rem */
+
+:root {
+  --section-spacing: 6rem !important;
+}
+
+main > section { padding: var(--section-spacing) 0; margin-bottom: 2rem; }
+
 
 
 

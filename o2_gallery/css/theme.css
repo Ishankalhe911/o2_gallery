@@ -1805,48 +1805,27 @@ html {
 }
 
 
-
-/* LAPTOP NAV - Ultra Transparent Glassmorphism */
+/* LAPTOP NAV - Subtle Transparency ONLY for HEADER */
 @media (min-width: 1025px) {
   header {
-    background: rgba(255, 255, 255, 0.05) !important;
-    backdrop-filter: blur(24px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.125) !important;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.12) !important;
-  }
-  
-  /* Nav items - subtle transparency */
-  nav span, .nav-link, .nav-enquire {
-    background: rgba(255, 255, 255, 0.08) !important;
-    backdrop-filter: blur(12px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  }
-  
-  nav span:hover, .nav-link:hover, .nav-enquire:hover {
-    background: rgba(255, 255, 255, 0.15) !important;
-    transform: translateY(-1px) !important;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
-  }
-  
-  /* Dropdown gets glass effect too */
-  .dropdown-content {
-    background: rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: blur(16px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.12) !important;  /* Slightly more opaque */
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
   }
 }
 
-/* TABLET - Medium transparency */
+/* TABLET - Light transparency */
 @media (min-width: 769px) and (max-width: 1024px) {
   header {
-    background: rgba(255, 255, 255, 0.08) !important;
-    backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
   }
 }
+
+
 
 
 

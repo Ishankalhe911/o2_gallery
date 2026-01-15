@@ -1572,79 +1572,168 @@ html {
   
 }
 
-
-/* --- HAMBURGER SPECIFIC STYLES --- */
-.menu-toggle {
-  display: none; /* Hide on desktop */
-  background: none;
-  border: none;
-  color: var(--tree-green);
-  cursor: pointer;
-  padding: 5px;
-}
-
-@media (max-width: 1024px) {
-  .nav-links-desktop { display: none; }
-  .menu-toggle { display: block; }
+/* Mobile Navbar Fixes */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem 0;
+    position: relative;
+  }
   
-  .nav-container {
-    justify-content: space-between;
-    padding: 0 1rem;
+  .header-inner {
+    position: relative;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  /* Logo stays top-center */
+  .logo {
+    order: -1;
+    margin: 0;
+  }
+  
+  /* Hide desktop nav, show hamburger */
+  nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--glass-bg, rgba(255,255,255,0.95));
+    backdrop-filter: blur(20px);
+    border-radius: 0 0 1rem 1rem;
+    padding: 1rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 1000;
+  }
+  
+  /* Mobile menu toggle */
+  .mobile-menu-toggle {
+    display: flex !important;
+    flex-direction: column;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+    order: 1;
+    align-self: flex-end;
+  }
+  
+  .mobile-menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background: var(--text-primary, #333);
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+  }
+  
+  /* Lang toggle - full width, bottom */
+  #langToggle {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255,255,255,0.8);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+  }
+  
+  .lang-label {
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .lang-label.active {
+    background: var(--tree-green, #10b981);
+    color: white;
+  }
+  
+  /* Show mobile nav when active */
+  .nav-open nav {
+    display: flex;
+  }
+  
+  /* Mobile nav items */
+  nav span, .nav-link {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+  }
+  
+  nav span:hover, .nav-link:hover {
+    background: rgba(16, 185, 129, 0.1);
+  }
+  
+  /* Dropdown in mobile */
+  .dropdown {
+    width: 100%;
+  }
+  
+  .dropdown-content {
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    background: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .dropdown.open .dropdown-content {
+    max-height: 200px;
+  }
+  
+  .dropdown-content a {
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    display: block;
+  }
+  
+  /* Enquire button */
+  .nav-enquire {
+    background: var(--tree-green, #10b981) !important;
+    color: white !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 0.75rem !important;
+    font-weight: 600 !important;
+    text-align: center;
   }
 }
 
-/* --- THE MOBILE DRAWER --- */
-.mobile-drawer {
-  position: fixed;
-  top: 0;
-  right: -100%; /* Start off-screen */
-  width: 80%;
-  height: 100vh;
-  background: white;
-  z-index: 1000;
-  padding: 4rem 2rem;
-  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  #langToggle {
+    order: 3;
+    min-width: 180px;
+  }
 }
 
-.mobile-drawer.active {
-  right: 0;
+/* Hamburger animation */
+.nav-open .mobile-menu-toggle span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.nav-open .mobile-menu-toggle span:nth-child(2) {
+  opacity: 0;
+}
+.nav-open .mobile-menu-toggle span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
 }
 
-/* --- MOBILE LANGUAGE TOGGLE (The Alignment Fix) --- */
-.mobile-lang-toggle {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.lang-options {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  background: #f0f4f1;
-  border-radius: 12px;
-  padding: 4px;
-}
-
-.lang-btn {
-  padding: 0.8rem 0.5rem;
-  border: none;
-  background: transparent;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
-  border-radius: 8px;
-  /* THE ALIGNMENT FIX: */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-}
-
-.lang-btn.active {
-  background: var(--tree-green);
-  color: white;
-}
 
 
 

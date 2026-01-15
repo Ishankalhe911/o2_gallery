@@ -28,24 +28,49 @@ position: relative; z-index: 20 !important; pointer-events: auto !important;
 
 
 
-  <nav>
-  <span onclick="scrollToSection('about')">About</span>
-  <span onclick="scrollToSection('projects')">Solutions</span>
-  
-  <div class="dropdown">
-    <span class="nav-link">
-      Values <i data-lucide="chevron-down" class="nav-icon"></i>
-    </span>
-    <div class="dropdown-content">
-      <a href="javascript:void(0)" onclick="scrollToSection('value-0')">Eco-Sustainable</a>
-      <a href="javascript:void(0)" onclick="scrollToSection('value-1')">Quality & Transparency</a>
-      <a href="javascript:void(0)" onclick="scrollToSection('value-2')">Precision Engineering</a>
-      <a href="javascript:void(0)" onclick="scrollToSection('value-3')">Zero-Waste</a>
+ <nav class="navbar">
+  <div class="container nav-container">
+    <div class="logo">
+      <img src="assets/logo.png" alt="O2 Gallery">
+    </div>
+
+    <div class="nav-links-desktop">
+      <a href="#about">About</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="nav-enquire">Enquire Now</button>
+      
+      <button class="menu-toggle" id="menuToggle">
+        <i data-lucide="menu"></i>
+      </button>
     </div>
   </div>
 
-  <span onclick="scrollToSection('contact')">Contact</span>
-  <span class="nav-enquire" data-content="enquiry.cta" onclick="openEnquiry()"></span>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <button class="close-menu" id="closeMenu">
+      <i data-lucide="x"></i>
+    </button>
+    
+    <div class="drawer-content">
+      <a href="#about" class="drawer-link">About</a>
+      <a href="#solutions" class="drawer-link">Solutions</a>
+      <a href="#contact" class="drawer-link">Contact</a>
+      
+      <div class="drawer-divider"></div>
+      
+      <div class="mobile-lang-toggle">
+        <span class="lang-label">Select Language:</span>
+        <div class="lang-options">
+          <button class="lang-btn active">English</button>
+          <button class="lang-btn">हिन्दी</button>
+          <button class="lang-btn">मराठी</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </nav>
 
   <div class="language-toggle lang-en-active" id="langToggle">
@@ -542,6 +567,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 

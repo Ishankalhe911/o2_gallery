@@ -480,94 +480,43 @@ window.setLanguage = function(lang) {
   updateServeTabs(lang);
 };
 
-  // Form Handler
+    // Form Handler
   function initFormHandler() {
-  const form = document.getElementById('enquiryForm');
-  if (!form) return;
+    const form = document.getElementById('enquiryForm');
+    if (!form) return;
 
-  // EmailJS setup - Replace with your credentials
-  const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';      // From EmailJS
-  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';    // From EmailJS  
-  const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';      // From EmailJS
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const submitBtn = form.querySelector('.submit-btn');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const btnLoader = submitBtn.querySelector('.btn-loader');
+      const messageDiv = document.getElementById('form-message');
 
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const submitBtn = form.querySelector('.submit-btn');
-    const btnText = submitBtn.querySelector('.btn-text');
-    const btnLoader = submitBtn.querySelector('.btn-loader');
-    const messageDiv = document.getElementById('form-message');
+      submitBtn.disabled = true;
+      btnText.style.display = 'none';
+      btnLoader.style.display = 'inline';
 
-    // Show loading
-    submitBtn.disabled = true;
-    btnText.style.display = 'none';
-    btnLoader.style.display = 'inline';
-
-    try {
-      // Collect form data
-      const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        project_type: document.getElementById('project-type').value,
-        message: document.getElementById('message').value,
-        lang: window.currentLang || 'en',
-        timestamp: new Date().toISOString()
-      };
-
-      // 1. SEND EMAIL via EmailJS (immediate)
-      const emailResult = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData, EMAILJS_PUBLIC_KEY);
-      
-      // 2. SEND TO MYSQL BACKEND (your PHP endpoint)
-      const dbResult = await fetch('https://yourdomain.com/api/save-enquiry.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-
-      if (dbResult.ok) {
-        const successMsg = window.currentLang === 'hi' ? 
-          '✅ धन्यवाद! हम आपसे 24 घंटों में संपर्क करेंगे।' : 
-          window.currentLang === 'mr' ? 
-          '✅ धन्यवाद! आम्ही 24 तासांत संपर्क करू।' : 
-          '✅ Thank you! We will contact you within 24 hours.';
+      setTimeout(() => {
+        const successMsg = window.currentLang === 'hi' ? '✅ धन्यवाद! हम आपसे संपर्क करेंगे।' : 
+                           window.currentLang === 'mr' ? '✅ धन्यवाद! आम्ही लवकरच संपर्क करू।' : 
+                           '✅ Thank you! We will contact you within 24 hours.';
         
         messageDiv.textContent = successMsg;
-        messageDiv.className = 'form-message success';
+        messageDiv.style.display = 'block';
         form.reset();
-      } else {
-        throw new Error('Database save failed');
-      }
-
-    } catch (error) {
-      console.error('Form submission error:', error);
-      const errorMsg = window.currentLang === 'hi' ? 
-        '❌ कृपया पुनः प्रयास करें।' :
-        window.currentLang === 'mr' ? 
-        '❌ कृपया पुन्हा प्रयत्न करा.' :
-        '❌ Please try again.';
-      
-      messageDiv.textContent = errorMsg;
-      messageDiv.className = 'form-message error';
-    } finally {
-      // Reset button
-      submitBtn.disabled = false;
-      btnLoader.style.display = 'none';
-      btnText.style.display = 'inline';
-      messageDiv.style.display = 'block';
-      messageDiv.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-
-  // Real-time validation
-  form.querySelectorAll('input, select, textarea').forEach(input => {
-    input.addEventListener('input', () => {
-      form.querySelector('.submit-btn').disabled = !form.checkValidity();
+        submitBtn.disabled = false;
+        btnLoader.style.display = 'none';
+        btnText.style.display = 'inline';
+        messageDiv.scrollIntoView({ behavior: 'smooth' });
+      }, 2000);
     });
-  });
-}
 
-
+    form.querySelectorAll('input, select, textarea').forEach(input => {
+      input.addEventListener('input', () => {
+        form.querySelector('.submit-btn').disabled = !form.checkValidity();
+      });
+    });
+  }
   // === MOBILE MENU FUNCTIONS ===
   function initMobileMenu() {
     const headerInner = document.querySelector('.header-inner');
@@ -619,6 +568,7 @@ window.setLanguage = function(lang) {
 
 </body>
 </html>
+
 
 
 

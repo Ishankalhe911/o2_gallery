@@ -500,13 +500,6 @@ function initFormHandler() {
 }
 
 
-
-    form.querySelectorAll('input, select, textarea').forEach(input => {
-      input.addEventListener('input', () => {
-        form.querySelector('.submit-btn').disabled = !form.checkValidity();
-      });
-    });
-  }
   // === MOBILE MENU FUNCTIONS ===
   function initMobileMenu() {
     const headerInner = document.querySelector('.header-inner');
@@ -558,6 +551,7 @@ function initFormHandler() {
 
 </body>
 </html>
+
 
 
 

@@ -492,22 +492,34 @@ function initFormHandler() {
   const form = document.getElementById('enquiryForm');
   if (!form) return;
 
-  // ONLY button validation - let FormsSubmit handle submission naturally
+  // Button validation only
   form.querySelectorAll('input, select, textarea').forEach(input => {
     input.addEventListener('input', () => {
       form.querySelector('.submit-btn').disabled = !form.checkValidity();
     });
   });
 
-  // Listen for FormsSubmit success via URL hash change
-  window.addEventListener('hashchange', function() {
+  // Show success message + submit with perfect timing
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Stop instant redirect
+    
+    const submitBtn = form.querySelector('.submit-btn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoader = submitBtn.querySelector('.btn-loader');
     const messageDiv = document.getElementById('form-message');
-    if (window.location.hash.includes('thankyou')) {
-      // Re-render content.js first
-      if (window.currentLang && typeof setLanguage === 'function') {
-        setLanguage(window.currentLang);
-      }
-      
+
+    // 1. Show loader
+    submitBtn.disabled = true;
+    btnText.style.display = 'none';
+    btnLoader.style.display = 'inline';
+
+    // 2. Re-render content.js (preserves translations)
+    if (window.currentLang && typeof setLanguage === 'function') {
+      setLanguage(window.currentLang);
+    }
+
+    // 3. Show success message after 1.5s
+    setTimeout(() => {
       const successMsg = window.currentLang === 'hi' ? 
         '✅ धन्यवाद! हम आपसे संपर्क करेंगे।' :
         window.currentLang === 'mr' ? 
@@ -518,7 +530,12 @@ function initFormHandler() {
       messageDiv.className = 'form-message success';
       messageDiv.style.display = 'block';
       messageDiv.scrollIntoView({ behavior: 'smooth' });
-    }
+      
+      // 4. Submit to FormsSubmit AFTER message shows (3s total)
+      setTimeout(() => {
+        form.submit(); // Now send to Gmail
+      }, 1500);
+    }, 1500);
   });
 }
 
@@ -575,6 +592,7 @@ function initFormHandler() {
 
 </body>
 </html>
+
 
 
 

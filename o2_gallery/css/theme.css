@@ -1828,6 +1828,57 @@ html {
 
 
 
+/* --- AIRFLOW FLOWING LINES --- */
+.hero-airflow {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.air-line {
+  position: absolute;
+  width: 200%; /* Wider than screen for smooth entry/exit */
+  height: 120px;
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.15); /* Very subtle white */
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  /* dash length, gap length */
+  stroke-dasharray: 200, 800; 
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+}
+
+/* Different speeds and positions for depth */
+.line-1 { 
+  top: 25%; 
+  animation: airFlowAnim 12s linear infinite; 
+}
+.line-2 { 
+  top: 55%; 
+  animation: airFlowAnim 18s linear infinite reverse; 
+  stroke: rgba(144, 224, 239, 0.2); /* Slight O2 Blue tint */
+}
+.line-3 { 
+  top: 75%; 
+  animation: airFlowAnim 15s linear infinite; 
+}
+
+@keyframes airFlowAnim {
+  from { 
+    stroke-dashoffset: 1000; 
+    transform: translateX(-20%); 
+  }
+  to { 
+    stroke-dashoffset: 0; 
+    transform: translateX(0%); 
+  }
+}
+
+
+
+
 
 
 

@@ -558,15 +558,57 @@ function initFormHandler() {
     });
 }
 
+     //mobile menu function
+function initMobileMenu() {
+    const menuToggle = document.getElementById('menuToggle');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const body = document.body;
+
+    if (!menuToggle || !mobileDrawer) return;
+
+    function toggleMenu(isOpen) {
+        mobileDrawer.classList.toggle('active', isOpen);
+        // Prevent background scrolling when menu is open
+        body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    menuToggle.addEventListener('click', () => toggleMenu(true));
+    
+    if (closeMenu) {
+        closeMenu.addEventListener('click', () => toggleMenu(false));
+    }
+
+    // Close menu when clicking on a link
+    mobileDrawer.querySelectorAll('a, button:not(.lang-btn)').forEach(link => {
+        link.addEventListener('click', () => toggleMenu(false));
+    });
+
+    // Close menu if clicking outside the drawer
+    document.addEventListener('click', (e) => {
+        if (mobileDrawer.classList.contains('active') && 
+            !mobileDrawer.contains(e.target) && 
+            !menuToggle.contains(e.target)) {
+            toggleMenu(false);
+        }
+    });
+}
+
 // 7. Initialize
 document.addEventListener('DOMContentLoaded', () => {
     setLanguage('en');
     initFormHandler();
+   initMobileMenu();
 });
+
+
+
+   
 </script>
 
 </body>
 </html>
+
 
 
 

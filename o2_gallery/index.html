@@ -492,12 +492,36 @@ function initFormHandler() {
   const form = document.getElementById('enquiryForm');
   if (!form) return;
 
+  // ONLY button validation - let FormsSubmit handle submission naturally
   form.querySelectorAll('input, select, textarea').forEach(input => {
     input.addEventListener('input', () => {
       form.querySelector('.submit-btn').disabled = !form.checkValidity();
     });
   });
+
+  // Listen for FormsSubmit success via URL hash change
+  window.addEventListener('hashchange', function() {
+    const messageDiv = document.getElementById('form-message');
+    if (window.location.hash.includes('thankyou')) {
+      // Re-render content.js first
+      if (window.currentLang && typeof setLanguage === 'function') {
+        setLanguage(window.currentLang);
+      }
+      
+      const successMsg = window.currentLang === 'hi' ? 
+        '✅ धन्यवाद! हम आपसे संपर्क करेंगे।' :
+        window.currentLang === 'mr' ? 
+        '✅ धन्यवाद! आम्ही लवकरच संपर्क करू।' :
+        '✅ Thank you! We will contact you within 24 hours.';
+      
+      messageDiv.textContent = successMsg;
+      messageDiv.className = 'form-message success';
+      messageDiv.style.display = 'block';
+      messageDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 }
+
 
 
   // === MOBILE MENU FUNCTIONS ===
@@ -551,6 +575,7 @@ function initFormHandler() {
 
 </body>
 </html>
+
 
 
 

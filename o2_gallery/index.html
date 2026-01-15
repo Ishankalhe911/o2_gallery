@@ -350,31 +350,40 @@ position: relative; z-index: 20 !important; pointer-events: auto !important;
   </div>
 </footer>
 
-  <script src="content.js"></script>
+ <script src="content.js"></script>
 
 <script>
-    
-  // 1. Global State
-window.currentLang = 'en';
+  // Global State
+  window.currentLang = 'en';
 
-function scrollToSection(id) {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-}
+  // Enhanced scroll function (handles missing elements)
+  function scrollToSection(id) {
+    const element = document.getElementById(id);
+    if (!element) {
+      setTimeout(() => scrollToSection(id), 50);
+      return;
+    }
+    const headerOffset = 100;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+  }
 
-function openEnquiry() {
+  function openEnquiry() {
     const enquirySection = document.getElementById('enquiry');
-    if (!enquirySection) return;
-    enquirySection.classList.remove('hidden');
-    enquirySection.scrollIntoView({ behavior: 'smooth' });
-}
+    if (enquirySection) {
+      enquirySection.classList.remove('hidden');
+      enquirySection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 
-// 2. Deep Data Helper
-function getValueByPath(obj, path) {
+  // Deep Data Helper
+  function getValueByPath(obj, path) {
     return path.split('.').reduce((acc, key) => (acc && acc[key] !== undefined) ? acc[key] : null, obj);
-}
+  }
 
-// 3. Update the "Who We Create For" Tabs
-function updateServeTabs(lang) {
+  // Serve Tabs Functions (unchanged)
+  function updateServeTabs(lang) {
     const nav = document.getElementById('tabs-nav');
     const sectionData = window.content[lang]?.serveSection;
     if (!sectionData || !nav) return;
@@ -383,213 +392,170 @@ function updateServeTabs(lang) {
     nav.innerHTML = '';
     
     sectionData.categories.forEach((cat, index) => {
-        const btn = document.createElement('button');
-        btn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
-        btn.innerHTML = cat.title;
-        btn.onclick = () => switchTabData(index, lang);
-        nav.appendChild(btn);
+      const btn = document.createElement('button');
+      btn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
+      btn.innerHTML = cat.title;
+      btn.onclick = () => switchTabData(index, lang);
+      nav.appendChild(btn);
     });
     switchTabData(0, lang);
-}
-function switchTabData(index, lang) {
+  }
+
+  function switchTabData(index, lang) {
     const data = window.content[lang]?.serveSection?.categories[index];
     if (!data) return;
 
-    // 1. Update active button classes
     document.querySelectorAll('.tab-btn').forEach((btn, i) => {
-        btn.classList.toggle('active', i === index);
+      btn.classList.toggle('active', i === index);
     });
 
     const contentArea = document.getElementById('tabs-content-area');
-    
-    // 2. Premium "Slide & Fade" Animation
     contentArea.style.opacity = 0;
     contentArea.style.transform = 'translateY(15px)';
 
     setTimeout(() => {
-        document.getElementById('tab-image').src = data.image;
-        document.getElementById('tab-content-title').innerText = data.title;
-        document.getElementById('tab-content-desc').innerText = data.desc;
-        
-        contentArea.style.transition = 'all 0.5s ease-out';
-        contentArea.style.opacity = 1;
-        contentArea.style.transform = 'translateY(0)';
+      document.getElementById('tab-image').src = data.image;
+      document.getElementById('tab-content-title').innerText = data.title;
+      document.getElementById('tab-content-desc').innerText = data.desc;
+      contentArea.style.transition = 'all 0.5s ease-out';
+      contentArea.style.opacity = 1;
+      contentArea.style.transform = 'translateY(0)';
     }, 250);
-}
-// 4. Main Render Function
-function renderContent(lang) {
+  }
+
+  // Main Render Function
+  function renderContent(lang) {
     const data = window.content[lang];
     if (!data) return;
 
-    // 1. Update text content
     document.querySelectorAll('[data-content]').forEach(el => {
-        const value = getValueByPath(data, el.dataset.content);
-        if (value) {
-            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                el.placeholder = value;
-            } else {
-                el.textContent = value;
-            }
+      const value = getValueByPath(data, el.dataset.content);
+      if (value) {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = value;
+        } else {
+          el.textContent = value;
         }
+      }
     });
 
-    // 2. Update Values Cards with IDs
     const grid1 = document.getElementById('values-grid-row-1');
     const grid2 = document.getElementById('values-grid-row-2');
     
     if (data.values) {
-        // First two cards (ID: value-0, value-1)
-        if (grid1) grid1.innerHTML = data.values.slice(0, 2).map((v, i) => 
-            `<div id="value-${i}" class="value-card-premium">
-                <h3>${v.title}</h3>
-                <p class="text-xs">${v.desc}</p>
-            </div>`).join('');
-
-        // Next two cards (ID: value-2, value-3)
-        if (grid2) grid2.innerHTML = data.values.slice(2, 4).map((v, i) => 
-            `<div id="value-${i + 2}" class="value-card-premium">
-                <h3>${v.title}</h3>
-                <p class="text-xs">${v.desc}</p>
-            </div>`).join('');
+      if (grid1) grid1.innerHTML = data.values.slice(0, 2).map((v, i) => 
+        `<div id="value-${i}" class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`).join('');
+      if (grid2) grid2.innerHTML = data.values.slice(2, 4).map((v, i) => 
+        `<div id="value-${i + 2}" class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`).join('');
     }
     
-    // 3. Refresh Lucide Icons
     if (window.lucide) lucide.createIcons();
-}
+  }
 
-
-
-  function scrollToSection(id) {
-    // Attempt to find the element
-    const element = document.getElementById(id);
-    
-    // If it doesn't exist yet (because JS is still rendering), 
-    // we wait 50ms and try again
-    if (!element) {
-        setTimeout(() => scrollToSection(id), 50);
-        return;
-    }
-    
-    const headerOffset = 100; 
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-    window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-    });
-}
-
-// 5. Language Switcher
-window.setLanguage = function(lang) {
+  // Language Switcher
+  window.setLanguage = function(lang) {
     window.currentLang = lang;
     const toggle = document.getElementById('langToggle');
     if (toggle) toggle.className = `language-toggle lang-${lang}-active`;
     
     document.querySelectorAll('.lang-label').forEach(label => {
-        label.classList.toggle('active', label.dataset.lang === lang);
+      label.classList.toggle('active', label.dataset.lang === lang);
     });
 
     renderContent(lang);
     updateServeTabs(lang);
-};
+  };
 
-// 6. Form Handling
-function initFormHandler() {
+  // Form Handler
+  function initFormHandler() {
     const form = document.getElementById('enquiryForm');
     if (!form) return;
 
     form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const submitBtn = form.querySelector('.submit-btn');
-        const btnText = submitBtn.querySelector('.btn-text');
-        const btnLoader = submitBtn.querySelector('.btn-loader');
-        const messageDiv = document.getElementById('form-message');
+      e.preventDefault();
+      const submitBtn = form.querySelector('.submit-btn');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const btnLoader = submitBtn.querySelector('.btn-loader');
+      const messageDiv = document.getElementById('form-message');
 
-        submitBtn.disabled = true;
-        btnText.style.display = 'none';
-        btnLoader.style.display = 'inline';
+      submitBtn.disabled = true;
+      btnText.style.display = 'none';
+      btnLoader.style.display = 'inline';
 
-        setTimeout(() => {
-            const successMsg = window.currentLang === 'hi' ? '✅ धन्यवाद! हम आपसे संपर्क करेंगे।' : 
-                               window.currentLang === 'mr' ? '✅ धन्यवाद! आम्ही लवकरच संपर्क करू।' : 
-                               '✅ Thank you! We will contact you within 24 hours.';
-            
-            messageDiv.textContent = successMsg;
-            messageDiv.style.display = 'block';
-            form.reset();
-            submitBtn.disabled = false;
-            btnLoader.style.display = 'none';
-            btnText.style.display = 'inline';
-            messageDiv.scrollIntoView({ behavior: 'smooth' });
-        }, 2000);
+      setTimeout(() => {
+        const successMsg = window.currentLang === 'hi' ? '✅ धन्यवाद! हम आपसे संपर्क करेंगे।' : 
+                           window.currentLang === 'mr' ? '✅ धन्यवाद! आम्ही लवकरच संपर्क करू।' : 
+                           '✅ Thank you! We will contact you within 24 hours.';
+        
+        messageDiv.textContent = successMsg;
+        messageDiv.style.display = 'block';
+        form.reset();
+        submitBtn.disabled = false;
+        btnLoader.style.display = 'none';
+        btnText.style.display = 'inline';
+        messageDiv.scrollIntoView({ behavior: 'smooth' });
+      }, 2000);
     });
 
-    // Real-time validation
     form.querySelectorAll('input, select, textarea').forEach(input => {
-        input.addEventListener('input', () => {
-            const isValid = form.checkValidity();
-            form.querySelector('.submit-btn').disabled = !isValid;
-        });
+      input.addEventListener('input', () => {
+        form.querySelector('.submit-btn').disabled = !form.checkValidity();
+      });
     });
-}
-   // Mobile Menu Toggle
-function initMobileMenu() {
-  const header = document.querySelector('header');
-  let toggle = document.querySelector('.mobile-menu-toggle');
-  
-  if (!toggle) {
-    toggle = document.createElement('div');
-    toggle.className = 'mobile-menu-toggle';
-    toggle.innerHTML = '<span></span><span></span><span></span>';
-    toggle.onclick = toggleMobileMenu;
-    document.querySelector('.header-inner').appendChild(toggle);
   }
-}
 
-function toggleMobileMenu() {
-  const header = document.querySelector('header');
-  const nav = document.querySelector('nav');
-  const dropdowns = document.querySelectorAll('.dropdown');
-  
-  header.classList.toggle('nav-open');
-  
-  // Close all dropdowns
-  dropdowns.forEach(d => d.classList.remove('open'));
-  
-  // Close on outside click
-  document.addEventListener('click', function closeOnOutside(e) {
-    if (!header.contains(e.target)) {
+  // === MOBILE MENU FUNCTIONS ===
+  function initMobileMenu() {
+    const headerInner = document.querySelector('.header-inner');
+    let toggle = document.querySelector('.mobile-menu-toggle');
+    
+    if (!toggle) {
+      toggle = document.createElement('div');
+      toggle.className = 'mobile-menu-toggle';
+      toggle.innerHTML = '<span></span><span></span><span></span>';
+      toggle.onclick = toggleMobileMenu;
+      headerInner.appendChild(toggle);
+    }
+  }
+
+  function toggleMobileMenu(e) {
+    e.stopPropagation();
+    const header = document.querySelector('header');
+    header.classList.toggle('nav-open');
+    
+    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+  }
+
+  // Close menu on outside click
+  document.addEventListener('click', function(e) {
+    const header = document.querySelector('header');
+    if (!header.contains(e.target) && header.classList.contains('nav-open')) {
       header.classList.remove('nav-open');
-      document.removeEventListener('click', closeOnOutside);
+    }
+    
+    // Toggle dropdowns
+    if (e.target.closest('.dropdown')) {
+      e.stopPropagation();
+      const dropdown = e.target.closest('.dropdown');
+      dropdown.classList.toggle('open');
     }
   });
-}
 
-// Dropdown toggle for mobile
-document.addEventListener('click', function(e) {
-  if (e.target.closest('.dropdown')) {
-    e.stopPropagation();
-    const dropdown = e.target.closest('.dropdown');
-    dropdown.classList.toggle('open');
-  }
-});
-
-
-
-// 7. Initialize
-document.addEventListener('DOMContentLoaded', () => {
+  // SINGLE INITIALIZATION - Everything here
+  document.addEventListener('DOMContentLoaded', () => {
     setLanguage('en');
     initFormHandler();
-});
-   // Init on load
-document.addEventListener('DOMContentLoaded', initMobileMenu);
-window.addEventListener('resize', initMobileMenu);
+    initMobileMenu();
+    if (window.lucide) lucide.createIcons();
+  });
 
+  window.addEventListener('resize', initMobileMenu);
 </script>
+
 
 </body>
 </html>
+
 
 
 

@@ -3,8 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500');
 
-body { font-family: 'Inter', sans-serif; } /* Clean, modern */
-h1, h2, h3 { font-family: 'Poppins', sans-serif; } /* Bold headings */
+:root {
+  --font-heading: 'Poppins', -apple-system, sans-serif;
+  --font-body: 'Open Sans', -apple-system, sans-serif;
+}
+h1,h2,h3 { font-family: var(--font-heading); }
+p,span { font-family: var(--font-body); }
 
 
 /* --- CSS VARIABLES --- */
@@ -1875,6 +1879,7 @@ html {
     transform: translateX(0%); 
   }
 }
+
 
 
 

@@ -1771,6 +1771,75 @@ html {
     align-self: flex-end;
     z-index: 1001;
   }
+  /* PERFECT LANGUAGE TOGGLE ALIGNMENT - MOBILE */
+@media (max-width: 768px) {
+  #langToggle {
+    position: relative;
+    overflow: hidden;
+    padding: 0.5rem;
+  }
+  
+  /* Reset and perfect center alignment */
+  .lang-label {
+    position: relative;
+    padding: 0.75rem 1.25rem !important;
+    margin: 0 !important;
+    flex: 1;
+    text-align: center;
+    min-width: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* CRITICAL: Indicator tracks active language PERFECTLY */
+  .indicator {
+    position: absolute !important;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    height: auto !important;
+    background: var(--tree-green, #10b981) !important;
+    border-radius: 9999px !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    z-index: 0 !important;
+  }
+  
+  /* Dynamic positioning via JS - English */
+  .lang-en-active .indicator {
+    left: 0.5rem;
+    right: calc(66.67% + 0.5rem);
+    transform: translateX(0);
+  }
+  
+  /* Hindi (middle) */
+  .lang-hi-active .indicator {
+    left: calc(33.33% + 0.25rem);
+    right: calc(33.33% + 0.25rem);
+    transform: translateX(0);
+  }
+  
+  /* Marathi (right) */
+  .lang-mr-active .indicator {
+    left: calc(66.67% + 0.5rem);
+    right: 0.5rem;
+    transform: translateX(0);
+  }
+  
+  /* Active language stacks above indicator */
+  .lang-label.active {
+    background: transparent !important;
+    color: white !important;
+    z-index: 1 !important;
+    font-weight: 600 !important;
+  }
+}
+
+/* Ensure desktop alignment stays perfect */
+@media (min-width: 769px) {
+  .indicator {
+    transition: all 0.3s ease !important;
+  }
+}
+
   
   .mobile-menu-toggle span {
     width: 100%;
@@ -1803,6 +1872,7 @@ html {
     backdrop-filter: blur(10px);
   }
 }
+
 
 
 

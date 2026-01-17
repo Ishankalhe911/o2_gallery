@@ -1822,88 +1822,144 @@ html {
   }
 }
 
-/* TABLET - Light transparency */
-@media (min-width: 769px) and (max-width: 1024px) {
+/* NAVBAR TREE GROWTH + WIND FLOW - Tailored for YOUR HTML */
+@media (min-width: 1025px) {
   header {
-    background: rgba(255, 255, 255, 0.15) !important;
-    backdrop-filter: blur(16px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    position: relative;
+    overflow: visible !important;
+    isolation: isolate;
+  }
+  
+  /* LEFT SIDE TREE GROWING FROM BOTTOM */
+  .header-inner::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 20px;
+    width: 3px;
+    height: 0;
+    background: linear-gradient(to top, #047857 0%, #059669 40%, #10b981 100%);
+    border-radius: 2px 2px 0 0;
+    animation: tree-left-grow 3.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    box-shadow: 
+      6px 8px 0 rgba(5,150,105,0.5),
+      12px 15px 0 rgba(16,185,129,0.4),
+      0 0 12px rgba(16,185,129,0.6);
+    z-index: 1;
+    transform-origin: bottom;
+  }
+  
+  /* RIGHT SIDE TREE GROWING FROM BOTTOM */
+  .header-inner::after {
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    right: 20px;
+    width: 3px;
+    height: 0;
+    background: linear-gradient(to top, #059669 0%, #10b981 40%, #34d399 100%);
+    border-radius: 0 2px 0 2px;
+    animation: tree-right-grow 4s 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    box-shadow: 
+      -6px 10px 0 rgba(16,185,129,0.5),
+      -12px 18px 0 rgba(5,150,105,0.4),
+      0 0 12px rgba(52,211,153,0.6);
+    z-index: 1;
+    transform-origin: bottom;
+  }
+  
+  /* WIND FLOW - 3 animated streams */
+  nav::before {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 120%;
+    height: 1.5px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(16,185,129,0.3) 25%, 
+      rgba(34,197,94,0.5) 50%, 
+      rgba(16,185,129,0.3) 75%, 
+      transparent 100%);
+    animation: wind-left-to-right 2.5s linear infinite;
+    z-index: 0;
+  }
+  
+  nav::after {
+    content: '';
+    position: absolute;
+    top: 65%;
+    right: 0;
+    width: 120%;
+    height: 1px;
+    background: linear-gradient(-90deg, 
+      transparent 0%, 
+      rgba(34,197,94,0.25) 25%, 
+      rgba(16,185,129,0.4) 50%, 
+      rgba(34,197,94,0.25) 75%, 
+      transparent 100%);
+    animation: wind-right-to-left 3s linear infinite;
+    z-index: 0;
   }
 }
 
-
-
-/* --- AIRFLOW FLOWING LINES --- */
-.hero-airflow {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.air-line {
-  position: absolute;
-  width: 200%; /* Wider than screen for smooth entry/exit */
-  height: 120px;
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.15); /* Very subtle white */
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  /* dash length, gap length */
-  stroke-dasharray: 200, 800; 
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
-}
-
-/* Different speeds and positions for depth */
-.line-1 { 
-  top: 25%; 
-  animation: airFlowAnim 12s linear infinite; 
-}
-.line-2 { 
-  top: 55%; 
-  animation: airFlowAnim 18s linear infinite reverse; 
-  stroke: rgba(144, 224, 239, 0.2); /* Slight O2 Blue tint */
-}
-.line-3 { 
-  top: 75%; 
-  animation: airFlowAnim 15s linear infinite; 
-}
-
-@keyframes airFlowAnim {
-  from { 
-    stroke-dashoffset: 1000; 
-    transform: translateX(-20%); 
+/* ANIMATIONS */
+@keyframes tree-left-grow {
+  0% { 
+    height: 0px; 
+    transform: scaleX(0.6) rotate(-2deg); 
+    opacity: 0; 
   }
-  to { 
-    stroke-dashoffset: 0; 
-    transform: translateX(0%); 
+  25% { 
+    height: 40px; 
+    opacity: 1; 
+  }
+  75% { 
+    height: 90px; 
+  }
+  100% { 
+    height: 120px; 
+    transform: scaleX(1.05) rotate(1deg); 
   }
 }
-header { padding: 2rem 0; min-height: 90px; } /* Desktop breathing room */
 
-.hero-section { 
-  padding-top: 140px !important; /* Desktop: account for sticky header */
-  margin-top: 2rem; 
+@keyframes tree-right-grow {
+  0% { 
+    height: 0px; 
+    transform: scaleX(0.6) rotate(2deg); 
+    opacity: 0; 
+  }
+  25% { 
+    height: 35px; 
+    opacity: 1; 
+  }
+  75% { 
+    height: 85px; 
+  }
+  100% { 
+    height: 110px; 
+    transform: scaleX(1.05) rotate(-1deg); 
+  }
 }
 
+@keyframes wind-left-to-right {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
+}
+
+@keyframes wind-right-to-left {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+/* MOBILE - Hide trees to prevent overflow */
 @media (max-width: 768px) {
-  .hero-section { padding-top: 120px !important; } /* Mobile enhancement */
+  .header-inner::before,
+  .header-inner::after {
+    display: none !important;
+  }
 }
-
-p { margin-bottom: 1.5rem; line-height: 1.7; } /* Global paragraph breathing */
-
-main { padding: 0 0 6rem; } /* Footer gap */
-
-section:not(.hero-section) { padding: 6rem 0; } /* All sections */
-
-.center-title { margin-bottom: 6rem; } /* Increase from 5rem */
-
-:root {
-  --section-spacing: 6rem !important;
-}
-
-main > section { padding: var(--section-spacing) 0; margin-bottom: 2rem; }
 
 
 

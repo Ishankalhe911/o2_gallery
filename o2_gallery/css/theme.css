@@ -1822,125 +1822,142 @@ html {
   }
 }
 
-/* NAVBAR TREE GROWTH + WIND FLOW - Tailored for YOUR HTML */
+/* REAL TREES WITH BRANCHES + LEAVES */
 @media (min-width: 1025px) {
   header {
     position: relative;
     overflow: visible !important;
-    isolation: isolate;
   }
   
-  /* LEFT SIDE TREE GROWING FROM BOTTOM */
+  /* LEFT REAL TREE */
   .header-inner::before {
     content: '';
     position: absolute;
-    bottom: -20px;
-    left: 20px;
-    width: 3px;
-    height: 0;
-    background: linear-gradient(to top, #047857 0%, #059669 40%, #10b981 100%);
+    bottom: -10px;
+    left: 15px;
+    width: 4px;
+    height: 60px;
+    background: 
+      /* Trunk */ linear-gradient(to top, #2d5a3a 0%, #4a7c59 100%);
     border-radius: 2px 2px 0 0;
-    animation: tree-left-grow 3.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
-    box-shadow: 
-      6px 8px 0 rgba(5,150,105,0.5),
-      12px 15px 0 rgba(16,185,129,0.4),
-      0 0 12px rgba(16,185,129,0.6);
+    animation: tree-left-full 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
     z-index: 1;
-    transform-origin: bottom;
+    transform-origin: bottom center;
+    box-shadow: 
+      /* Branches */
+      8px 20px 0 0 rgba(76, 124, 89, 0.8),
+      12px 35px 0 0 rgba(70, 130, 99, 0.7),
+      /* Leaves */
+      6px 15px 0 1px rgba(16,185,129,0.6),
+      10px 28px 0 1px rgba(34,197,94,0.8),
+      15px 42px 0 1px rgba(52,211,153,0.7),
+      /* Glow */
+      0 0 15px rgba(16,185,129,0.5);
   }
   
-  /* RIGHT SIDE TREE GROWING FROM BOTTOM */
+  /* RIGHT REAL TREE */
   .header-inner::after {
     content: '';
     position: absolute;
-    bottom: -25px;
-    right: 20px;
-    width: 3px;
-    height: 0;
-    background: linear-gradient(to top, #059669 0%, #10b981 40%, #34d399 100%);
+    bottom: -10px;
+    right: 15px;
+    width: 4px;
+    height: 55px;
+    background: 
+      /* Trunk */ linear-gradient(to top, #1e4027 0%, #3a6950 100%);
     border-radius: 0 2px 0 2px;
-    animation: tree-right-grow 4s 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
-    box-shadow: 
-      -6px 10px 0 rgba(16,185,129,0.5),
-      -12px 18px 0 rgba(5,150,105,0.4),
-      0 0 12px rgba(52,211,153,0.6);
+    animation: tree-right-full 4.2s 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
     z-index: 1;
-    transform-origin: bottom;
-  }
-  
-  /* WIND FLOW - 3 animated streams */
-  nav::before {
-    content: '';
-    position: absolute;
-    top: 30%;
-    left: 0;
-    width: 120%;
-    height: 1.5px;
-    background: linear-gradient(90deg, 
-      transparent 0%, 
-      rgba(16,185,129,0.3) 25%, 
-      rgba(34,197,94,0.5) 50%, 
-      rgba(16,185,129,0.3) 75%, 
-      transparent 100%);
-    animation: wind-left-to-right 2.5s linear infinite;
-    z-index: 0;
-  }
-  
-  nav::after {
-    content: '';
-    position: absolute;
-    top: 65%;
-    right: 0;
-    width: 120%;
-    height: 1px;
-    background: linear-gradient(-90deg, 
-      transparent 0%, 
-      rgba(34,197,94,0.25) 25%, 
-      rgba(16,185,129,0.4) 50%, 
-      rgba(34,197,94,0.25) 75%, 
-      transparent 100%);
-    animation: wind-right-to-left 3s linear infinite;
-    z-index: 0;
+    transform-origin: bottom center;
+    box-shadow: 
+      /* Branches */
+      -8px 18px 0 0 rgba(58, 105, 80, 0.8),
+      -14px 32px 0 0 rgba(45, 90, 58, 0.7),
+      /* Leaves */
+      -6px 12px 0 1px rgba(34,197,94,0.7),
+      -12px 25px 0 1px rgba(16,185,129,0.8),
+      -18px 38px 0 1px rgba(5,150,105,0.6),
+      /* Glow */
+      0 0 15px rgba(34,197,94,0.5);
   }
 }
 
-/* ANIMATIONS */
-@keyframes tree-left-grow {
+/* REAL TREE ANIMATIONS */
+@keyframes tree-left-full {
   0% { 
     height: 0px; 
-    transform: scaleX(0.6) rotate(-2deg); 
+    transform: scaleX(0.3) rotate(-3deg); 
     opacity: 0; 
   }
-  25% { 
-    height: 40px; 
+  30% { 
+    height: 60px; 
+    transform: scaleX(1) rotate(0deg);
     opacity: 1; 
   }
-  75% { 
-    height: 90px; 
+  70% { 
+    height: 75px;
+    transform: scaleX(1.05);
   }
   100% { 
-    height: 120px; 
-    transform: scaleX(1.05) rotate(1deg); 
+    height: 85px;
+    transform: scaleX(1.1) rotate(1deg);
   }
 }
 
-@keyframes tree-right-grow {
+@keyframes tree-right-full {
   0% { 
     height: 0px; 
-    transform: scaleX(0.6) rotate(2deg); 
+    transform: scaleX(0.3) rotate(3deg); 
     opacity: 0; 
   }
-  25% { 
-    height: 35px; 
+  30% { 
+    height: 55px; 
+    transform: scaleX(1) rotate(0deg);
     opacity: 1; 
   }
-  75% { 
-    height: 85px; 
+  70% { 
+    height: 70px;
+    transform: scaleX(1.05);
   }
   100% { 
-    height: 110px; 
-    transform: scaleX(1.05) rotate(-1deg); 
+    height: 80px;
+    transform: scaleX(1.1) rotate(-1deg);
   }
+}
+
+/* Keep the wind streams from previous code */
+nav::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 0;
+  width: 120%;
+  height: 1.5px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(16,185,129,0.3) 25%, 
+    rgba(34,197,94,0.5) 50%, 
+    rgba(16,185,129,0.3) 75%, 
+    transparent 100%);
+  animation: wind-left-to-right 2.5s linear infinite;
+  z-index: 0;
+}
+
+nav::after {
+  content: '';
+  position: absolute;
+  top: 65%;
+  right: 0;
+  width: 120%;
+  height: 1px;
+  background: linear-gradient(-90deg, 
+    transparent 0%, 
+    rgba(34,197,94,0.25) 25%, 
+    rgba(16,185,129,0.4) 50%, 
+    rgba(34,197,94,0.25) 75%, 
+    transparent 100%);
+  animation: wind-right-to-left 3s linear infinite;
+  z-index: 0;
 }
 
 @keyframes wind-left-to-right {
@@ -1952,18 +1969,6 @@ html {
   0% { transform: translateX(100vw); }
   100% { transform: translateX(-100%); }
 }
-
-/* MOBILE - Hide trees to prevent overflow */
-@media (max-width: 768px) {
-  .header-inner::before,
-  .header-inner::after {
-    display: none !important;
-  }
-}
-
-
-
-
 
 
 

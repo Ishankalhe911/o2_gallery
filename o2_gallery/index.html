@@ -54,23 +54,21 @@ nav span, .dropdown {
 
 
 <nav>
-  <span onclick="scrollToSection('about')">About</span>
-  <span onclick="scrollToSection('projects')" >Solutions</span>
-  
-  <div class="dropdown" >
+  <span onclick="scrollToSection('about')" data-content="nav.about"></span>
+  <span onclick="scrollToSection('projects')" data-content="nav.solutions"></span>
+  <div class="dropdown">
     <span class="nav-link">
-      Values <i data-lucide="chevron-down" class="nav-icon"></i>
+      <span data-content="nav.valuesTitle"></span> <i data-lucide="chevron-down" class="nav-icon"></i>
     </span>
     <div class="dropdown-content">
-      <a href="javascript:void(0)" onclick="scrollToSection('value-0')">Eco-Sustainable</a>
-      <a href="javascript:void(0)" onclick="scrollToSection('value-1')">Quality & Transparency</a>
-      <a href="javascript:void(0)" onclick="scrollToSection('value-2')">Precision Engineering</a>
-      <a href="javascript:void(0)" onclick="scrollToSection('value-3')">Zero-Waste</a>
+      <a href="javascript:void(0)" onclick="scrollToSection('value-0')" data-content="nav.val1"></a>
+      <a href="javascript:void(0)" onclick="scrollToSection('value-1')" data-content="nav.val2"></a>
+      <a href="javascript:void(0)" onclick="scrollToSection('value-2')" data-content="nav.val3"></a>
+      <a href="javascript:void(0)" onclick="scrollToSection('value-3')" data-content="nav.val4"></a>
     </div>
   </div>
-
-  <span onclick="scrollToSection('contact')" >Contact</span>
-  <span class="nav-enquire" data-content="enquiry.cta" onclick="openEnquiry()" ></span>
+  <span onclick="scrollToSection('contact')" data-content="nav.contact"></span>
+  <span class="nav-enquire" data-content="enquiry.cta" onclick="openEnquiry()"></span>
 </nav>
 
   <div class="language-toggle lang-en-active" id="langToggle">
@@ -345,27 +343,27 @@ nav span, .dropdown {
       </div>
 
       <div class="footer-col">
-        <h4 class="footer-heading">Quick Links</h4>
+        <h4 class="footer-heading" data-content="footer.linksTitle"></h4>
         <ul class="footer-links">
-          <li><span onclick="scrollToSection('about')">About Us</span></li>
-          <li><span onclick="scrollToSection('projects')">Solutions</span></li>
-          <li><span onclick="scrollToSection('values')">Our Values</span></li>
-          <li><span onclick="scrollToSection('contact')">Enquiry</span></li>
+          <li><span onclick="scrollToSection('about')" data-content="nav.about"></span></li>
+          <li><span onclick="scrollToSection('projects')" data-content="nav.solutions"></span></li>
+          <li><span onclick="scrollToSection('values')" data-content="nav.valuesTitle"></span></li>
+          <li><span onclick="scrollToSection('contact')" data-content="nav.contact"></span></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4 class="footer-heading" data-content="footer.servicesTitle">Our Expertise</h4>
+        <h4 class="footer-heading" data-content="footer.servicesTitle"></h4>
         <ul class="footer-links">
-          <li>Botanical Engineering</li>
-          <li>Vertical Oxygen Walls</li>
-          <li>Corporate Greenery</li>
-          <li>Smart Irrigation Systems</li>
+          <li data-content="footer.service1"></li>
+          <li data-content="footer.service2"></li>
+          <li data-content="footer.service3"></li>
+          <li data-content="footer.service4"></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4 class="footer-heading">Get in Touch</h4>
+        <h4 class="footer-heading" data-content="footer.contactTitle"></h4>
         <div class="contact-item">
           <i data-lucide="phone" class="footer-icon"></i>
           <span class="text-xs" data-content="footer.phone"></span>
@@ -384,7 +382,7 @@ nav span, .dropdown {
     <div class="footer-bottom">
       <div class="footer-bottom-content">
         <p class="tagline" data-content="footer.tagline"></p>
-        <span class="copyright">© 2026 O₂ Gallery Greenery Projects. All rights reserved.</span>
+        <span class="copyright" data-content="footer.copyText"></span>
       </div>
     </div>
   </div>
@@ -621,6 +619,7 @@ function initFormHandler() {
 
 </body>
 </html>
+
 
 
 

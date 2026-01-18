@@ -1,5 +1,15 @@
 window.content = {
   en: {
+    nav: {
+      about: "About",
+      solutions: "Solutions",
+      valuesTitle: "Values",
+      val1: "Eco-Sustainable",
+      val2: "Quality & Transparency",
+      val3: "Precision Engineering",
+      val4: "Zero-Waste",
+      contact: "Contact"
+    },
     intro: {
       title: "Pioneering Sustainable Urban Ecosystems",
       p1: "At O₂ Gallery Greenery Projects, we believe that greenery is not merely an aesthetic addition to urban spaces, but a functional necessity for healthier living.",
@@ -51,16 +61,32 @@ window.content = {
     },
     footer: {
       aboutText: "O₂ Gallery is Pune's leading botanical engineering firm.",
+      linksTitle: "Quick Links",
+      servicesTitle: "Our Expertise",
+      contactTitle: "Get in Touch",
+      service1: "Botanical Engineering",
+      service2: "Vertical Oxygen Walls",
+      service3: "Corporate Greenery",
+      service4: "Smart Irrigation Systems",
       phone: "+91 98765 43210",
       email: "hello@o2gallery.in",
       address: "Baner-Pashan Link Road, Pune, MH 411045",
       tagline: "Breath Better. Live Greener. Think O₂.",
-      socialTitle: "Follow Our Journey",
-      servicesTitle: "Our Expertise"
+      copyText: "© 2026 O₂ Gallery Greenery Projects. All rights reserved."
     }
   },
 
   hi: {
+    nav: {
+      about: "हमारे बारे में",
+      solutions: "समाधान",
+      valuesTitle: "मूल्य",
+      val1: "पारिस्थितिक स्थिरता",
+      val2: "गुणवत्ता और पारदर्शिता",
+      val3: "सटीक इंजीनियरिंग",
+      val4: "शून्य-अपशिष्ट",
+      contact: "संपर्क"
+    },
     intro: {
       title: "स्थिर शहरी पारिस्थितिकी तंत्र की शुरुआत",
       p1: "O₂ Gallery Greenery Projects में, हमारा मानना है कि हरियाली केवल सजावट नहीं, बल्कि स्वस्थ जीवन के लिए एक अनिवार्य आवश्यकता है।",
@@ -112,21 +138,37 @@ window.content = {
     },
     footer: {
       aboutText: "O₂ Gallery पुणे की अग्रणी बॉटनिकल इंजीनियरिंग फर्म है।",
+      linksTitle: "त्वरित लिंक",
+      servicesTitle: "हमारी विशेषज्ञता",
+      contactTitle: "संपर्क करें",
+      service1: "बॉटनिकल इंजीनियरिंग",
+      service2: "वर्टिकल ऑक्सीजन वॉल",
+      service3: "कॉर्पोरेट हरियाली",
+      service4: "स्मार्ट सिंचाई प्रणाली",
       phone: "+91 98765 43210",
       email: "hello@o2gallery.in",
       address: "बानेर-पाषाण लिंक रोड, पुणे, MH 411045",
       tagline: "बेहतर सांस लें। हरा-भरा जिएं। Think O₂.",
-      socialTitle: "हमारी यात्रा का अनुसरण करें",
-      servicesTitle: "हमारी विशेषज्ञता"
+      copyText: "© 2026 O₂ Gallery Greenery Projects. सर्वाधिकार सुरक्षित।"
     }
   },
 
   mr: {
+    nav: {
+      about: "आमच्याबद्दल",
+      solutions: "उपाय",
+      valuesTitle: "मूल्ये",
+      val1: "पर्यावरण-शाश्वत",
+      val2: "गुणवत्ता आणि पारदर्शकता",
+      val3: "अचूक इंजिनिअरिंग",
+      val4: "झिरो-वेस्ट",
+      contact: "संपर्क"
+    },
     intro: {
       title: "शाश्वत शहरी इकोसिस्टमची निर्मिती",
       p1: "O₂ Gallery Greenery Projects मध्ये आमचा विश्वास आहे की हरियाळी ही एक निरोगी शहरी जीवनासाठी आवश्यक गरज आहे.",
       p2: "आमचे कार्य NASA च्या संशोधनाद्वारे सिद्ध झालेल्या, हवा शुद्ध करणाऱ्या वनस्पतींच्या वापरावार केंद्रित आहे.",
-      p3: "लहान बाल्कनींपासून ते कॉर्पोरेट ग्रीन वॉलपर्यंत आमचे उपाय भारतीय हवामानानुसार तयार केले जातात।"
+      p3: "लहन बाल्कनींपासून ते कॉर्पोरेट ग्रीन वॉलपर्यंत आमचे उपाय भारतीय हवामानानुसार तयार केले जातात।"
     },
     missionVisionTitle: "आमचा उद्देश आणि भविष्य",
     mission: "शहरी जीवनात विज्ञानावर आधारित हरियाळी आणून हवेचा दर्जा सुधारणे आणि पर्यावरणीय समतोल प्रस्थापित करणे.",
@@ -173,12 +215,18 @@ window.content = {
     },
     footer: {
       aboutText: "O₂ Gallery ही पुण्याची आघाडीची बॉटनिकल इंजिनिअरिंग फर्म आहे.",
+      linksTitle: "थेट लिंक्स",
+      servicesTitle: "आमचे कौशल्य",
+      contactTitle: "संपर्क साधा",
+      service1: "बॉटनिकल इंजिनिअरिंग",
+      service2: "व्हर्टिकल ऑक्सिजन वॉल्स",
+      service3: "कॉर्पोरेट हरियाळी",
+      service4: "स्मार्ट सिंचन प्रणाली",
       phone: "+91 98765 43210",
       email: "hello@o2gallery.in",
-      address: "Baner-Pashan Link Road, Pune, MH 411045",
+      address: "बाणेर-पाषाण लिंक रोड, पुणे, MH 411045",
       tagline: "उत्तम श्वास घ्या. हिरवेगार जगा. Think O₂.",
-      socialTitle: "आमचा प्रवास पहा",
-      servicesTitle: "आमचे कौशल्य"
+      copyText: "© 2026 O₂ Gallery Greenery Projects. सर्व हक्क राखीव."
     }
   }
 };

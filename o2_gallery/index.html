@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>O₂ Gallery</title>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+   
   
 </head>
 <style>
@@ -38,10 +39,16 @@ nav span, .dropdown {
   <!-- HEADER --->
   <header>
     <div class="container header-inner">
-     <div class="logo" style="display: flex; align-items: center; justify-content: center;">
-  <img src="o2gallerylogo1.png" alt="O₂ Gallery" style="height: 2rem; width: 10.5rem; object-fit: contain;">
-</div>
+     <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+  <dotlottie-wc 
+    src="plant.json" 
+    style="width: 40px; height: 40px;" 
+    autoplay 
+    loop>
+  </dotlottie-wc>
 
+  <img src="o2gallerylogo1.png" alt="O₂ Gallery" style="height: 2rem; width: auto; object-fit: contain;">
+</div>
 
 
 
@@ -668,6 +675,7 @@ function startGrowth(container) {
 
 </body>
 </html>
+
 
 
 

@@ -54,10 +54,10 @@ nav span, .dropdown {
 
 
 <nav>
-  <span onclick="scrollToSection('about')" onmouseenter="startGrowth(this)">About</span>
-  <span onclick="scrollToSection('projects')" onmouseenter="startGrowth(this)">Solutions</span>
+  <span onclick="scrollToSection('about')">About</span>
+  <span onclick="scrollToSection('projects')" >Solutions</span>
   
-  <div class="dropdown" onmouseenter="startGrowth(this)">
+  <div class="dropdown" >
     <span class="nav-link">
       Values <i data-lucide="chevron-down" class="nav-icon"></i>
     </span>
@@ -69,8 +69,8 @@ nav span, .dropdown {
     </div>
   </div>
 
-  <span onclick="scrollToSection('contact')" onmouseenter="startGrowth(this)">Contact</span>
-  <span class="nav-enquire" data-content="enquiry.cta" onclick="openEnquiry()" onmouseenter="startGrowth(this)"></span>
+  <span onclick="scrollToSection('contact')" >Contact</span>
+  <span class="nav-enquire" data-content="enquiry.cta" onclick="openEnquiry()" ></span>
 </nav>
 
   <div class="language-toggle lang-en-active" id="langToggle">
@@ -422,7 +422,7 @@ nav span, .dropdown {
     return path.split('.').reduce((acc, key) => (acc && acc[key] !== undefined) ? acc[key] : null, obj);
   }
 
-  // Serve Tabs Functions (unchanged)
+  // Serve Tabs Functions 
   function updateServeTabs(lang) {
     const nav = document.getElementById('tabs-nav');
     const sectionData = window.content[lang]?.serveSection;
@@ -602,62 +602,7 @@ function initFormHandler() {
       dropdown.classList.toggle('open');
     }
   });
-function startGrowth(container) {
-    // Prevent multiple trees growing at once on the same item
-    if (container.querySelector('canvas')) return;
 
-    const canvas = document.createElement('canvas');
-    canvas.classList.add('tree-canvas');
-    canvas.width = 160; 
-    canvas.height = 100; 
-    container.appendChild(canvas);
-
-    const ctx = canvas.getContext('2d');
-    const startX = canvas.width / 2;
-    const startY = canvas.height;
-
-    function drawTree(x1, y1, length, angle, width) {
-        ctx.beginPath();
-        ctx.save();
-        
-        // HD Color logic: Brown for trunk, Vibrant Green for leaves
-        ctx.strokeStyle = length > 8 ? '#5d4037' : '#2ecc71'; 
-        ctx.lineWidth = width;
-        ctx.lineCap = 'round';
-        
-        ctx.translate(x1, y1);
-        ctx.rotate(angle * Math.PI / 180);
-        ctx.moveTo(0, 0);
-        ctx.lineTo(0, -length);
-        ctx.stroke();
-
-        if (length < 5) {
-            // High Definition Leaf Tips
-            ctx.beginPath();
-            ctx.arc(0, -length, 3, 0, Math.PI * 2);
-            ctx.fillStyle = '#4ade80';
-            ctx.fill();
-            ctx.restore();
-            return;
-        }
-
-        setTimeout(() => {
-            drawTree(0, -length, length * 0.75, angle + 20 + Math.random() * 15, width * 0.7);
-            drawTree(0, -length, length * 0.75, angle - 20 - Math.random() * 15, width * 0.7);
-        }, 40);
-
-        ctx.restore();
-    }
-
-    drawTree(startX, startY, 30, 0, 2);
-
-    // Fade out and clean up
-    setTimeout(() => {
-        canvas.style.transition = "opacity 1.5s ease-out";
-        canvas.style.opacity = "0";
-        setTimeout(() => canvas.remove(), 1500);
-    }, 2500);
-}
   // SINGLE INITIALIZATION - Everything here
   document.addEventListener('DOMContentLoaded', () => {
     setLanguage('en');
@@ -676,6 +621,7 @@ function startGrowth(container) {
 
 </body>
 </html>
+
 
 
 

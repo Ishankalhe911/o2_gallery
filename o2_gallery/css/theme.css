@@ -1868,7 +1868,21 @@ html {
         padding: 0.5rem 1rem !important;
         gap: 10px !important;
     }
+/* . SECTION SPACING: Collapsing the gaps */
+    section {
+        padding: 1.5rem 0 !important; /* Reduces the 4rem global gap to 1.5rem */
+    }
 
+    /* Target the space specifically above "Who We Create For" */
+    #serve-section {
+        margin-top: 0 !important; 
+        padding-top: 1rem !important;
+    }
+
+    /* Fix the gap between the title and the content (image/tabs) */
+    .center-title {
+        margin-bottom: 1.5rem !important;
+    }
     /* 2. Fix Logo sizing and remove margins that push it out of line */
     .logo {
         margin: 0 !important;
@@ -1905,6 +1919,7 @@ html {
         display: flex !important;
     }
 }
+
 
 
 

@@ -213,7 +213,11 @@ nav {
 
   /* show hamburger */
   .mobile-menu-toggle {
-    display: flex;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1100;
   }
 
   /* dropdown becomes stacked */
@@ -297,3 +301,4 @@ nav {
 .hidden {
   display: none !important;
 }
+

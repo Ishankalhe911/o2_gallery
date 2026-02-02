@@ -34,6 +34,30 @@ nav span, .dropdown {
     pointer-events: none; /* User can still click the link */
     z-index: -1; /* Grows behind the txt */
 }
+/* Mobile-Only Spacing Adjustments */
+@media (max-width: 768px) {
+    /* 1. Reduce space above and below "Who We Create For" */
+    #serve-section {
+        margin-top: 1.5rem !important; 
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* 2. Reduce gap between the "Who We Create For" text and the Image/Tabs */
+    .tabs-container {
+        margin-top: 1rem !important;
+    }
+
+    /* 3. Reduce space between the previous section and the Enquire Button */
+    #enquiry-cta {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    /* 4. Tighten the Enquire Button's own container */
+    #enquiry-cta.container {
+        padding-bottom: 2rem !important;
+    }
+}
 </style>
 
 <body>
@@ -619,6 +643,7 @@ function initFormHandler() {
 
 </body>
 </html>
+
 
 
 

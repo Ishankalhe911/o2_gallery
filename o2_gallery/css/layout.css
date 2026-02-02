@@ -38,13 +38,14 @@ img {
 }
 
 /* ===============================
-   HEADER & NAV BASE
+   HEADER & NAV
 ================================ */
 header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #fff;
+  background: #ffffff;
+  overflow: visible;
 }
 
 .header-inner {
@@ -52,6 +53,7 @@ header {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  min-height: 64px;
 }
 
 nav {
@@ -61,13 +63,18 @@ nav {
 }
 
 /* ===============================
-   MOBILE MENU TOGGLE (HAMBURGER)
+   HAMBURGER MENU
 ================================ */
 .mobile-menu-toggle {
   display: none;
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
   flex-direction: column;
   gap: 6px;
   cursor: pointer;
+  z-index: 1100;
 }
 
 .mobile-menu-toggle span {
@@ -128,7 +135,7 @@ nav {
 }
 
 /* ===============================
-   LAYOUT SECTIONS
+   SECTION LAYOUTS
 ================================ */
 .grid-2 {
   display: grid;
@@ -192,7 +199,6 @@ nav {
 ================================ */
 @media (max-width: 1024px) {
 
-  /* hide desktop nav */
   nav {
     display: none;
     position: absolute;
@@ -202,25 +208,19 @@ nav {
     flex-direction: column;
     gap: 1.5rem;
     padding: 2rem 5%;
-    background: #fff;
+    background: #ffffff;
     box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    z-index: 999;
   }
 
-  /* show nav when hamburger toggled */
   header.nav-open nav {
     display: flex;
   }
 
-  /* show hamburger */
   .mobile-menu-toggle {
-    position: absolute;
-    right: 5%;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1100;
+    display: flex;
   }
 
-  /* dropdown becomes stacked */
   .dropdown-content {
     position: static;
     display: block;
@@ -265,21 +265,15 @@ nav {
     grid-template-columns: 1fr;
   }
 
-  /* header alignment */
   .header-inner {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .logo {
-    flex: 1;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
 
   .mobile-menu-toggle {
-    margin-left: auto;
+    right: 4%;
   }
 
-  /* language toggle scaling */
   .language-toggle {
     position: absolute;
     top: 100%;
@@ -301,4 +295,3 @@ nav {
 .hidden {
   display: none !important;
 }
-

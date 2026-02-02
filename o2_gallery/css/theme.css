@@ -1921,74 +1921,89 @@ html {
 }
 
 
-/* === FINAL MOBILE OVERRIDES === */
+/* === FINAL CONSOLIDATED MOBILE FIX === */
 @media (max-width: 768px) {
     
-    /* 1. FIX: Language Toggle Scope & Animation */
-    .language-toggle {
-        width: 200px !important;    /* Fixed width locks the animation scope */
-        height: 38px !important;    /* Slimmer profile */
-        overflow: hidden !important; /* Clips indicator so it can't "leak" out */
-        display: flex !important;
-        padding: 4px !important;
-        margin: 0 auto !important;
-        position: relative !important;
-    }
-
-    .language-toggle .indicator {
-        width: calc(33.33% - 6px) !important;
-        height: calc(100% - 8px) !important;
-        top: 4px !important;
-        left: 4px !important;
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    }
-
-    /* Fixed positions for 200px width so it never goes "out of scope" */
-    .language-toggle.lang-en-active .indicator { transform: translateX(0) !important; }
-    .language-toggle.lang-hi-active .indicator { transform: translateX(64px) !important; }
-    .language-toggle.lang-mr-active .indicator { transform: translateX(128px) !important; }
-
-    .lang-label {
-        font-size: 0.7rem !important;
-        line-height: 30px !important;
-        z-index: 2 !important;
-    }
-
-    /* 2. FIX: Section & Title Spacing */
-    /* Overrides line 698 (4rem padding) and line 755 (5rem margin) */
-    section {
-        padding-top: 1rem !important;
-        padding-bottom: 1rem !important;
-    }
-
-    .center-title {
-        margin-bottom: 1rem !important; /* Pulls the image/tabs right up to the title */
-    }
-
-    /* Target the "Who We Create For" section specifically */
-    #serve-section {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-    }
-
-    /* 3. FIX: Header Row Alignment */
+    /* LOGO & HEADER: Force horizontal alignment */
     .header-inner {
-        flex-direction: row !important; /* Forces Logo and Hamburger into one line */
+        flex-direction: row !important;
         justify-content: space-between !important;
         align-items: center !important;
         padding: 0.5rem 1rem !important;
     }
 
     .logo img {
-        height: 2rem !important; /* Keeps logo small enough to stay in line */
+        height: 2.2rem !important; /* Slimmer for mobile row */
     }
 
+    /* PROPORTIONAL TOGGLE: Uses % to stay perfectly in scope */
+    .language-toggle {
+        width: 60% !important;        /* Proportional width */
+        max-width: 220px !important;  /* Limits size on larger tablets */
+        height: 36px !important;
+        display: flex !important;
+        padding: 3px !important;      /* Minimal consistent border */
+        position: relative !important;
+        overflow: hidden !important;  /* TRAPS the animation inside */
+        margin: 0 !important;
+    }
+
+    .language-toggle .indicator {
+        width: 33.33% !important;    /* Exactly 1/3rd of the width */
+        height: 100% !important;
+        top: 0 !important;
+        left: 0 !important;
+        border-radius: 20px !important;
+        /* Percentage-based movement for perfect centering */
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    /* Precise percentage jumps so it never goes "out of scope" */
+    .language-toggle.lang-en-active .indicator { transform: translateX(0%) !important; }
+    .language-toggle.lang-hi-active .indicator { transform: translateX(100%) !important; }
+    .language-toggle.lang-mr-active .indicator { transform: translateX(200%) !important; }
+
+    .lang-label {
+        flex: 1 !important;          /* Each label takes exactly 1/3rd space */
+        font-size: 0.7rem !important;
+        line-height: 30px !important;
+        z-index: 2 !important;
+    }
+
+    /* SECTION SPACING: Collapsing the gaps */
+    /* Overrides the 4rem !important on line 698 and 851 */
+    section {
+        padding: 1rem 0 !important; 
+    }
+
+    /* Removes the massive 8rem/5rem gaps around "Who We Create For" */
+    #serve-section {
+        margin-top: 0 !important;
+        padding-top: 1rem !important;
+    }
+
+    .center-title {
+        margin-bottom: 0.5rem !important;
+    }
+
+    .center-title span {
+        padding: 0.5rem 1rem !important;
+    }
+
+    /* Tighten the Enquiry Button section */
+    #enquiry-cta {
+        margin-top: 0 !important;
+        padding-top: 1rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    /* Align Hamburger Menu Icon */
     .mobile-menu-toggle {
         margin: 0 !important;
         align-self: center !important;
+        order: 3 !important; 
     }
 }
-
 
 
 

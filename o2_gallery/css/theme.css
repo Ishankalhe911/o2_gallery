@@ -1825,6 +1825,36 @@ html {
 
 
 
+/* Specific Mobile Tightening */
+@media (max-width: 768px) {
+    /* 1. Remove the forced 4rem padding from these specific sections */
+    #serve-section, 
+    #enquiry-cta {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+
+    /* 2. Override the 8rem margin you have in the HTML inline style */
+    #serve-section {
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* 3. Reduce gap between "Who We Create For" title and the tabs/images below it */
+    #serve-section .center-title {
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .tabs-container {
+        margin-top: 0.5rem !important;
+    }
+
+    /* 4. Pull the Enquire button closer to the previous section */
+    #enquiry-cta {
+        margin-top: 0 !important;
+        margin-bottom: 2rem !important;
+    }
+}
 
 
 

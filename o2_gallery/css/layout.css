@@ -228,5 +228,107 @@ img {
     padding-left: 1rem;
   }
 }
+/* Mobile Optimization for Header and Toggle */
+@media (max-width: 768px) {
+  /* 1. Force Logo and Hamburger onto one line */
+  .header-inner {
+    flex-direction: row !important; /* Overrides the previous column layout */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  /* 2. Scale down the Logo */
+  .logo {
+    gap: 5px !important;
+  }
+  
+  .logo img {
+    height: 1.8rem !important; /* Smaller logo text */
+  }
+
+  dotlottie-wc {
+    width: 25px !important; /* Smaller plant animation */
+    height: 25px !important;
+  }
+
+  /* 3. Shrink the Language Toggle */
+  .language-toggle {
+    order: 2; /* Positions it between logo and hamburger */
+    min-width: auto;
+    padding: 2px;
+    height: 30px;
+    gap: 2px;
+    background: rgba(0, 0, 0, 0.05); /* Softer background */
+  }
+
+  .lang-label {
+    padding: 4px 8px !important;
+    font-size: 11px !important; /* Smaller text */
+    min-width: 45px;
+    text-align: center;
+  }
+
+  .indicator {
+    height: 26px !important; /* Matches new toggle height */
+  }
+
+  /* 4. Style the Hamburger Menu */
+  .mobile-menu-toggle {
+    order: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    z-index: 100;
+    padding: 5px;
+  }
+
+  .mobile-menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--tree-green);
+    transition: var(--transition);
+  }
+
+  /* 5. Fix Navigation Overlay */
+  nav {
+    display: none; /* Hidden by default on mobile */
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  }
+
+  /* Show nav when header has .nav-open class (triggered by your JS) */
+  header.nav-open nav {
+    display: flex !important;
+  }
+
+  /* Ensure dropdowns don't break mobile flow */
+  .dropdown-content {
+    position: relative;
+    box-shadow: none;
+    padding-left: 20px;
+  }
+}
+
+/* Extra small screens fix */
+@media (max-width: 400px) {
+  .lang-label[data-lang="en"] { display: block; }
+  /* Optionally hide labels on tiny screens and use 'EN', 'HI', 'MR' */
+  .lang-label {
+    font-size: 10px !important;
+    padding: 4px 5px !important;
+    min-width: 35px;
+  }
+}
 
 

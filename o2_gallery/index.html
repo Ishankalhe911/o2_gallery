@@ -640,30 +640,48 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.lucide) lucide.createIcons();
 });
 
-// The New Toggle Logic
-function initLanguageToggle() {
+window.setLanguage = function(lang) {
+  window.currentLang = lang;
+  
   const container = document.getElementById('langToggle');
-  if (!container) return;
+  if (container) {
+    const buttons = Array.from(container.querySelectorAll('.lang-btn'));
+    const slider = container.querySelector('.selection-slider');
+    
+    // Find which index the selected language is (0, 1, or 2)
+    const index = buttons.findIndex(btn => btn.getAttribute('data-lang') === lang);
+    
+    if (index !== -1) {
+      // Logic: Move 100% of the button width for each index
+      // We use 103% to perfectly center the pill inside the border
+      slider.style.transform = `translateX(${index * 100}%)`;
+      
+      // Toggle active classes
+      buttons.forEach((btn, i) => {
+        btn.classList.toggle('active', i === index);
+      });
+    }
+  }
 
-  const buttons = container.querySelectorAll('.lang-btn');
-  const slider = container.querySelector('.selection-slider');
+  // Trigger your content update functions
+  if (typeof renderContent === 'function') renderContent(lang);
+  if (typeof updateServeTabs === 'function') updateServeTabs(lang);
+};
 
-  buttons.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
-      // Move slider
-      const moveValue = index * 100;
-      slider.style.transform = `translateX(${moveValue}%)`;
-
-      // Update UI classes
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      // Call your existing language function
-      const selectedLang = btn.getAttribute('data-lang');
-      setLanguage(selectedLang);
+// Initialize on load
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('langToggle');
+  if (container) {
+    container.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setLanguage(btn.getAttribute('data-lang'));
+      });
     });
-  });
-}
+  }
+  
+  // Set default
+  setLanguage('en');
+});
 
 window.addEventListener('resize', initMobileMenu);
 </script>
@@ -675,6 +693,7 @@ window.addEventListener('resize', initMobileMenu);
 
 </body>
 </html>
+
 
 
 

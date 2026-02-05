@@ -2015,85 +2015,72 @@ html {
 .lang-nav-wrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .lang-segmented-control {
+  --pill-padding: 4px;
   position: relative;
-  display: flex;
-  background-color: var(--light-gray);
-  border: 1px solid var(--border-color);
+  display: grid;
+  /* Creates 3 equal columns */
+  grid-template-columns: repeat(3, 1fr); 
+  background-color: #f4f7f4;
+  border: 1px solid #e0e6e0;
   border-radius: 50px;
-  padding: 4px;
-  width: 240px; /* Adjust based on your navbar space */
-  height: 40px;
-  user-select: none;
+  padding: var(--pill-padding);
+  width: 260px; /* Increased slightly to prevent "ish" truncation */
+  height: 42px;
+  overflow: hidden;
 }
 
 .lang-btn {
   position: relative;
-  flex: 1;
   background: none;
   border: none;
-  outline: none;
   cursor: pointer;
   font-size: 13px;
   font-weight: 600;
-  color: var(--nav-green);
+  color: #2d5a27;
+  z-index: 2;
   transition: color 0.3s ease;
-  z-index: 2; /* Ensures text stays above the slider */
+  /* Prevents text from cutting off */
+  white-space: nowrap; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lang-btn.active {
   color: #ffffff;
 }
 
-/* The magic sliding pill */
 .selection-slider {
   position: absolute;
-  top: 4px;
-  left: 4px;
-  height: calc(100% - 8px);
-  width: calc(33.33% - 5.33px); /* 1/3 of the container minus padding */
-  background-color: var(--nav-green);
-  border-radius: 50px;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Stretches to fill exactly 1/3 of the grid area */
+  width: calc(100% / 3 - (var(--pill-padding) * 2 / 3)); 
+  height: calc(100% - (var(--pill-padding) * 2));
+  top: var(--pill-padding);
+  left: var(--pill-padding);
+  background-color: #2d5a27;
+  border-radius: 40px;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1;
 }
 
-/* Responsive adjustments for tablet/mobile */
+/* Tablet & Large Mobile (The "Problem" Zone) */
 @media (max-width: 768px) {
   .lang-segmented-control {
-    width: 210px; /* Slightly smaller on tablets */
-    height: 36px;
+    width: 230px; 
+    height: 38px;
   }
   .lang-btn {
     font-size: 11px;
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Small Mobile */
+@media (max-width: 375px) {
+  .lang-segmented-control {
+    width: 200px;
+  }
+}

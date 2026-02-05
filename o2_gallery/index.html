@@ -95,13 +95,15 @@ nav span, .dropdown {
   <span class="nav-enquire" data-content="enquiry.cta" onclick="openEnquiry()"></span>
 </nav>
 
-  <div class="language-toggle lang-en-active" id="langToggle">
-  <div class="indicator"></div>
-  <span class="lang-label active" data-lang="en" onclick="setLanguage('en')">English</span>
-  <span class="lang-label" data-lang="hi" onclick="setLanguage('hi')">हिन्दी</span>
-  <span class="lang-label" data-lang="mr" onclick="setLanguage('mr')">मराठी</span>
+  <div class="lang-nav-wrapper">
+  <div class="lang-segmented-control" id="langToggle">
+    <div class="selection-slider"></div>
+    
+    <button class="lang-btn active" data-lang="en">English</button>
+    <button class="lang-btn" data-lang="hi">हिन्दी</button>
+    <button class="lang-btn" data-lang="mr">मराठी</button>
+  </div>
 </div>
-    </div>
   </header>
 
 
@@ -625,15 +627,45 @@ function initFormHandler() {
     }
   });
 
-  // SINGLE INITIALIZATION - Everything here
-  document.addEventListener('DOMContentLoaded', () => {
-    setLanguage('en');
-    initFormHandler();
-    initMobileMenu();
-    if (window.lucide) lucide.createIcons();
-  });
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Initialize the UI Toggle first
+  initLanguageToggle();
+  
+  // 2. Set default language (Matches your existing logic)
+  setLanguage('en'); 
+  
+  // 3. Existing initializations
+  initFormHandler();
+  initMobileMenu();
+  if (window.lucide) lucide.createIcons();
+});
 
-  window.addEventListener('resize', initMobileMenu);
+// The New Toggle Logic
+function initLanguageToggle() {
+  const container = document.getElementById('langToggle');
+  if (!container) return;
+
+  const buttons = container.querySelectorAll('.lang-btn');
+  const slider = container.querySelector('.selection-slider');
+
+  buttons.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      // Move slider
+      const moveValue = index * 100;
+      slider.style.transform = `translateX(${moveValue}%)`;
+
+      // Update UI classes
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Call your existing language function
+      const selectedLang = btn.getAttribute('data-lang');
+      setLanguage(selectedLang);
+    });
+  });
+}
+
+window.addEventListener('resize', initMobileMenu);
 </script>
 
   
@@ -643,6 +675,7 @@ function initFormHandler() {
 
 </body>
 </html>
+
 
 
 

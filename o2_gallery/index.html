@@ -11,9 +11,9 @@
    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
    
   
-</head>
+
 <style>
-   hero-particles * { pointer-events: none !important; }
+   .hero-particles * { pointer-events: none !important; }
 .hero-text-box, .hero-cta, .hero-title, .hero-subtitle {
 position: relative; z-index: 20 !important; pointer-events: auto !important;
 }
@@ -59,7 +59,7 @@ nav span, .dropdown {
     }
 }
 </style>
-
+</head>
 <body>
   <!-- HEADER --->
   <header>
@@ -414,19 +414,374 @@ nav span, .dropdown {
   </div>
 </footer>
 
- <script src="content.js"></script>
+ 
+
+<style>
+  body.translating {
+    cursor: wait;
+    opacity: 0.8;
+    pointer-events: none; /* Prevent clicking while loading */
+  }
+  body.translating::after {
+    content: "Translating to local language...";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 50px;
+    z-index: 9999;
+    font-family: sans-serif;
+    font-weight: bold;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+</style>
 
 <script>
-  // Global State
-  window.currentLang = 'en';
+  // ==========================================
+  // 1. CONFIGURATION & DATA SOURCE
+  // ==========================================
+  
+// NO API KEY HERE! It is safe now.
+  
+  async function fetchTranslation(targetLang) {
+    if (window.translationCache[targetLang]) {
+      return window.translationCache[targetLang];
+    }
 
-  // Enhanced scroll function (handles missing elements)
+    try {
+      showLoading(true);
+
+      // We call our own internal function now!
+      const response = await fetch('/.netlify/functions/translate', {
+        method: "POST",
+        body: JSON.stringify({ 
+            targetLang: targetLang,
+            content: englishContent 
+        })
+      });
+
+      const data = await response.json();
+      
+      // The server returns the OpenAI/Groq format, so we parse it here
+      const translatedContent = JSON.parse(data.choices[0].message.content);
+
+      window.translationCache[targetLang] = translatedContent;
+      return translatedContent;
+
+    } catch (error) {
+      console.error("Translation failed:", error);
+      alert("Translation failed.");
+      return englishContent;
+    } finally {
+      showLoading(false);
+    }
+  }
+
+  // The Master English Content (Source of Truth)
+  const englishContent = {
+    nav: {
+      about: "About",
+      solutions: "Solutions",
+      valuesTitle: "Our Values",
+      contact: "Contact",
+      val1: "Sustainability",
+      val2: "Innovation",
+      val3: "Quality",
+      val4: "Community"
+    },
+    intro: {
+      title: "Breathe Life Into Your Spaces",
+      p1: "Transform urban spaces with living art that purifies air and elevates ambiance.",
+      p2: "O₂ Gallery creates sustainable greenery solutions for modern living.",
+      p3: "Every project is 100% organic, scientifically designed for maximum air purification."
+    },
+    enquiry: {
+      cta: "Enquire Now",
+      title: "Start Your Green Journey",
+      subtitle: "Tell us about your space and we'll design a custom greenery solution.",
+      form: {
+        name: "Full Name *",
+        email: "Email Address *",
+        phone: "Phone Number *",
+        message: "Project Details *",
+        submit: "Send Enquiry"
+      }
+    },
+    missionVisionTitle: "Mission & Vision",
+    mission: "Create breathable urban ecosystems through innovative, sustainable greenery solutions that enhance air quality and human well-being.",
+    vision: "A world where every urban space breathes with life, naturally purifying air and nurturing communities through living art.",
+    urbanProblem: {
+      title: "The Urban Air Crisis",
+      p1: "Cities trap pollutants, reducing oxygen by 30% in high-rises.",
+      p2: "95% of indoor air contains VOCs from furniture, paint, and electronics.",
+      p3: "Stress levels rise 40% in concrete-only environments without greenery."
+    },
+    solution: {
+      title: "O₂ Gallery Solution",
+      p1: "Living walls purify 87% more VOCs than standard plants.",
+      p2: "Smart irrigation uses 70% less water with soil moisture sensors.",
+      p3: "Custom installations boost workplace productivity by 25%."
+    },
+    valuesTitle: "Our Core Values",
+    valuesList: [
+      { title: "Sustainability First", desc: "Every plant selected for maximum air purification and minimal water use." },
+      { title: "Smart Technology", desc: "IoT sensors monitor soil, light, and air quality for optimal plant health." },
+      { title: "Custom Design", desc: "Tailored installations that complement your architecture and brand." },
+      { title: "Proven Results", desc: "25% better air quality, 15% higher employee satisfaction in our projects." }
+    ],
+    footer: {
+      aboutText: "Creating breathable urban ecosystems through sustainable greenery solutions since 2025.",
+      linksTitle: "Quick Links",
+      servicesTitle: "Our Services",
+      contactTitle: "Get In Touch",
+      service1: "Living Walls",
+      service2: "Smart Planters",
+      service3: "Office Greenery",
+      service4: "Balcony Gardens",
+      phone: "+91 98765 43210",
+      email: "contact@o2gallery.com",
+      address: "Pune, Maharashtra",
+      tagline: "Where Urban Spaces Breathe",
+      copyText: "© 2026 O₂ Gallery. All rights reserved."
+    },
+    serveSection: {
+      title: "Who We Create For",
+      categories: [
+        {
+          title: "Balcony Gardens",
+          image: "assets/balcony.jpg",
+          desc: "Transform small balconies into lush green retreats with space-optimized planters and vertical gardens."
+        },
+        {
+          title: "Office Greenery",
+          image: "assets/office.jpg",
+          desc: "Boost workplace productivity with air-purifying living walls and statement planters."
+        },
+        {
+          title: "Corporate Installations",
+          image: "assets/corporate.jpg",
+          desc: "Large-scale greenery solutions for lobbies, atriums, and outdoor corporate spaces."
+        }
+      ]
+    }
+  };
+
+  // State
+  window.currentLang = 'en';
+  window.translationCache = { en: englishContent };
+
+  // ==========================================
+  // 2. API TRANSLATION LOGIC
+  // ==========================================
+  
+  async function fetchTranslation(targetLang) {
+    // 1. Return cached if exists
+    if (window.translationCache[targetLang]) {
+      return window.translationCache[targetLang];
+    }
+
+    // 2. Prepare AI Request
+    const systemPrompt = `You are a professional translator. Translate the values of the JSON object provided by the user into ${targetLang === 'hi' ? 'Hindi (Devanagari script)' : 'Marathi (Devanagari script)'}. 
+    IMPORTANT: 
+    1. Return ONLY valid JSON. 
+    2. Do NOT translate keys, only values. 
+    3. Maintain the exact same structure.`;
+
+    try {
+      showLoading(true); // Turn on loading spinner
+      
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${API_KEY}`
+        },
+        body: JSON.stringify({
+          model: "llama-3.1-70b-versatile",
+          messages: [
+            { role: "system", content: systemPrompt },
+            { role: "user", content: JSON.stringify(englishContent) }
+          ],
+          response_format: { type: "json_object" },
+          temperature: 0.1
+        })
+      });
+
+      const data = await response.json();
+      
+      // Parse the JSON string returned by AI
+      let translatedContent = englishContent; // Default to English on failure
+      try {
+         translatedContent = JSON.parse(data.choices[0].message.content);
+      } catch (e) {
+         console.error("AI returned invalid JSON", e);
+      }
+
+      // 3. Cache and Return
+      window.translationCache[targetLang] = translatedContent;
+      return translatedContent;
+
+    } catch (error) {
+      console.error("Translation failed:", error);
+      alert("Translation service is currently unavailable. Showing English.");
+      return englishContent;
+    } finally {
+      showLoading(false); // Turn off loading spinner
+    }
+  }
+
+  // ==========================================
+  // 3. RENDERING LOGIC (The View)
+  // ==========================================
+
+  function renderPage(content, lang) {
+    // A. Render simple text fields
+    document.querySelectorAll('[data-content]').forEach(el => {
+      const key = el.dataset.content;
+      const value = getValueByPath(content, key);
+      if (value) {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = value;
+        } else {
+          el.textContent = value;
+        }
+      }
+    });
+
+    // B. Render Values Grid (Dynamic HTML generation)
+    const grid1 = document.getElementById('values-grid-row-1');
+    const grid2 = document.getElementById('values-grid-row-2');
+    
+    if (content.valuesList && grid1 && grid2) {
+       grid1.innerHTML = ''; 
+       grid2.innerHTML = '';
+
+       content.valuesList.slice(0, 2).forEach((v, i) => {
+         grid1.innerHTML += `<div id="value-${i}" class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`;
+       });
+       content.valuesList.slice(2, 4).forEach((v, i) => {
+         grid2.innerHTML += `<div id="value-${i+2}" class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`;
+       });
+    }
+
+    // C. Render Serve Tabs
+    updateServeTabs(content.serveSection);
+    
+    // D. Refresh Icons
+    if (window.lucide) lucide.createIcons();
+  }
+
+  function getValueByPath(obj, path) {
+    return path.split('.').reduce((acc, key) => (acc && acc[key] !== undefined) ? acc[key] : null, obj);
+  }
+
+  // ==========================================
+  // 4. TAB LOGIC
+  // ==========================================
+  
+  function updateServeTabs(sectionData) {
+    if (!sectionData) return;
+    
+    const nav = document.getElementById('tabs-nav');
+    const titleEl = document.getElementById('serve-title');
+    if (titleEl) titleEl.innerText = sectionData.title;
+    
+    if (!nav) return;
+    nav.innerHTML = '';
+    
+    sectionData.categories.forEach((cat, index) => {
+      const btn = document.createElement('button');
+      btn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
+      btn.innerHTML = cat.title;
+      // We pass the whole 'sectionData' object so we can switch between cats
+      btn.onclick = () => switchTab(index, sectionData.categories);
+      nav.appendChild(btn);
+    });
+
+    // Load first tab immediately
+    switchTab(0, sectionData.categories);
+  }
+
+  function switchTab(index, categories) {
+    const data = categories[index];
+    
+    // Update active button
+    document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+      btn.classList.toggle('active', i === index);
+    });
+
+    // Animate content
+    const contentArea = document.getElementById('tabs-content-area');
+    const imgEl = document.getElementById('tab-image');
+    const titleEl = document.getElementById('tab-content-title');
+    const descEl = document.getElementById('tab-content-desc');
+
+    contentArea.style.opacity = 0;
+    contentArea.style.transform = 'translateY(15px)';
+
+    setTimeout(() => {
+      // For images, we use English source (images don't change), 
+      // but data object has the path, so it's fine.
+      imgEl.src = data.image; 
+      titleEl.innerText = data.title;
+      descEl.innerText = data.desc;
+      
+      contentArea.style.transition = 'all 0.5s ease-out';
+      contentArea.style.opacity = 1;
+      contentArea.style.transform = 'translateY(0)';
+    }, 250);
+  }
+
+  // ==========================================
+  // 5. MAIN CONTROLLER
+  // ==========================================
+
+  window.setLanguage = async function(lang) {
+    window.currentLang = lang;
+    
+    // 1. Update UI (Toggle Buttons)
+    const container = document.getElementById('langToggle');
+    if (container) {
+      const buttons = Array.from(container.querySelectorAll('.lang-btn'));
+      const slider = container.querySelector('.selection-slider');
+      const index = buttons.findIndex(btn => btn.getAttribute('data-lang') === lang);
+      
+      if (index !== -1) {
+        slider.style.transform = `translateX(${index * 100}%)`;
+        buttons.forEach((btn, i) => btn.classList.toggle('active', i === index));
+      }
+    }
+
+    // 2. Fetch Data (if needed) & Render
+    let contentToRender;
+    if (lang === 'en') {
+      contentToRender = englishContent;
+    } else {
+      contentToRender = await fetchTranslation(lang);
+    }
+    
+    renderPage(contentToRender, lang);
+  };
+
+  function showLoading(isLoading) {
+    if (isLoading) {
+      document.body.classList.add('translating');
+    } else {
+      document.body.classList.remove('translating');
+    }
+  }
+
+  // ==========================================
+  // 6. UTILITIES (Scroll, Menu, Form)
+  // ==========================================
+
   function scrollToSection(id) {
     const element = document.getElementById(id);
-    if (!element) {
-      setTimeout(() => scrollToSection(id), 50);
-      return;
-    }
+    if (!element) return;
     const headerOffset = 100;
     const elementPosition = element.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -441,249 +796,92 @@ nav span, .dropdown {
     }
   }
 
-  // Deep Data Helper
-  function getValueByPath(obj, path) {
-    return path.split('.').reduce((acc, key) => (acc && acc[key] !== undefined) ? acc[key] : null, obj);
-  }
-
-  // Serve Tabs Functions 
-  function updateServeTabs(lang) {
-    const nav = document.getElementById('tabs-nav');
-    const sectionData = window.content[lang]?.serveSection;
-    if (!sectionData || !nav) return;
-
-    document.getElementById('serve-title').innerText = sectionData.title;
-    nav.innerHTML = '';
-    
-    sectionData.categories.forEach((cat, index) => {
-      const btn = document.createElement('button');
-      btn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
-      btn.innerHTML = cat.title;
-      btn.onclick = () => switchTabData(index, lang);
-      nav.appendChild(btn);
-    });
-    switchTabData(0, lang);
-  }
-
-  function switchTabData(index, lang) {
-    const data = window.content[lang]?.serveSection?.categories[index];
-    if (!data) return;
-
-    document.querySelectorAll('.tab-btn').forEach((btn, i) => {
-      btn.classList.toggle('active', i === index);
-    });
-
-    const contentArea = document.getElementById('tabs-content-area');
-    contentArea.style.opacity = 0;
-    contentArea.style.transform = 'translateY(15px)';
-
-    setTimeout(() => {
-      document.getElementById('tab-image').src = data.image;
-      document.getElementById('tab-content-title').innerText = data.title;
-      document.getElementById('tab-content-desc').innerText = data.desc;
-      contentArea.style.transition = 'all 0.5s ease-out';
-      contentArea.style.opacity = 1;
-      contentArea.style.transform = 'translateY(0)';
-    }, 250);
-  }
-
-  // Main Render Function
-  function renderContent(lang) {
-    const data = window.content[lang];
-    if (!data) return;
-
-    document.querySelectorAll('[data-content]').forEach(el => {
-      const value = getValueByPath(data, el.dataset.content);
-      if (value) {
-        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-          el.placeholder = value;
-        } else {
-          el.textContent = value;
-        }
-      }
-    });
-
-    const grid1 = document.getElementById('values-grid-row-1');
-    const grid2 = document.getElementById('values-grid-row-2');
-    
-    if (data.values) {
-      if (grid1) grid1.innerHTML = data.values.slice(0, 2).map((v, i) => 
-        `<div id="value-${i}" class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`).join('');
-      if (grid2) grid2.innerHTML = data.values.slice(2, 4).map((v, i) => 
-        `<div id="value-${i + 2}" class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`).join('');
-    }
-    
-    if (window.lucide) lucide.createIcons();
-  }
-
-  // Language Switcher
-window.setLanguage = function(lang) {
-  window.currentLang = lang;
-  
-  // Update toggle class
-  const toggle = document.getElementById('langToggle');
-  if (toggle) {
-    // Remove all lang-active classes first
-    toggle.className = 'language-toggle';
-    toggle.classList.add(`lang-${lang}-active`);
-  }
-  
-  // Update active labels
-  document.querySelectorAll('.lang-label').forEach(label => {
-    label.classList.toggle('active', label.dataset.lang === lang);
-  });
-
-  renderContent(lang);
-  updateServeTabs(lang);
-};
-
-function initFormHandler() {
-  const form = document.getElementById('enquiryForm');
-  if (!form) return;
-
-  // Button validation only
-  form.querySelectorAll('input, select, textarea').forEach(input => {
-    input.addEventListener('input', () => {
-      form.querySelector('.submit-btn').disabled = !form.checkValidity();
-    });
-  });
-
-  // Show success message + submit with perfect timing
-  form.addEventListener('submit', function(e) {
-    e.preventDefault(); // Stop instant redirect
-    
-    const submitBtn = form.querySelector('.submit-btn');
-    const btnText = submitBtn.querySelector('.btn-text');
-    const btnLoader = submitBtn.querySelector('.btn-loader');
-    const messageDiv = document.getElementById('form-message');
-
-    // 1. Show loader
-    submitBtn.disabled = true;
-    btnText.style.display = 'none';
-    btnLoader.style.display = 'inline';
-
-    // 2. Re-render content.js (preserves translations)
-    if (window.currentLang && typeof setLanguage === 'function') {
-      setLanguage(window.currentLang);
-    }
-
-    // 3. Show success message after 1.5s
-    setTimeout(() => {
-      const successMsg = window.currentLang === 'hi' ? 
-        '✅ धन्यवाद! हम आपसे संपर्क करेंगे।' :
-        window.currentLang === 'mr' ? 
-        '✅ धन्यवाद! आम्ही लवकरच संपर्क करू।' :
-        '✅ Thank you! We will contact you within 24 hours.';
-      
-      messageDiv.textContent = successMsg;
-      messageDiv.className = 'form-message success';
-      messageDiv.style.display = 'block';
-      messageDiv.scrollIntoView({ behavior: 'smooth' });
-      
-      // 4. Submit to FormsSubmit AFTER message shows (3s total)
-      setTimeout(() => {
-        form.submit(); // Now send to Gmail
-      }, 1500);
-    }, 1500);
-  });
-}
-
-
-
-  // === MOBILE MENU FUNCTIONS ===
   function initMobileMenu() {
     const headerInner = document.querySelector('.header-inner');
+    if (!headerInner) return;
+    
     let toggle = document.querySelector('.mobile-menu-toggle');
-    
     if (!toggle) {
-      toggle = document.createElement('div');
-      toggle.className = 'mobile-menu-toggle';
-      toggle.innerHTML = '<span></span><span></span><span></span>';
-      toggle.onclick = toggleMobileMenu;
-      headerInner.appendChild(toggle);
+        toggle = document.createElement('div');
+        toggle.className = 'mobile-menu-toggle';
+        toggle.innerHTML = '<span></span><span></span><span></span>';
+        toggle.onclick = (e) => {
+            e.stopPropagation();
+            document.querySelector('header').classList.toggle('nav-open');
+        };
+        headerInner.appendChild(toggle);
     }
   }
 
-  function toggleMobileMenu(e) {
-    e.stopPropagation();
-    const header = document.querySelector('header');
-    header.classList.toggle('nav-open');
-    
-    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
-  }
+  function initFormHandler() {
+    const form = document.getElementById('enquiryForm');
+    if (!form) return;
 
-  // Close menu on outside click
-  document.addEventListener('click', function(e) {
-    const header = document.querySelector('header');
-    if (!header.contains(e.target) && header.classList.contains('nav-open')) {
-      header.classList.remove('nav-open');
-    }
-    
-    // Toggle dropdowns
-    if (e.target.closest('.dropdown')) {
-      e.stopPropagation();
-      const dropdown = e.target.closest('.dropdown');
-      dropdown.classList.toggle('open');
-    }
-  });
-
-document.addEventListener('DOMContentLoaded', () => {
-  // 1. Initialize the UI Toggle first
-  initLanguageToggle();
-  
-  // 2. Set default language (Matches your existing logic)
-  setLanguage('en'); 
-  
-  // 3. Existing initializations
-  initFormHandler();
-  initMobileMenu();
-  if (window.lucide) lucide.createIcons();
-});
-
-window.setLanguage = function(lang) {
-  window.currentLang = lang;
-  
-  const container = document.getElementById('langToggle');
-  if (container) {
-    const buttons = Array.from(container.querySelectorAll('.lang-btn'));
-    const slider = container.querySelector('.selection-slider');
-    
-    // Find which index the selected language is (0, 1, or 2)
-    const index = buttons.findIndex(btn => btn.getAttribute('data-lang') === lang);
-    
-    if (index !== -1) {
-      // Logic: Move 100% of the button width for each index
-      // We use 103% to perfectly center the pill inside the border
-      slider.style.transform = `translateX(${index * 100}%)`;
-      
-      // Toggle active classes
-      buttons.forEach((btn, i) => {
-        btn.classList.toggle('active', i === index);
-      });
-    }
-  }
-
-  // Trigger your content update functions
-  if (typeof renderContent === 'function') renderContent(lang);
-  if (typeof updateServeTabs === 'function') updateServeTabs(lang);
-};
-
-// Initialize on load
-document.addEventListener('DOMContentLoaded', () => {
-  const container = document.getElementById('langToggle');
-  if (container) {
-    container.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        setLanguage(btn.getAttribute('data-lang'));
+    form.querySelectorAll('input, select, textarea').forEach(input => {
+      input.addEventListener('input', () => {
+        form.querySelector('.submit-btn').disabled = !form.checkValidity();
       });
     });
-  }
-  
-  // Set default
-  setLanguage('en');
-});
 
-window.addEventListener('resize', initMobileMenu);
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = form.querySelector('.submit-btn');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const btnLoader = submitBtn.querySelector('.btn-loader');
+      const messageDiv = document.getElementById('form-message');
+
+      submitBtn.disabled = true;
+      btnText.style.display = 'none';
+      btnLoader.style.display = 'inline';
+
+      setTimeout(() => {
+        const successMsg = window.currentLang === 'hi' ? 
+          '✅ धन्यवाद! हम आपसे संपर्क करेंगे।' :
+          window.currentLang === 'mr' ? 
+          '✅ धन्यवाद! आम्ही लवकरच संपर्क करू।' :
+          '✅ Thank you! We will contact you within 24 hours.';
+        
+        messageDiv.textContent = successMsg;
+        messageDiv.className = 'form-message success';
+        messageDiv.style.display = 'block';
+        messageDiv.scrollIntoView({ behavior: 'smooth' });
+        
+        setTimeout(() => {
+          form.submit();
+        }, 1500);
+      }, 1500);
+    });
+  }
+
+  // ==========================================
+  // 7. INITIALIZATION
+  // ==========================================
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Setup Language Clicks
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
+    });
+
+    // 2. Setup Utilities
+    initFormHandler();
+    initMobileMenu();
+    
+    // 3. Initial Render (English)
+    renderPage(englishContent, 'en');
+
+    // 4. Click outside to close menu
+    document.addEventListener('click', function(e) {
+        const header = document.querySelector('header');
+        if (header && !header.contains(e.target) && header.classList.contains('nav-open')) {
+            header.classList.remove('nav-open');
+        }
+    });
+  });
+
+  window.addEventListener('resize', initMobileMenu);
+
 </script>
 
   
@@ -693,6 +891,7 @@ window.addEventListener('resize', initMobileMenu);
 
 </body>
 </html>
+
 
 
 

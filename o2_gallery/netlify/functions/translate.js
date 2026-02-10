@@ -1,14 +1,29 @@
-// netlify/functions/translate.js
-
 export const handler = async (event) => {
-  // Only allow POST requests
+  // 1. Setup CORS Headers (Permission for GitHub Pages to talk to Netlify)
+  const headers = {
+    'Access-Control-Allow-Origin': '*', // Allows your GitHub Pages to connect
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS'
+  };
+
+  // 2. Handle "Pre-flight" check (Browser asks "Can I connect?")
+  if (event.httpMethod === 'OPTIONS') {
+    return { statusCode: 200, headers, body: '' };
+  }
+
+  // 3. Only allow POST requests
   if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' };
+    return { statusCode: 405, headers, body: 'Method Not Allowed' };
   }
 
   try {
     const { targetLang, content } = JSON.parse(event.body);
-    const API_KEY = process.env.GROQ_API_KEY; // This grabs the key from the secure vault
+    const API_KEY = process.env.GROQ_API_KEY;
+
+    if (!API_KEY) {
+      console.error("Missing API Key");
+      return { statusCode: 500, headers, body: JSON.stringify({ error: "Server Configuration Error" }) };
+    }
 
     const systemPrompt = `You are a professional translator. Translate the values of the JSON object provided by the user into ${targetLang === 'hi' ? 'Hindi (Devanagari script)' : 'Marathi (Devanagari script)'}. 
     IMPORTANT: 
@@ -37,10 +52,11 @@ export const handler = async (event) => {
 
     return {
       statusCode: 200,
+      headers, // <--- Return headers here too!
       body: JSON.stringify(data)
     };
 
   } catch (error) {
-    return { statusCode: 500, body: JSON.stringify({ error: error.message }) };
+    return { statusCode: 500, headers, body: JSON.stringify({ error: error.message }) };
   }
 };

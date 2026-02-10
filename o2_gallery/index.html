@@ -456,7 +456,8 @@ nav span, .dropdown {
       showLoading(true);
 
       // We call our own internal function now!
-      const response = await fetch('/.netlify/functions/translate', {
+      // We call our own internal function now!
+      const response = await fetch('https://heartfelt-alfajores-54532e.netlify.app/.netlify/functions/translate', {
         method: "POST",
         body: JSON.stringify({ 
             targetLang: targetLang,
@@ -891,6 +892,7 @@ nav span, .dropdown {
 
 </body>
 </html>
+
 
 
 

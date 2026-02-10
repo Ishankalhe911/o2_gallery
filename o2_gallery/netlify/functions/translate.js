@@ -1,12 +1,16 @@
-export const handler = async (event) => {
-  // 1. Setup CORS Headers (Permission for GitHub Pages to talk to Netlify)
+// netlify/functions/translate.js
+
+// We use "exports.handler" (CommonJS) because it is the most compatible format
+exports.handler = async function(event, context) {
+  
+  // 1. CORS Headers (Allows your site to talk to this backend)
   const headers = {
-    'Access-Control-Allow-Origin': '*', // Allows your GitHub Pages to connect
+    'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'POST, OPTIONS'
   };
 
-  // 2. Handle "Pre-flight" check (Browser asks "Can I connect?")
+  // 2. Handle "Pre-check" requests
   if (event.httpMethod === 'OPTIONS') {
     return { statusCode: 200, headers, body: '' };
   }
@@ -21,15 +25,10 @@ export const handler = async (event) => {
     const API_KEY = process.env.GROQ_API_KEY;
 
     if (!API_KEY) {
-      console.error("Missing API Key");
-      return { statusCode: 500, headers, body: JSON.stringify({ error: "Server Configuration Error" }) };
+      return { statusCode: 500, headers, body: JSON.stringify({ error: "Missing API Key" }) };
     }
 
-    const systemPrompt = `You are a professional translator. Translate the values of the JSON object provided by the user into ${targetLang === 'hi' ? 'Hindi (Devanagari script)' : 'Marathi (Devanagari script)'}. 
-    IMPORTANT: 
-    1. Return ONLY valid JSON. 
-    2. Do NOT translate keys, only values. 
-    3. Maintain the exact same structure.`;
+    const systemPrompt = `You are a professional translator. Translate the values of the JSON object provided by the user into ${targetLang === 'hi' ? 'Hindi (Devanagari script)' : 'Marathi (Devanagari script)'}. IMPORTANT: 1. Return ONLY valid JSON. 2. Do NOT translate keys, only values. 3. Maintain the exact same structure.`;
 
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: "POST",
@@ -52,7 +51,7 @@ export const handler = async (event) => {
 
     return {
       statusCode: 200,
-      headers, // <--- Return headers here too!
+      headers,
       body: JSON.stringify(data)
     };
 

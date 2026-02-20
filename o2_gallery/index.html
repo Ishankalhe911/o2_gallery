@@ -35,9 +35,17 @@
   text-indent: 0 !important;
 }
 
+.mobile-nav {
+  text-align: center;   /* Make everything align same */
+}
 
-
-
+.mobile-nav > span,
+.mobile-nav > .mobile-dropdown {
+  display: block;
+  padding: 15px 20px;
+  margin: 0;
+  text-align: center;   /* Force same alignment */
+}
 .mobile-dropdown .nav-link {
   display: block;
   padding: 0;     /* Let parent control spacing */
@@ -1042,6 +1050,7 @@ window.setLanguage = async function(lang) {
 
 </body>
 </html>
+
 
 
 

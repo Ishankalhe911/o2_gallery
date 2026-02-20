@@ -149,29 +149,55 @@ nav span, .dropdown {
         padding-bottom: 2rem !important;
     }
 }
-/* 1. Force the dropdown trigger to be a Flex container that centers content */
-.mobile-dropdown .nav-link {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  width: 100% !important;
-  padding: 15px 20px !important; /* Keep the wrapper padding */
-  margin: 0 !important;
+
+/* ========================================= */
+/* 🔥 THE FIX: DESKTOP VS MOBILE VISIBILITY  */
+/* ========================================= */
+
+/* Hide the cloned mobile menu on Desktop */
+.mobile-nav-container {
+    display: none !important;
 }
 
-/* 2. Reset the inner span so it doesn't have extra padding or weird flex behavior */
-.mobile-dropdown .nav-link span {
-  padding: 0 !important;
-  margin: 0 !important;
-  display: inline !important; /* Stop it from being a flexbox */
-  width: auto !important;
-}
+/* MOBILE ONLY STYLES (Max Width: 768px) */
+@media (max-width: 768px) {
+    
+    /* 1. Hide the Desktop Menu */
+    nav {
+        display: none !important;
+    }
+    
+    /* 2. Show the Mobile Menu */
+    .mobile-nav-container {
+        display: block !important;
+    }
 
-/* 3. Add a small gap between the text and the arrow icon */
-.mobile-dropdown .nav-link .nav-icon {
-  margin-left: 8px !important;
-}
+    /* 3. Make the dropdown container a relative block, perfectly centering text */
+    .mobile-dropdown .nav-link {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        padding: 15px 20px !important;      
+        margin: 0 !important;
+        text-align: center !important;
+    }
 
+    /* 4. Strip padding from inner span so it aligns with "About" & "Contact" */
+    .mobile-dropdown .nav-link span {
+        padding: 0 !important;
+        margin: 0 !important;
+        display: inline-block !important;
+    }
+
+    /* 5. Take the icon out of the flow and pin it to the right */
+    .mobile-dropdown .nav-link .nav-icon {
+        position: absolute !important;
+        right: 25px !important; 
+        top: 50% !important;
+        transform: translateY(-50%) !important; 
+        margin: 0 !important;
+    }
+}
    /* MOBILE ONLY FIX - Won't touch desktop */
 @media (max-width: 768px) {
 
@@ -1147,6 +1173,7 @@ window.setLanguage = async function(lang) {
 
 </body>
 </html>
+
 
 
 

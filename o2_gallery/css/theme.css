@@ -2106,3 +2106,9 @@ html {
     }
 }
 
+/* 🔥 SUB-MENU ITEMS */
+.mobile-dropdown-content a {
+  padding-left: 35px !important;  /* Only sub-items indented */
+  padding-right: 20px !important;
+  margin: 0 !important;
+}

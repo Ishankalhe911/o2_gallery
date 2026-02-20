@@ -148,6 +148,28 @@ nav span, .dropdown {
         padding-bottom: 2rem !important;
     }
 }
+/* 1. Force the dropdown trigger to be a Flex container that centers content */
+.mobile-dropdown .nav-link {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding: 15px 20px !important; /* Keep the wrapper padding */
+  margin: 0 !important;
+}
+
+/* 2. Reset the inner span so it doesn't have extra padding or weird flex behavior */
+.mobile-dropdown .nav-link span {
+  padding: 0 !important;
+  margin: 0 !important;
+  display: inline !important; /* Stop it from being a flexbox */
+  width: auto !important;
+}
+
+/* 3. Add a small gap between the text and the arrow icon */
+.mobile-dropdown .nav-link .nav-icon {
+  margin-left: 8px !important;
+}
 </style>
 </head>
 <body>
@@ -1050,6 +1072,7 @@ window.setLanguage = async function(lang) {
 
 </body>
 </html>
+
 
 
 

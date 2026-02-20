@@ -686,6 +686,125 @@ nav span, .dropdown {
     }, 250);
   }
 
+   function createMobileNav() {
+  const existingMobileNav = document.querySelector('.mobile-nav');
+  if (existingMobileNav) existingMobileNav.remove();
+
+  const nav = document.querySelector('nav');
+  if (!nav) return;
+  
+  const mobileNav = nav.cloneNode(true);
+  mobileNav.className = 'mobile-nav';
+  
+  // ✅ Convert dropdown to mobile accordion
+  const dropdown = mobileNav.querySelector('.dropdown');
+  if (dropdown) {
+    dropdown.className = 'mobile-dropdown';
+    const dropdownContent = dropdown.querySelector('.dropdown-content');
+    dropdownContent.className = 'mobile-dropdown-content';
+    
+    // ✅ FIXED: Add explicit click handler with translation support
+    const trigger = dropdown.querySelector('.nav-link');
+    if (trigger) {
+      trigger.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+        
+        // ✅ Force refresh icons after toggle
+        setTimeout(() => {
+          if (window.lucide) lucide.createIcons();
+        }, 100);
+      };
+    }
+  }
+
+  const mobileNavContainer = document.createElement('div');
+  mobileNavContainer.className = 'mobile-nav-container';
+  mobileNavContainer.appendChild(mobileNav);
+  
+  const headerInner = document.querySelector('.header-inner');
+  if (headerInner) {
+    headerInner.appendChild(mobileNavContainer);
+  }
+}
+
+// ✅ FIXED: Enhanced renderPage with mobile nav refresh
+function renderPage(content, lang) {
+  // A. Render simple text fields (unchanged)
+  document.querySelectorAll('[data-content]').forEach(el => {
+    const key = el.dataset.content;
+    const value = getValueByPath(content, key);
+    if (value) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = value;
+      } else {
+        el.textContent = value;
+      }
+    }
+  });
+
+  // B. Render Values Grid (unchanged)
+  const grid1 = document.getElementById('values-grid-row-1');
+  const grid2 = document.getElementById('values-grid-row-2');
+  
+  if (content.valuesList && grid1 && grid2) {
+    grid1.innerHTML = ''; 
+    grid2.innerHTML = '';
+
+    content.valuesList.slice(0, 2).forEach((v, i) => {
+      grid1.innerHTML += `<div id="value-${i}" class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`;
+    });
+    content.valuesList.slice(2, 4).forEach((v, i) => {
+      grid2.innerHTML += `<div id="value-${i+2}" class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`;
+    });
+  }
+
+  // C. Render Serve Tabs (unchanged)
+  updateServeTabs(content.serveSection);
+  
+  // ✅ FIXED: Refresh MOBILE NAV after rendering
+  setTimeout(() => {
+    createMobileNav();
+    if (window.lucide) lucide.createIcons();
+  }, 50);
+
+  // D. Refresh main icons
+  if (window.lucide) lucide.createIcons();
+}
+
+// ✅ FIXED: Enhanced setLanguage with mobile refresh
+window.setLanguage = async function(lang) {
+  window.currentLang = lang;
+  
+  // 1. Update UI (Toggle Buttons) - unchanged
+  const container = document.getElementById('langToggle');
+  if (container) {
+    const buttons = Array.from(container.querySelectorAll('.lang-btn'));
+    const slider = container.querySelector('.selection-slider');
+    const index = buttons.findIndex(btn => btn.getAttribute('data-lang') === lang);
+    
+    if (index !== -1) {
+      slider.style.transform = `translateX(${index * 100}%)`;
+      buttons.forEach((btn, i) => btn.classList.toggle('active', i === index));
+    }
+  }
+
+  // 2. Fetch Data (if needed) & Render
+  let contentToRender;
+  if (lang === 'en') {
+    contentToRender = englishContent;
+  } else {
+    contentToRender = await fetchTranslation(lang);
+  }
+  
+  renderPage(contentToRender, lang);
+  
+  // ✅ FIXED: Close mobile menu on language change
+  document.querySelector('header')?.classList.remove('nav-open');
+  document.body.classList.remove('menu-open');
+};
+
   // ==========================================
   // 5. MAIN CONTROLLER
   // ==========================================
@@ -841,6 +960,7 @@ nav span, .dropdown {
 
 </body>
 </html>
+
 
 
 

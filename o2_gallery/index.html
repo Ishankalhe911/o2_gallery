@@ -13,6 +13,42 @@
   
 
 <style>
+
+   /* ✅ FIXED: Ensure mobile dropdown content is visible */
+.mobile-dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  background: rgba(0,0,0,0.05);
+  border-radius: 0 0 12px 12px;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+}
+
+.mobile-dropdown.open .mobile-dropdown-content {
+  max-height: 300px !important;
+  padding: 15px 0 !important;
+  opacity: 1 !important;
+}
+
+/* ✅ Force show sub-links */
+.mobile-dropdown-content a {
+  display: block !important;
+  padding: 15px 35px !important;
+  margin: 2px 0;
+  font-size: 1rem !important;
+  color: var(--tree-green, #228B22) !important;
+  text-decoration: none !important;
+  border-left: 4px solid transparent;
+  transition: all 0.3s ease;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.mobile-dropdown-content a:hover {
+  background: rgba(34,139,34,0.1) !important;
+  border-left-color: var(--tree-green) !important;
+}
+
    .hero-particles * { pointer-events: none !important; }
 .hero-text-box, .hero-cta, .hero-title, .hero-subtitle {
 position: relative; z-index: 20 !important; pointer-events: auto !important;
@@ -960,6 +996,7 @@ window.setLanguage = async function(lang) {
 
 </body>
 </html>
+
 
 
 

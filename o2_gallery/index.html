@@ -643,7 +643,8 @@ nav span, .dropdown {
       showLoading(true);
 
       // ✅ FIX: Defined the URL explicitly (Fixes "API_URL is not defined")
-      const BACKEND_URL = 'https://heartfelt-alfajores-54532e.netlify.app/.netlify/functions/translate';
+      // ✅ FIX: Pointing to your new Cloudflare Worker
+       const BACKEND_URL = 'https://mute-sunset-9404.ishankalhe1.workers.dev/';
 
       const response = await fetch(BACKEND_URL, {
         method: "POST",
@@ -1146,6 +1147,7 @@ window.setLanguage = async function(lang) {
 
 </body>
 </html>
+
 
 
 

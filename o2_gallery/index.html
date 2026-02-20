@@ -13,6 +13,12 @@
   
 
 <style>
+.mobile-nav > span,
+.mobile-nav > .mobile-dropdown {
+  display: block;
+  padding: 15px 20px;
+  margin: 0;
+}
   
 .mobile-nav span {
   padding-left: 20px !important;  
@@ -37,9 +43,13 @@
 
 
 .mobile-dropdown .nav-link {
-  padding: 15px 20px !important;  
-  margin: 0 !important;           
-  text-indent: 0 !important;     
+  display: block;
+  padding: 0;     /* Let parent control spacing */
+  margin: 0;
+}
+.mobile-dropdown {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
 }
 
 
@@ -1036,6 +1046,7 @@ window.setLanguage = async function(lang) {
 
 </body>
 </html>
+
 
 
 

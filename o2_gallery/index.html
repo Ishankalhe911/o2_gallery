@@ -12,192 +12,143 @@
    
   
 
+
 <style>
-.mobile-nav > span,
-.mobile-nav > .mobile-dropdown {
-  display: block;
-  padding: 15px 20px;
-  margin: 0;
-}
-  
-.mobile-nav span {
-  padding-left: 20px !important;  
-  padding-right: 20px !important;
-  text-indent: 0 !important;   
-  margin-left: 0 !important;      
-}
-
-.mobile-dropdown .nav-link,
-.mobile-dropdown .nav-link span {
-  padding-left: 20px !important;  
-  margin-left: 0 !important;
-  padding-right: 20px !important;
-  text-indent: 0 !important;
-}
-
-.mobile-nav {
-  text-align: center;   /* Make everything align same */
-}
-
-.mobile-nav > span,
-.mobile-nav > .mobile-dropdown {
-  display: block;
-  padding: 15px 20px;
-  margin: 0;
-  text-align: center;   /* Force same alignment */
-}
-
-.mobile-dropdown .nav-link {
-  display: block;
-  padding: 0;     /* Let parent control spacing */
-  margin: 0;
-}
-
-.mobile-dropdown {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
-
-.mobile-dropdown {
-  padding: 0 !important;
-  margin: 0 !important;
-  text-indent: 0 !important;
-}
-
-.mobile-nav span:not(.nav-link),
-.mobile-nav .nav-link span {
-  padding: 15px 20px !important;  
-}
-
-.mobile-dropdown-content {
-  max-height: 0;
-  overflow: hidden;
-  background: rgba(0,0,0,0.05);
-  border-radius: 0 0 12px 12px;
-  transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  opacity: 0;
-}
-
-.mobile-dropdown.open .mobile-dropdown-content {
-  max-height: 300px !important;
-  padding: 15px 0 !important;
-  opacity: 1 !important;
-}
-
-.mobile-dropdown-content a {
-  display: block !important;
-  padding: 15px 20px !important; /* Match the main links */
-  text-align: center !important; /* Center the text */
-  margin: 2px 0;
-  font-size: 1rem !important;
-  color: var(--tree-green, #228B22) !important;
-  text-decoration: none !important;
-  border-left: 4px solid transparent;
-  transition: all 0.3s ease;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-.mobile-dropdown-content a:hover {
-  background: rgba(34,139,34,0.1) !important;
-  border-left-color: var(--tree-green) !important;
-}
-
+/* ========================================= */
+/* 1. HERO & CANVAS UTILITIES                */
+/* ========================================= */
 .hero-particles * { pointer-events: none !important; }
 .hero-text-box, .hero-cta, .hero-title, .hero-subtitle {
   position: relative; z-index: 20 !important; pointer-events: auto !important;
 }
 
-/* Add this inside your <style> tag */
 nav span, .dropdown {
-    position: relative; /* Required for canvas positioning.. */
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 15px;
-    cursor: pointer;
+  position: relative; 
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 15px;
+  cursor: pointer;
 }
 
 .tree-canvas {
-    position: absolute;
-    bottom: -10px; /* Adjust based on where you want the tree to sprout */
-    left: 50%;
-    transform: translateX(-50%);
-    pointer-events: none; /* User can still click the link */
-    z-index: -1; /* Grows behind the txt */
+  position: absolute;
+  bottom: -10px; 
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none; 
+  z-index: -1; 
 }
 
-/* Mobile-Only Spacing Adjustments */
+/* ========================================= */
+/* 2. MOBILE SPACING ADJUSTMENTS             */
+/* ========================================= */
 @media (max-width: 768px) {
-    /* 1. Reduce space above and below "Who We Create For" */
-    #serve-section {
-        margin-top: 1.5rem !important; 
-        margin-bottom: 1.5rem !important;
-    }
-
-    /* 2. Reduce gap between the "Who We Create For" text and the Image/Tabs */
-    .tabs-container {
-        margin-top: 1rem !important;
-    }
-
-    /* 3. Reduce space between the previous section and the Enquire Button */
-    #enquiry-cta {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-    }
-
-    /* 4. Tighten the Enquire Button's own container */
-    #enquiry-cta.container {
-        padding-bottom: 2rem !important;
-    }
+  #serve-section { margin-top: 1.5rem !important; margin-bottom: 1.5rem !important; }
+  .tabs-container { margin-top: 1rem !important; }
+  #enquiry-cta { margin-top: 0 !important; padding-top: 0 !important; }
+  #enquiry-cta.container { padding-bottom: 2rem !important; }
 }
 
 /* ========================================= */
-/* 🔥 THE FIX: DESKTOP VS MOBILE VISIBILITY  */
+/* 3. DESKTOP VS MOBILE MENU VISIBILITY      */
 /* ========================================= */
-
-/* 1. Hide the mobile menu clone & hamburger icon ONLY on Desktop */
+/* Hide the cloned mobile menu on Desktop */
 @media (min-width: 769px) {
-    .mobile-nav-container,
-    .mobile-menu-toggle {
-        display: none !important;
-    }
+  .mobile-nav-container, .mobile-menu-toggle { display: none !important; }
 }
 
-/* 2. MOBILE ONLY STYLES (Max Width: 768px) */
+/* Hide the original desktop nav on Mobile */
 @media (max-width: 768px) {
-    
-    /* Hide the main desktop nav on Mobile */
-    nav {
-        display: none !important;
-    }
-    
-    /* Make the dropdown container a relative block, perfectly centering text */
-    .mobile-dropdown .nav-link {
-        display: block !important;
-        position: relative !important;
-        width: 100% !important;
-        padding: 15px 20px !important;      
-        margin: 0 !important;
-        text-align: center !important;
-    }
+  nav { display: none !important; }
+  
+  /* Base state for the mobile menu container (Hidden until hamburger clicked) */
+  .mobile-nav-container {
+    display: none; 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 0 0 1rem 1rem;
+    padding: 1rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
 
-    /* Strip padding from inner span so it aligns with "About" & "Contact" */
-    .mobile-dropdown .nav-link span {
-        padding: 0 !important;
-        margin: 0 !important;
-        display: inline-block !important;
-    }
+  /* OPEN STATE: When JS adds 'nav-open' to header, show the menu */
+  header.nav-open .mobile-nav-container {
+    display: block !important;
+  }
 
-    /* Take the icon out of the flow and pin it to the right */
-    .mobile-dropdown .nav-link .nav-icon {
-        position: absolute !important;
-        right: 25px !important; 
-        top: 50% !important;
-        transform: translateY(-50%) !important; 
-        margin: 0 !important;
-    }
+  /* Mobile Nav Links Layout */
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .mobile-nav > span, .mobile-dropdown {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .mobile-nav span {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  /* ========================================= */
+  /* 4. "OUR VALUES" DROPDOWN ALIGNMENT FIX    */
+  /* ========================================= */
+  .mobile-dropdown .nav-link {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    text-align: center !important;
+  }
+
+  /* Strip padding from the text so it centers naturally */
+  .mobile-dropdown .nav-link span {
+    padding: 0 !important;
+    margin: 0 !important;
+    display: inline-block !important;
+  }
+
+  /* Pin the arrow to the far right so it doesn't push the text off-center */
+  .mobile-dropdown .nav-link .nav-icon {
+    position: absolute !important;
+    right: 20px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
+  }
+
+  /* Dropdown sub-menu content */
+  .mobile-dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(0,0,0,0.03);
+    border-radius: 0 0 12px 12px;
+    transition: max-height 0.4s ease;
+  }
+  
+  .mobile-dropdown.open .mobile-dropdown-content {
+    max-height: 300px !important;
+  }
+  
+  .mobile-dropdown-content a {
+    display: block !important;
+    padding: 12px 20px !important;
+    text-align: center !important;
+    color: var(--tree-green);
+    text-decoration: none;
+  }
 }
 </style>
+
    
 
 </head>
@@ -1102,6 +1053,7 @@ window.setLanguage = async function(lang) {
 
 </body>
 </html>
+
 
 
 

@@ -172,21 +172,17 @@ nav span, .dropdown {
 <nav>
   <span onclick="scrollToSection('about')" data-content="nav.about"></span>
   <span onclick="scrollToSection('projects')" data-content="nav.solutions"></span>
+  
   <div class="dropdown">
     <span class="nav-link">
       <span data-content="nav.valuesTitle"></span> <i data-lucide="chevron-down" class="nav-icon"></i>
     </span>
-    <div class="dropdown-content">
-      <a href="javascript:void(0)" onclick="scrollToSection('value-0')" data-content="nav.val1"></a>
-      <a href="javascript:void(0)" onclick="scrollToSection('value-1')" data-content="nav.val2"></a>
-      <a href="javascript:void(0)" onclick="scrollToSection('value-2')" data-content="nav.val3"></a>
-      <a href="javascript:void(0)" onclick="scrollToSection('value-3')" data-content="nav.val4"></a>
-    </div>
+    <div class="dropdown-content" id="dynamic-dropdown"></div>
   </div>
+  
   <span onclick="scrollToSection('contact')" data-content="nav.contact"></span>
   <span class="nav-enquire" data-content="enquiry.cta" onclick="openEnquiry()"></span>
 </nav>
-
   <div class="lang-nav-wrapper">
   <div class="lang-segmented-control" id="langToggle">
     <div class="selection-slider"></div>
@@ -681,6 +677,15 @@ nav span, .dropdown {
   // 3. RENDERING LOGIC (The View)
   // ==========================================
 
+  // ==========================================
+  // 3. RENDERING LOGIC (The View)
+  // ==========================================
+
+  function getValueByPath(obj, path) {
+    return path.split('.').reduce((acc, key) => (acc && acc[key] !== undefined) ? acc[key] : null, obj);
+  }
+
+  // ✅ FIXED: Enhanced renderPage with dynamic dropdown & mobile nav refresh
   function renderPage(content, lang) {
     // A. Render simple text fields
     document.querySelectorAll('[data-content]').forEach(el => {
@@ -695,7 +700,7 @@ nav span, .dropdown {
       }
     });
 
-    // B. Render Values Grid (Dynamic HTML generation)
+    // B. Render Values Grid
     const grid1 = document.getElementById('values-grid-row-1');
     const grid2 = document.getElementById('values-grid-row-2');
     
@@ -713,15 +718,35 @@ nav span, .dropdown {
 
     // C. Render Serve Tabs
     updateServeTabs(content.serveSection);
-    
-    // D. Refresh Icons
+
+    // ==========================================
+    // 🔥 NEW: DYNAMICALLY BUILD NAV DROPDOWN
+    // ==========================================
+    const dropdownContainer = document.getElementById('dynamic-dropdown');
+    if (dropdownContainer && content.valuesList) {
+      dropdownContainer.innerHTML = ''; // Clear existing links
+      
+      content.valuesList.forEach((val, index) => {
+        const link = document.createElement('a');
+        link.href = "javascript:void(0)";
+        link.onclick = () => scrollToSection(`value-${index}`);
+        link.textContent = val.title; // Directly uses translated title!
+        dropdownContainer.appendChild(link);
+      });
+    }
+    // ==========================================
+
+    // D. Refresh MOBILE NAV after rendering
+    setTimeout(() => {
+      if (typeof createMobileNav === 'function') createMobileNav();
+      if (window.lucide) lucide.createIcons();
+    }, 50);
+
+    // E. Refresh main icons
     if (window.lucide) lucide.createIcons();
   }
 
-  function getValueByPath(obj, path) {
-    return path.split('.').reduce((acc, key) => (acc && acc[key] !== undefined) ? acc[key] : null, obj);
-  }
-
+  
   // ==========================================
   // 4. TAB LOGIC
   // ==========================================
@@ -822,81 +847,6 @@ nav span, .dropdown {
   }
 }
 
-// ✅ FIXED: Enhanced renderPage with mobile nav refresh
-function renderPage(content, lang) {
-  // A. Render simple text fields (unchanged)
-  document.querySelectorAll('[data-content]').forEach(el => {
-    const key = el.dataset.content;
-    const value = getValueByPath(content, key);
-    if (value) {
-      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-        el.placeholder = value;
-      } else {
-        el.textContent = value;
-      }
-    }
-  });
-
-  // B. Render Values Grid (unchanged)
-  const grid1 = document.getElementById('values-grid-row-1');
-  const grid2 = document.getElementById('values-grid-row-2');
-  
-  if (content.valuesList && grid1 && grid2) {
-    grid1.innerHTML = ''; 
-    grid2.innerHTML = '';
-
-    content.valuesList.slice(0, 2).forEach((v, i) => {
-      grid1.innerHTML += `<div id="value-${i}" class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`;
-    });
-    content.valuesList.slice(2, 4).forEach((v, i) => {
-      grid2.innerHTML += `<div id="value-${i+2}" class="value-card-premium"><h3>${v.title}</h3><p class="text-xs">${v.desc}</p></div>`;
-    });
-  }
-
-  // C. Render Serve Tabs (unchanged)
-  updateServeTabs(content.serveSection);
-  
-  // ✅ FIXED: Refresh MOBILE NAV after rendering
-  setTimeout(() => {
-    createMobileNav();
-    if (window.lucide) lucide.createIcons();
-  }, 50);
-
-  // D. Refresh main icons
-  if (window.lucide) lucide.createIcons();
-}
-
-// ✅ FIXED: Enhanced setLanguage with mobile refresh
-window.setLanguage = async function(lang) {
-  window.currentLang = lang;
-  
-  // 1. Update UI (Toggle Buttons) - unchanged
-  const container = document.getElementById('langToggle');
-  if (container) {
-    const buttons = Array.from(container.querySelectorAll('.lang-btn'));
-    const slider = container.querySelector('.selection-slider');
-    const index = buttons.findIndex(btn => btn.getAttribute('data-lang') === lang);
-    
-    if (index !== -1) {
-      slider.style.transform = `translateX(${index * 100}%)`;
-      buttons.forEach((btn, i) => btn.classList.toggle('active', i === index));
-    }
-  }
-
-  // 2. Fetch Data (if needed) & Render
-  let contentToRender;
-  if (lang === 'en') {
-    contentToRender = englishContent;
-  } else {
-    contentToRender = await fetchTranslation(lang);
-  }
-  
-  renderPage(contentToRender, lang);
-  
-  // ✅ FIXED: Close mobile menu on language change
-  document.querySelector('header')?.classList.remove('nav-open');
-  document.body.classList.remove('menu-open');
-};
 
   // ==========================================
   // 5. MAIN CONTROLLER
@@ -1053,6 +1003,7 @@ window.setLanguage = async function(lang) {
 
 </body>
 </html>
+
 
 
 

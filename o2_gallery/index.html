@@ -59,8 +59,8 @@ nav span, .dropdown {
 
 /* Hide the original desktop nav on Mobile */
 @media (max-width: 768px) {
-  nav { display: none !important; }
-  
+ /* Hide ONLY the desktop nav, leave the mobile clone alone! */
+  nav:not(.mobile-nav) { display: none !important; }
   /* Base state for the mobile menu container (Hidden until hamburger clicked) */
   .mobile-nav-container {
     display: none; 
@@ -1053,6 +1053,7 @@ window.setLanguage = async function(lang) {
 
 </body>
 </html>
+
 
 
 

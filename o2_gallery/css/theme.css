@@ -2130,3 +2130,185 @@ html {
     /* Optional: Keep the border glow subtle so it doesn't bleed into the gap */
     border-color: rgba(46,125,50,0.2) !important; 
 }
+
+
+/* ========================================= */
+/* NEW SPLIT CONTACT FORM STYLES             */
+/* ========================================= */
+
+.split-contact-card {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr; /* Creates the 40/60 split like the image */
+  gap: 3rem;
+  max-width: 1050px !important; /* Slightly wider to fit the map */
+  padding: 3rem !important;
+}
+
+/* LEFT SIDE - INFO PANEL */
+.contact-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  border-right: 1px solid rgba(46, 125, 50, 0.15); /* Soft green dividing line */
+  padding-right: 3rem;
+}
+
+.contact-detail-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contact-detail-box .icon-wrapper {
+  background: rgba(46, 125, 50, 0.1); /* Light green circle */
+  color: var(--tree-green);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-detail-box .icon-wrapper svg {
+  width: 20px;
+  height: 20px;
+}
+
+.contact-detail-box h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--tree-green-dark);
+  margin-bottom: 0.2rem;
+  font-family: 'Jost', sans-serif;
+}
+
+.contact-detail-box p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* SOCIAL ICONS ROW */
+.social-icon-row {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.social-circle {
+  width: 35px;
+  height: 35px;
+  background: rgba(46, 125, 50, 0.08);
+  color: var(--tree-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-circle:hover {
+  background: var(--tree-green);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.social-circle svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* GOOGLE MAP */
+.map-wrapper {
+  margin-top: auto; /* Pushes the map to the bottom of the column */
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* RIGHT SIDE - FORM STYLING */
+.form-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #555; /* Neutral dark gray to match the image */
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+/* Automatically adds the Green Asterisk (*) to labels */
+.form-label::after {
+  content: ' *';
+  color: var(--tree-green);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px; /* Sharper corners like the image */
+  font-size: 0.95rem;
+  background-color: #ffffff;
+  transition: border-color 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: #aaa;
+  font-weight: 400;
+}
+
+/* The Green Focus State */
+.form-input:focus {
+  outline: none;
+  border-color: var(--tree-green) !important;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+/* Checkbox Styling */
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-top: 4px;
+  accent-color: var(--tree-green);
+}
+
+.checkbox-label {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 850px) {
+  .split-contact-card {
+    grid-template-columns: 1fr;
+    padding: 2rem !important;
+    gap: 2.5rem;
+  }
+  
+  .contact-info-panel {
+    border-right: none;
+    border-bottom: 1px solid rgba(46, 125, 50, 0.15);
+    padding-right: 0;
+    padding-bottom: 2.5rem;
+  }
+}

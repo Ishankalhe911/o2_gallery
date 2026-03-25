@@ -2113,3 +2113,20 @@ html {
   padding-right: 20px !important;
   margin: 0 !important;
 }
+
+
+/* ========================================= */
+/* MISSION CARDS - FLICKER & HITBOX FIX      */
+/* ========================================= */
+
+/* 1. Kill the invisible swipe layer completely so it cannot reach across the gap */
+#mission .card::before {
+    display: none !important; 
+}
+
+/* 2. Stop the card from expanding outward sideways. ONLY move it UP. */
+#mission .card:hover {
+    transform: translateY(-15px) !important;
+    /* Optional: Keep the border glow subtle so it doesn't bleed into the gap */
+    border-color: rgba(46,125,50,0.2) !important; 
+}

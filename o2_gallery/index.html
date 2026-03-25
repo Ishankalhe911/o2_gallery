@@ -3,10 +3,14 @@
 <head>
    <link rel="stylesheet" href="css/layout.css">
    <link rel="stylesheet" href="css/theme.css">
-   
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>O₂ Gallery</title>
+  
+  <link rel="icon" type="image/png" href="o2gallerylogo1.png">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
    
@@ -17,6 +21,7 @@
 /* ========================================= */
 /* 1. HERO & CANVAS UTILITIES                */
 /* ========================================= */
+   
 .hero-particles * { pointer-events: none !important; }
 .hero-text-box, .hero-cta, .hero-title, .hero-subtitle {
   position: relative; z-index: 20 !important; pointer-events: auto !important;
@@ -146,6 +151,19 @@ nav span, .dropdown {
     color: var(--tree-green);
     text-decoration: none;
   }
+}
+   /* ========================================= */
+/* GLOBAL FONT ARCHITECTURE                  */
+/* ========================================= */
+
+/* Body and general text (Exact match from your extraction) */
+body, p, span, a, div, main, section, button, input, textarea, select {
+  font-family: "Calibri", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif !important;
+}
+
+/* Headings (Using Jost) */
+h1, h2, h3, h4, h5, h6, .hero-title, .center-title span, .premium-title, .footer-heading {
+  font-family: 'Jost', sans-serif !important;
 }
 </style>
 

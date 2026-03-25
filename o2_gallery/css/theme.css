@@ -299,8 +299,8 @@ header {
 
 /* --- ANIMATED PULSE DOT --- */
 .pulse-dot {
-    width: 8px;
-    height: 8px;
+    width: 5px;
+    height: 5px;
     background: var(--tree-green-light);
     border-radius: 50%;
     position: relative;

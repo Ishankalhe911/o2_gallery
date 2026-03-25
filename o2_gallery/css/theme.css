@@ -2138,9 +2138,9 @@ html {
 
 .split-contact-card {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr; /* Creates the 40/60 split like the image */
+  grid-template-columns: 1fr 1.2fr; /* Changed from 0.8fr to 1fr to widen the left side */
   gap: 3rem;
-  max-width: 1050px !important; /* Slightly wider to fit the map */
+  max-width: 1050px !important; 
   padding: 3rem !important;
 }
 
@@ -2149,10 +2149,9 @@ html {
   display: flex;
   flex-direction: column;
   gap: 1.8rem;
-  border-right: 1px solid rgba(46, 125, 50, 0.15); /* Soft green dividing line */
-  padding-right: 3rem;
+  border-right: 1px solid rgba(46, 125, 50, 0.15);
+  padding-right: 1.5rem; /* Reduced from 3rem to give the map horizontal space */
 }
-
 .contact-detail-box {
   display: flex;
   align-items: flex-start;
@@ -2227,11 +2226,18 @@ html {
   overflow: hidden;
   border: 1px solid rgba(0,0,0,0.05);
 }
+.map-wrapper iframe {
+  height: 280px !important; /* Increased from 220px */
+  width: 100% !important;
+}
 
 /* RIGHT SIDE - FORM STYLING */
 .form-panel {
   display: flex;
   flex-direction: column;
+}
+.form-label::after {
+  content: none !important; /* Kills the extra CSS asterisk since your JS handles it */
 }
 
 .form-group {

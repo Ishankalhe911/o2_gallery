@@ -1048,6 +1048,7 @@ h1, h2, h3, h4, h5, h6, .hero-title, .center-title span, .premium-title, .footer
     
     // 3. Initial Render (English)
     renderPage(englishContent, 'en');
+    if (window.lucide) lucide.createIcons();
 
     // 4. Click outside to close menu
     document.addEventListener('click', function(e) {

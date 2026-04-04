@@ -169,17 +169,24 @@ footer *:last-child {
 }
 
 .social-icon:hover {
-  background: var(--o2-gradient);
-border-color: var(--o2-blue);
-box-shadow: 0 0 15px rgba(0, 180, 216, 0.4);
+  background: rgba(255, 255, 255, 0.1); /* Soft white highlight */
+  border-color: var(--sky-blue);
+  box-shadow: 0 0 15px rgba(66, 165, 245, 0.4);
   transform: translateY(-3px);
+}
+
+/* Change the icon color itself when hovered */
+.social-icon:hover svg {
+  stroke: var(--sky-blue); /* Changes the icon line to blue on hover */
 }
 
 .social-icon svg {
   width: 18px;
   height: 18px;
+  stroke: #ffffff; /* This draws the icon in white! */
+  stroke-width: 2;
+  fill: none;
 }
-
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.1);
   padding-top: 2rem;

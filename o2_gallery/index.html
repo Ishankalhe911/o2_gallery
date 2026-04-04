@@ -967,12 +967,17 @@ h1, h2, h3, h4, h5, h6, .hero-title, .center-title span, .premium-title, .footer
   }
 
   function openEnquiry() {
-    const enquirySection = document.getElementById('enquiry');
-    if (enquirySection) {
-      enquirySection.classList.remove('hidden');
-      enquirySection.scrollIntoView({ behavior: 'smooth' });
-    }
+  const enquirySection = document.getElementById('enquiry');
+  if (enquirySection) {
+    enquirySection.classList.remove('hidden');
+    enquirySection.scrollIntoView({ behavior: 'smooth' });
+
+    // 🔥 IMPORTANT: Re-create Lucide icons after showing the form
+    setTimeout(() => {
+      if (window.lucide) lucide.createIcons();
+    }, 150);
   }
+}
 
   function initMobileMenu() {
     const headerInner = document.querySelector('.header-inner');

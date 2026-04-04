@@ -2325,3 +2325,60 @@ html {
     padding-bottom: 2.5rem;
   }
 }
+
+/* ====================== LUCIDE ICON FIX ====================== */
+
+/* Make all Lucide icons visible by default */
+i[data-lucide] {
+    color: inherit !important;
+    width: 1.5em !important;
+    height: 1.5em !important;
+}
+
+/* Social circles in the enquiry form */
+.social-circle {
+    color: #fff !important;           /* white icons */
+    background: #1a1a1a !important;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social-circle:hover {
+    background: #2a2a2a !important;
+    transform: scale(1.1);
+}
+
+/* Footer social icons */
+.social-icon {
+    color: #333 !important;           /* dark color for footer */
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--tree-green) !important;
+}
+
+/* Contact detail icons (map-pin, phone, mail) */
+.icon-wrapper i[data-lucide],
+.footer-icon {
+    color: var(--tree-green) !important;
+    width: 28px;
+    height: 28px;
+}
+
+/* Arrow in hero button */
+.btn-icon {
+    margin-left: 8px;
+}
+
+/* Chevron in dropdown */
+.nav-icon {
+    margin-left: 6px;
+}
